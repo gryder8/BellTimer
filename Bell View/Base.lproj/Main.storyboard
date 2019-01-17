@@ -62,6 +62,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>
+                    <connections>
+                        <outlet property="currentDate" destination="Rd1-8w-7rp" id="NH0-bB-KyF"/>
+                        <outlet property="currentPeriodDescription" destination="pFg-Ll-H7A" id="QjH-7u-Ix2"/>
+                        <outlet property="nextPeriodDescription" destination="fBl-df-wyq" id="n15-zq-iYu"/>
+                        <outlet property="scheduleType" destination="efa-8S-OYF" id="lMT-3E-sDO"/>
+                        <outlet property="timeRemaining" destination="Wdm-YO-xpY" id="tM5-eC-Lkq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

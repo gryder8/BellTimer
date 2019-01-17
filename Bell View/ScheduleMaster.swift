@@ -225,16 +225,14 @@ class ScheduleMaster {
         
         let currentBellTimes:Array = currentSchedule.bellTimes
         
-//        var currentBellTime:BellTime?
         for bellTime in currentBellTimes {
+//            print("Current",currentTimeAsInterval)
+//            print("Bell Time Interval",bellTime.timeInterval)
             if bellTime.timeInterval > currentTimeAsInterval {
                 return bellTime.timeInterval - currentTimeAsInterval
-            } else if (bellTime.timeInterval <= currentTimeAsInterval){
-                return endTime.timeIntervalSince(Date()) //time until end of the day
             }
         }
-        print("Error!")
-        return 0.00
+        return endTime.timeIntervalSince(Date()) //time until end of the day
     }
     
 
