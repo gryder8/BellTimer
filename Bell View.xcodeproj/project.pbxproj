@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8621E910E700831E69 /* AppDelegate.swift */; };
+		865A6F8921E910E700831E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8821E910E700831E69 /* ViewController.swift */; };
+		865A6F8C21E910E700831E69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F8A21E910E700831E69 /* Main.storyboard */; };
+		865A6F8E21E910E800831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F8D21E910E800831E69 /* Assets.xcassets */; };
+		865A6F9121E910E800831E69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */; };
+		865A6F9621E910E800831E69 /* Bell View WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 865A6F9521E910E800831E69 /* Bell View WatchKit App.app */; };
+		865A6F9E21E910E900831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F9D21E910E900831E69 /* Assets.xcassets */; };
+		865A6FA521E910E900831E69 /* Bell View WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 865A6FA421E910E900831E69 /* Bell View WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		865A6FAA21E910E900831E69 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
+		865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FAB21E910E900831E69 /* ExtensionDelegate.swift */; };
+		865A6FAE21E910E900831E69 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FAD21E910E900831E69 /* NotificationController.swift */; };
+		865A6FB021E910E900831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6FAF21E910E900831E69 /* Assets.xcassets */; };
+		865A6FC221E9629800831E69 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A6FC121E9629800831E69 /* Interface.storyboard */; };
+		86BBF67121ED810E00BFC5FF /* ScheduleMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */; };
+		86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
+		86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
+		86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67421ED8CF100BFC5FF /* Schedules.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		865A6F9721E910E800831E69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 865A6F7B21E910E700831E69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 865A6F9421E910E800831E69;
+			remoteInfo = "Bell View WatchKit App";
+		};
+		865A6FA621E910E900831E69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 865A6F7B21E910E700831E69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 865A6FA321E910E900831E69;
+			remoteInfo = "Bell View WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		865A6FB821E910E900831E69 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				865A6FA521E910E900831E69 /* Bell View WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		865A6FBC21E910E900831E69 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				865A6F9621E910E800831E69 /* Bell View WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		865A6F8321E910E700831E69 /* Bell View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bell View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		865A6F8621E910E700831E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		865A6F8821E910E700831E69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		865A6F8B21E910E700831E69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		865A6F8D21E910E800831E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		865A6F9021E910E800831E69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		865A6F9221E910E800831E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865A6F9521E910E800831E69 /* Bell View WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bell View WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		865A6F9D21E910E900831E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		865A6F9F21E910E900831E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865A6FA421E910E900831E69 /* Bell View WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bell View WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		865A6FA921E910E900831E69 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		865A6FAB21E910E900831E69 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		865A6FAD21E910E900831E69 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		865A6FAF21E910E900831E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		865A6FB121E910E900831E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865A6FB221E910E900831E69 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		865A6FC121E9629800831E69 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMaster.swift; sourceTree = "<group>"; };
+		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
+		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
+		86BBF67421ED8CF100BFC5FF /* Schedules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedules.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		865A6F8021E910E700831E69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		865A6FA121E910E900831E69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		865A6F7A21E910E700831E69 = {
+			isa = PBXGroup;
+			children = (
+				86BBF67821ED8D1300BFC5FF /* Resources */,
+				865A6F8521E910E700831E69 /* Bell View */,
+				865A6F9921E910E800831E69 /* Bell View WatchKit App */,
+				865A6FA821E910E900831E69 /* Bell View WatchKit Extension */,
+				865A6F8421E910E700831E69 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		865A6F8421E910E700831E69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				865A6F8321E910E700831E69 /* Bell View.app */,
+				865A6F9521E910E800831E69 /* Bell View WatchKit App.app */,
+				865A6FA421E910E900831E69 /* Bell View WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		865A6F8521E910E700831E69 /* Bell View */ = {
+			isa = PBXGroup;
+			children = (
+				865A6F8621E910E700831E69 /* AppDelegate.swift */,
+				86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */,
+				865A6F8821E910E700831E69 /* ViewController.swift */,
+				865A6F8A21E910E700831E69 /* Main.storyboard */,
+				865A6F8D21E910E800831E69 /* Assets.xcassets */,
+				865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */,
+				865A6F9221E910E800831E69 /* Info.plist */,
+			);
+			path = "Bell View";
+			sourceTree = "<group>";
+		};
+		865A6F9921E910E800831E69 /* Bell View WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				865A6F9D21E910E900831E69 /* Assets.xcassets */,
+				865A6FC121E9629800831E69 /* Interface.storyboard */,
+				865A6F9F21E910E900831E69 /* Info.plist */,
+			);
+			path = "Bell View WatchKit App";
+			sourceTree = "<group>";
+		};
+		865A6FA821E910E900831E69 /* Bell View WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				865A6FA921E910E900831E69 /* InterfaceController.swift */,
+				865A6FAB21E910E900831E69 /* ExtensionDelegate.swift */,
+				865A6FAD21E910E900831E69 /* NotificationController.swift */,
+				865A6FAF21E910E900831E69 /* Assets.xcassets */,
+				865A6FB121E910E900831E69 /* Info.plist */,
+				865A6FB221E910E900831E69 /* PushNotificationPayload.apns */,
+			);
+			path = "Bell View WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		86BBF67821ED8D1300BFC5FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */,
+				86BBF67221ED8CF100BFC5FF /* specialDays.plist */,
+				86BBF67421ED8CF100BFC5FF /* Schedules.plist */,
+			);
+			name = Resources;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		865A6F8221E910E700831E69 /* Bell View */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 865A6FBD21E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View" */;
+			buildPhases = (
+				865A6F7F21E910E700831E69 /* Sources */,
+				865A6F8021E910E700831E69 /* Frameworks */,
+				865A6F8121E910E700831E69 /* Resources */,
+				865A6FBC21E910E900831E69 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				865A6F9821E910E800831E69 /* PBXTargetDependency */,
+			);
+			name = "Bell View";
+			productName = "Bell View";
+			productReference = 865A6F8321E910E700831E69 /* Bell View.app */;
+			productType = "com.apple.product-type.application";
+		};
+		865A6F9421E910E800831E69 /* Bell View WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 865A6FB921E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View WatchKit App" */;
+			buildPhases = (
+				865A6F9321E910E800831E69 /* Resources */,
+				865A6FB821E910E900831E69 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				865A6FA721E910E900831E69 /* PBXTargetDependency */,
+			);
+			name = "Bell View WatchKit App";
+			productName = "Bell View WatchKit App";
+			productReference = 865A6F9521E910E800831E69 /* Bell View WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		865A6FA321E910E900831E69 /* Bell View WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 865A6FB521E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View WatchKit Extension" */;
+			buildPhases = (
+				865A6FA021E910E900831E69 /* Sources */,
+				865A6FA121E910E900831E69 /* Frameworks */,
+				865A6FA221E910E900831E69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bell View WatchKit Extension";
+			productName = "Bell View WatchKit Extension";
+			productReference = 865A6FA421E910E900831E69 /* Bell View WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		865A6F7B21E910E700831E69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Gavin Ryder";
+				TargetAttributes = {
+					865A6F8221E910E700831E69 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					865A6F9421E910E800831E69 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					865A6FA321E910E900831E69 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 865A6F7E21E910E700831E69 /* Build configuration list for PBXProject "Bell View" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 865A6F7A21E910E700831E69;
+			productRefGroup = 865A6F8421E910E700831E69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				865A6F8221E910E700831E69 /* Bell View */,
+				865A6F9421E910E800831E69 /* Bell View WatchKit App */,
+				865A6FA321E910E900831E69 /* Bell View WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		865A6F8121E910E700831E69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865A6F9121E910E800831E69 /* LaunchScreen.storyboard in Resources */,
+				86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */,
+				86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */,
+				86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */,
+				865A6F8E21E910E800831E69 /* Assets.xcassets in Resources */,
+				865A6F8C21E910E700831E69 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		865A6F9321E910E800831E69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865A6FC221E9629800831E69 /* Interface.storyboard in Resources */,
+				865A6F9E21E910E900831E69 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		865A6FA221E910E900831E69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865A6FB021E910E900831E69 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		865A6F7F21E910E700831E69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86BBF67121ED810E00BFC5FF /* ScheduleMaster.swift in Sources */,
+				865A6F8921E910E700831E69 /* ViewController.swift in Sources */,
+				865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		865A6FA021E910E900831E69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865A6FAE21E910E900831E69 /* NotificationController.swift in Sources */,
+				865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */,
+				865A6FAA21E910E900831E69 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		865A6F9821E910E800831E69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 865A6F9421E910E800831E69 /* Bell View WatchKit App */;
+			targetProxy = 865A6F9721E910E800831E69 /* PBXContainerItemProxy */;
+		};
+		865A6FA721E910E900831E69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 865A6FA321E910E900831E69 /* Bell View WatchKit Extension */;
+			targetProxy = 865A6FA621E910E900831E69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		865A6F8A21E910E700831E69 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				865A6F8B21E910E700831E69 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				865A6F9021E910E800831E69 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		865A6FB321E910E900831E69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		865A6FB421E910E900831E69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		865A6FB621E910E900831E69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LTHP4N872E;
+				INFOPLIST_FILE = "Bell View WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		865A6FB721E910E900831E69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LTHP4N872E;
+				INFOPLIST_FILE = "Bell View WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		865A6FBA21E910E900831E69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LTHP4N872E;
+				IBSC_MODULE = Bell_View_WatchKit_Extension;
+				INFOPLIST_FILE = "Bell View WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		865A6FBB21E910E900831E69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LTHP4N872E;
+				IBSC_MODULE = Bell_View_WatchKit_Extension;
+				INFOPLIST_FILE = "Bell View WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		865A6FBE21E910E900831E69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LTHP4N872E;
+				INFOPLIST_FILE = "Bell View/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		865A6FBF21E910E900831E69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LTHP4N872E;
+				INFOPLIST_FILE = "Bell View/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		865A6F7E21E910E700831E69 /* Build configuration list for PBXProject "Bell View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				865A6FB321E910E900831E69 /* Debug */,
+				865A6FB421E910E900831E69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		865A6FB521E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				865A6FB621E910E900831E69 /* Debug */,
+				865A6FB721E910E900831E69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		865A6FB921E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				865A6FBA21E910E900831E69 /* Debug */,
+				865A6FBB21E910E900831E69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		865A6FBD21E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				865A6FBE21E910E900831E69 /* Debug */,
+				865A6FBF21E910E900831E69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 865A6F7B21E910E700831E69 /* Project object */;
+}
