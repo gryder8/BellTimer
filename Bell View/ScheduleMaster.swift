@@ -166,12 +166,13 @@ class ScheduleMaster {
 //
 //    }
     
-    private let dateTester = Calendar.current.date(bySettingHour: 6, minute: 45, second: 0, of: Date())!
+    private let dateTester = Calendar.current.date(bySettingHour: 11, minute: 30, second: 0, of: Date())!
     
     public func getCurrentBellTimeDescription() -> String {
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        //let dateTester = Calendar.current.date(bySettingHour: 6, minute: 45, second: 0, of: Date())!
-        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        //let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime)
+
         
         let currentSchedule:Schedule = self.getCurrentBellSchedule() 
         
@@ -192,18 +193,17 @@ class ScheduleMaster {
         let calendar = Calendar.current
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         //let dateTester = Calendar.current.date(bySettingHour: 6, minute: 45, second: 0, of: Date())!
-        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+//        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime)
+
         
         let currentSchedule:Schedule = self.getCurrentBellSchedule()
         
         let currentBellTimes:Array = currentSchedule.bellTimes
         
-//        var currentBellTime:BellTime?
         for bellTime in currentBellTimes {
             if bellTime.timeInterval > currentTimeAsInterval {
-                //print (bellTime.desc)
                 return bellTime.desc
-                //currentBellTime = bellTime
             }
         }
         
@@ -219,15 +219,15 @@ class ScheduleMaster {
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
         //let dateTester = Calendar.current.date(bySettingHour: 6, minute: 45, second: 0, of: Date())!
-        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+//        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime)
+
         
         let currentSchedule:Schedule = self.getCurrentBellSchedule()
         
         let currentBellTimes:Array = currentSchedule.bellTimes
         
         for bellTime in currentBellTimes {
-//            print("Current",currentTimeAsInterval)
-//            print("Bell Time Interval",bellTime.timeInterval)
             if bellTime.timeInterval > currentTimeAsInterval {
                 return bellTime.timeInterval - currentTimeAsInterval
             }
@@ -252,7 +252,41 @@ class ScheduleMaster {
         return currentSchedule
     }
     
+    public func getCurrentPeriodLengthAsTimeInterval() -> TimeInterval { ///TODO: TEST/REWRITE
+        var beginInterval:TimeInterval = 0.0
+        var endInterval:TimeInterval = 0.0
+        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
+        let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
+//        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime)
 
+        
+        let currentSchedule:Schedule = self.getCurrentBellSchedule()
+        
+        let currentBellTimes:Array = currentSchedule.bellTimes
+        
+        for bellTime in currentBellTimes {
+            if bellTime.timeInterval <= currentTimeAsInterval {
+                beginInterval = bellTime.timeInterval
+            }
+        }
+        
+        for bellTime in currentBellTimes {
+            if bellTime.timeInterval > currentTimeAsInterval {
+                endInterval = bellTime.timeInterval
+                break
+            }
+        }
+        
+        if (endInterval == 0.0){
+            return endTime.timeIntervalSinceNow
+        }
+        
+        print("End",endInterval)
+        print("Begin",beginInterval)
+        
+        return endInterval-beginInterval
+    }
     
     private func getScheduleFor(scheduleType: String) -> Schedule {
         var resultSchedule:Schedule?
@@ -263,6 +297,7 @@ class ScheduleMaster {
         }
         return resultSchedule!
     }
+    
     //TODO: IMPLEMENT THESE IF NEEDED
     
 //    private func getNextBellTime() -> BellTime { //given the current time and schedule type, return the next bell time object
