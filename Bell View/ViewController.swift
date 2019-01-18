@@ -10,11 +10,13 @@ import UIKit
 import WebKit
 class ViewController: UIViewController, WKUIDelegate {
     
-    let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to sockets
+    private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to sockets
     
-    let transform:CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 5.0);
+    private let transform:CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 5.0);
     
-    var timeRemainingAsInt:Int = 0
+    private var timeRemainingAsInt:Int = 0
+    
+    private var refreshTimer:Timer!
     
 
     //MARK: Properties
@@ -25,6 +27,20 @@ class ViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var nextPeriodDescription: UITextField!
     @IBOutlet weak var progressBar: UIProgressView!
     
+    
+
+    
+    
+    @objc func refreshUI(){
+        //print("Refreshing...")
+        self.setTimeRemaining()
+        self.setUpCurrentDate()
+        self.setUpCurrentPeriodDescription()
+        self.setUpNextPeriodDescription()
+        self.setUpScheduleType()
+        self.setupProgressBar()
+        //print("Done!")
+    }
     
     
     private func setUpCurrentDate(){
@@ -42,6 +58,7 @@ class ViewController: UIViewController, WKUIDelegate {
     
     private func setUpCurrentPeriodDescription(){
         currentPeriodDescription.text = myMaster.getCurrentBellTimeDescription()
+        currentPeriodDescription.backgroundColor = timeRemaining.backgroundColor
     }
     
     private func setUpNextPeriodDescription(){
@@ -58,18 +75,18 @@ class ViewController: UIViewController, WKUIDelegate {
         let seconds = interval % 60
         let minutes = (interval / 60) % 60
         let hours = (interval / 3600)
-        timeRemainingAsInt = Int(String(hours)+String(minutes)+String(seconds))!
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
     private func setTimeRemaining(){
         timeRemaining.text = self.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent())
-        
-        if timeRemainingAsInt > 1500 { //set the color of the background based on time remaining
+        timeRemainingAsInt = Int(myMaster.getTimeIntervalUntilNextEvent())
+        print(timeRemainingAsInt)
+        if timeRemainingAsInt > 900 {
             timeRemaining.backgroundColor = UIColor.green
-        } else if timeRemainingAsInt > 1000 {
+        } else if timeRemainingAsInt > 600 {
             timeRemaining.backgroundColor = UIColor.yellow
-        } else if timeRemainingAsInt > 500 {
+        } else if timeRemainingAsInt > 300 {
             timeRemaining.backgroundColor = UIColor.orange
         } else {
             timeRemaining.backgroundColor = UIColor.red
@@ -77,31 +94,50 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     private func setupProgressBar () {
+        var progressPercent:Double = 0.0
         progressBar.transform = transform
-        let progressPercent:Double = 1-(myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())
-        //print (progressPercent)
+//        print("Time to next",myMaster.getTimeIntervalUntilNextEvent())
+//        print("Period length", myMaster.getCurrentPeriodLengthAsTimeInterval())
+        progressPercent = 1-(myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())
+//        print(progressPercent)
         progressBar.setProgress(Float(progressPercent), animated: true)
-        if (progressPercent > 0.5){ //ORANGE
-           progressBar.progressTintColor = UIColor.orange
-        } else if (progressPercent > 0.75){ //YELLOW
-            progressBar.progressTintColor = UIColor.yellow
-        } else if (progressPercent > 0.9) { //GREEN
-            progressBar.progressTintColor = UIColor.green
-        } else { //RED
-            progressBar.progressTintColor = UIColor.red
-        }
+        
+        progressBar.progressTintColor = timeRemaining.backgroundColor
+        
+//        if (progressPercent > 0.5){ //ORANGE
+//           progressBar.progressTintColor = UIColor.orange
+//        } else if (progressPercent > 0.75){ //YELLOW
+//            progressBar.progressTintColor = UIColor.yellow
+//        } else if (progressPercent > 0.9) { //GREEN
+//            progressBar.progressTintColor = UIColor.green
+//        } else { //RED
+//            progressBar.progressTintColor = UIColor.red
+//        }
     }
     
-    
-    override func viewDidLoad() {
-//        print(self.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent()))
-        super.viewDidLoad()
-        self.setTimeRemaining() //TODO: Continually update
+    private func initialLoad() {
+        self.setTimeRemaining()
         self.setUpCurrentDate()
         self.setUpCurrentPeriodDescription()
         self.setUpNextPeriodDescription()
         self.setUpScheduleType()
         self.setupProgressBar()
+    }
+    
+    
+    override func viewDidLoad() {
+//        print(self.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent()))
+        initialLoad()
+        refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
+        
+        super.viewDidLoad()
+
+//        self.setTimeRemaining() //TODO: Continually update
+//        self.setUpCurrentDate()
+//        self.setUpCurrentPeriodDescription()
+//        self.setUpNextPeriodDescription()
+//        self.setUpScheduleType()
+//        self.setupProgressBar()
 //        self.setupProgressBar()
     }
 }
