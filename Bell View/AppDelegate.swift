@@ -9,22 +9,18 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate { //TODO: Termiante and start timer based on application state
 
     var window: UIWindow?
+    
+    var currentViewController:ViewController?
 
-
+    func setActiveViewController(activeController:ViewController) {
+        self.currentViewController = activeController
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main)
-        //print (myMaster)
-        
-        print(myMaster.getScheduleType())
-        print(myMaster.getCurrentBellTimeDescription())
-        print(myMaster.getNextBellTimeDescription())
-        //print(myMaster.getTimeIntervalUntilNextEvent())
-        
+        // Override point fvor customization after application launch.
         
         return true
         
@@ -41,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
+        
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 

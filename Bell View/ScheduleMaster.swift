@@ -12,8 +12,6 @@ import Foundation
 class ScheduleMaster {
     private var defaultScheduleForToday:String = ""
     
-//    private var doesCurrentDayHaveSpecialSchedule:Bool = false
-    
     enum weekDay: Int, Decodable {
         case sunday = 1
         case monday = 2
@@ -56,7 +54,7 @@ class ScheduleMaster {
     var allDefaultDays: AllDefaultDays?
     
     
-    //This is the Struct that holds all the belltimes
+    //Struct that holds all the belltimes
     struct Schedule: Decodable {
         var scheduleType: String
         let bellTimes: [BellTime]
@@ -72,16 +70,6 @@ class ScheduleMaster {
             allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
         }
         
-        for specialDay in allSpecialDays! {
-            //print ("Found A Special Day on: \(specialDay.beginDate)")
-            
-            if specialDay.endDate != nil {
-               // print ("+++End Date:\(specialDay.endDate!)")
-            }
-            if specialDay.desc != nil {
-               // print ("---Description:\(specialDay.desc!)")
-            }
-        }
         //*****************************************************
         
         //Bell Schedule Parser
@@ -93,30 +81,11 @@ class ScheduleMaster {
             allSchedules = try! decoder.decode(BellSchedules.self, from:data)
         }
         
-        for schedule in allSchedules! {
-            //print ("I know a schedule with the type:\(schedule.scheduleType)")
-        }
-        
-        
-        let normalSchedule: Schedule = allSchedules![0]
-        
-        let ringTimeBase = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        
-        
-        //printer (can be removed when finished)
-        for bellTime in normalSchedule.bellTimes {
-            let periodDescription = bellTime.desc
-            let ringAdjust: TimeInterval = bellTime.timeInterval
-            let periodRingTime:Date = ringTimeBase + ringAdjust
-            
-            //print ("\(periodDescription) Rings at:\(periodRingTime)")
-        }
         
         //******************************************************
         
         //Default Schedule Parser
         
-        //let mainBundle: Bundle = Bundle.main
         let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
         
         if let data = try? Data(contentsOf: plistURLDefaultDays) {
@@ -129,7 +98,6 @@ class ScheduleMaster {
         for defaultDay in allDefaultDays! {
             if defaultDay.dayOfWeek.rawValue == today {
                 defaultScheduleForToday = defaultDay.scheduleType
-                //print ("Today's Schedule Type Is: \(defaultDay.scheduleType)")
             }
         }
 
@@ -232,13 +200,6 @@ class ScheduleMaster {
         return endTime.timeIntervalSince(Date()) //time until end of the day
     }
     
-
-    
-//    public func timerUntilNextEvent() -> Timer {
-//        let timeInterval:TimeInterval = getTimeIntervalUntilNextEvent()
-//        let eventTimer:Timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false)  {eventTimer in print("Timer fired!")}
-//        return eventTimer
-//    }
     
     private func getCurrentBellSchedule() -> Schedule {
         let currentScheduleType:String = self.getScheduleType()
@@ -274,12 +235,11 @@ class ScheduleMaster {
         }
         
         if (endInterval == 0.0){ //if the current time is greater than any of the period start times the interval will still be 0
-            //print(endTime.timeIntervalSinceNow)
             return endTime.timeIntervalSince(baseTime)-beginInterval
         }
         
-        print("End",endInterval)
-        print("Begin",beginInterval)
+//        print("End",endInterval)
+//        print("Begin",beginInterval)
         
         return endInterval-beginInterval
     }
