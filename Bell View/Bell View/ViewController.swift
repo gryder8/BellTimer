@@ -92,7 +92,6 @@ class ViewController: UIViewController, WKUIDelegate {
     private func setTimeRemaining(){
         timeRemaining.text = self.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent())
         timeRemainingAsInt = Int(myMaster.getTimeIntervalUntilNextEvent())
-        //print(timeRemainingAsInt)
     }
     
     private func setupProgressBar () {
@@ -107,12 +106,11 @@ class ViewController: UIViewController, WKUIDelegate {
     
     public func colorForTime () -> UIColor {
         let percentRemaining  = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
-        //print (percentRemaining)
-        if percentRemaining > 0.30 {
+        if percentRemaining > 0.25 {
             return UIColor.green
-        } else if percentRemaining > 0.20 {
+        } else if percentRemaining > 0.15 {
             return UIColor.yellow
-        } else if percentRemaining > 0.125 {
+        } else if percentRemaining > 0.10 {
             return UIColor.orange
         }
         return UIColor.red
