@@ -1,5 +1,5 @@
 # BellTimer
-LAHS BellTimer app
+LAHS BellTimer app ***WORK IN PROGRESS*** 
 
 
 Color Ring courtesy of Luis Padron
