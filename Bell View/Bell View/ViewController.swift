@@ -110,7 +110,7 @@ class ViewController: UIViewController, WKUIDelegate {
             return UIColor.green
         } else if percentRemaining > 0.15 {
             return UIColor.yellow
-        } else if percentRemaining > 0.10 {
+        } else if percentRemaining > 0.05 {
             return UIColor.orange
         }
         return UIColor.red
