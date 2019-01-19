@@ -108,9 +108,9 @@ class ViewController: UIViewController, WKUIDelegate {
         let percentRemaining  = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
         if percentRemaining > 0.25 {
             return UIColor.green
-        } else if percentRemaining > 0.15 {
+        } else if percentRemaining > 0.20 {
             return UIColor.yellow
-        } else if percentRemaining > 0.05 {
+        } else if percentRemaining > 0.10 {
             return UIColor.orange
         }
         return UIColor.red
