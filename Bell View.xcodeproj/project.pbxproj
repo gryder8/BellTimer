@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4451ED5960E68A22AE3F77C3 /* Pods_Bell_View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */; };
 		86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86576F7C21F16A28002FD7D5 /* GradientView.swift */; };
 		865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8621E910E700831E69 /* AppDelegate.swift */; };
 		865A6F8921E910E700831E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8821E910E700831E69 /* ViewController.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86576F7C21F16A28002FD7D5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		865A6F8321E910E700831E69 /* Bell View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bell View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A6F8621E910E700831E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,13 +95,23 @@
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
 		86BBF67421ED8CF100BFC5FF /* Schedules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedules.plist; sourceTree = "<group>"; };
+		AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.debug.xcconfig"; sourceTree = "<group>"; };
+		B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		77D70730BA903E873A0DAD50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		865A6F8021E910E700831E69 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4451ED5960E68A22AE3F77C3 /* Pods_Bell_View.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +133,8 @@
 				865A6F9921E910E800831E69 /* Bell View WatchKit App */,
 				865A6FA821E910E900831E69 /* Bell View WatchKit Extension */,
 				865A6F8421E910E700831E69 /* Products */,
+				D20B8242E2C6917ACDB0FBD4 /* Pods */,
+				A88C78BE4AE66E535B2F1795 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +197,23 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		A88C78BE4AE66E535B2F1795 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D20B8242E2C6917ACDB0FBD4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */,
+				B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,10 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 865A6FBD21E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View" */;
 			buildPhases = (
+				0DE0DEDDFD4FC0B4B16F214C /* [CP] Check Pods Manifest.lock */,
 				865A6F7F21E910E700831E69 /* Sources */,
 				865A6F8021E910E700831E69 /* Frameworks */,
 				865A6F8121E910E700831E69 /* Resources */,
 				865A6FBC21E910E900831E69 /* Embed Watch Content */,
+				A4D770B4259813E27F7C4B53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -211,6 +244,7 @@
 			buildPhases = (
 				865A6F9321E910E800831E69 /* Resources */,
 				865A6FB821E910E900831E69 /* Embed App Extensions */,
+				77D70730BA903E873A0DAD50 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,6 +346,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DE0DEDDFD4FC0B4B16F214C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bell View-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4D770B4259813E27F7C4B53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Bell View/Pods-Bell View-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Bell View/Pods-Bell View-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		865A6F7F21E910E700831E69 /* Sources */ = {
@@ -570,6 +651,7 @@
 		};
 		865A6FBE21E910E900831E69 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,6 +670,7 @@
 		};
 		865A6FBF21E910E900831E69 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
