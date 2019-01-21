@@ -11,7 +11,7 @@ import WebKit
 import UICircularProgressRing
 
 class ViewController: UIViewController, WKUIDelegate {
-    
+
     private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
     
     private var timeRemainingAsInt:Int = 0
@@ -28,6 +28,8 @@ class ViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var scheduleType: UITextField!
     @IBOutlet weak var nextPeriodDescription: UITextField!
     @IBOutlet weak var progressRing: UICircularProgressRing!
+    
+    //@IBOutlet weak var textView: UITextView!
     
     //***SETUP***
 //    self.setTimeRemaining()
@@ -81,18 +83,17 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
 
-    private func stringFromTimeInterval(interval: TimeInterval) -> String {
-        let interval = Int(interval)
-        let seconds = interval % 60
-        let minutes = (interval / 60) % 60
-        let hours = (interval / 3600)
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    }
+    //    private func stringFromTimeInterval(interval: TimeInterval, is12Hour:false) -> String {
+//        let interval = Int(interval)
+//        let seconds = interval % 60
+//        let minutes = (interval / 60) % 60
+//        let hours = (interval / 3600)
+//        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+//    }
     
     private func setTimeRemaining(){
-        timeRemaining.text = self.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent())
+        timeRemaining.text = myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: true)
         timeRemainingAsInt = Int(myMaster.getTimeIntervalUntilNextEvent())
-        //print(timeRemainingAsInt)
     }
     
     private func setupProgressBar () {
@@ -107,12 +108,11 @@ class ViewController: UIViewController, WKUIDelegate {
     
     public func colorForTime () -> UIColor {
         let percentRemaining  = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
-        //print (percentRemaining)
         if percentRemaining > 0.25 {
             return UIColor.green
         } else if percentRemaining > 0.20 {
             return UIColor.yellow
-        } else if percentRemaining > 0.125 {
+        } else if percentRemaining > 0.10 {
             return UIColor.orange
         }
         return UIColor.red
@@ -120,6 +120,10 @@ class ViewController: UIViewController, WKUIDelegate {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController!.navigationBar.isHidden = true
+        
+        //print(myMaster.printWholeScheduleForDay())
         refreshUI() //initialize
         
         progressRing.shouldShowValueText = false
@@ -133,7 +137,7 @@ class ViewController: UIViewController, WKUIDelegate {
             refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
         }
         
-        super.viewDidLoad()
+       
 
     }
 }
