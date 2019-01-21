@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4451ED5960E68A22AE3F77C3 /* Pods_Bell_View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */; };
+		861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
+		861DBD9F21F2D80500DBC4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */; };
 		86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86576F7C21F16A28002FD7D5 /* GradientView.swift */; };
 		865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8621E910E700831E69 /* AppDelegate.swift */; };
 		865A6F8921E910E700831E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8821E910E700831E69 /* ViewController.swift */; };
@@ -17,11 +19,11 @@
 		865A6F9621E910E800831E69 /* Bell View WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 865A6F9521E910E800831E69 /* Bell View WatchKit App.app */; };
 		865A6F9E21E910E900831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F9D21E910E900831E69 /* Assets.xcassets */; };
 		865A6FA521E910E900831E69 /* Bell View WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 865A6FA421E910E900831E69 /* Bell View WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		865A6FAA21E910E900831E69 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
 		865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FAB21E910E900831E69 /* ExtensionDelegate.swift */; };
 		865A6FAE21E910E900831E69 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FAD21E910E900831E69 /* NotificationController.swift */; };
 		865A6FB021E910E900831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6FAF21E910E900831E69 /* Assets.xcassets */; };
-		865A6FC221E9629800831E69 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A6FC121E9629800831E69 /* Interface.storyboard */; };
+		867CBE1921F65F8200C789C2 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */; };
+		867CBE1B21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */; };
 		86BBF67121ED810E00BFC5FF /* ScheduleMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */; };
 		86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
 		86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
@@ -72,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		86576F7C21F16A28002FD7D5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		865A6F8321E910E700831E69 /* Bell View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bell View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A6F8621E910E700831E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +93,8 @@
 		865A6FAF21E910E900831E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		865A6FB121E910E900831E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865A6FB221E910E900831E69 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		865A6FC121E9629800831E69 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDisplayTableViewController.swift; sourceTree = "<group>"; };
 		86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMaster.swift; sourceTree = "<group>"; };
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
@@ -154,8 +158,10 @@
 				865A6F8621E910E700831E69 /* AppDelegate.swift */,
 				86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */,
 				865A6F8821E910E700831E69 /* ViewController.swift */,
-				865A6F8A21E910E700831E69 /* Main.storyboard */,
 				865A6F8D21E910E800831E69 /* Assets.xcassets */,
+				865A6F8A21E910E700831E69 /* Main.storyboard */,
+				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
+				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
 				865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */,
 				865A6F9221E910E800831E69 /* Info.plist */,
 			);
@@ -166,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				865A6F9D21E910E900831E69 /* Assets.xcassets */,
-				865A6FC121E9629800831E69 /* Interface.storyboard */,
+				861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */,
 				865A6F9F21E910E900831E69 /* Info.plist */,
 			);
 			path = "Bell View WatchKit App";
@@ -332,7 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865A6FC221E9629800831E69 /* Interface.storyboard in Resources */,
+				861DBD9F21F2D80500DBC4A9 /* Interface.storyboard in Resources */,
 				865A6F9E21E910E900831E69 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				86BBF67121ED810E00BFC5FF /* ScheduleMaster.swift in Sources */,
+				867CBE1B21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift in Sources */,
+				867CBE1921F65F8200C789C2 /* ScheduleTableViewCell.swift in Sources */,
 				865A6F8921E910E700831E69 /* ViewController.swift in Sources */,
 				86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */,
 				865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */,
@@ -410,9 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */,
 				865A6FAE21E910E900831E69 /* NotificationController.swift in Sources */,
 				865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */,
-				865A6FAA21E910E900831E69 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

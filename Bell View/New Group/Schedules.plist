@@ -11,7 +11,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -123,9 +123,9 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
-				<integer>55800</integer>
+				<real>55800</real>
 			</dict>
 		</array>
 	</dict>
@@ -138,7 +138,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -262,9 +262,9 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
-				<integer>55800</integer>
+				<real>55800</real>
 			</dict>
 		</array>
 	</dict>
@@ -277,7 +277,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -341,9 +341,9 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
-				<integer>52500</integer>
+				<real>52500</real>
 			</dict>
 		</array>
 	</dict>
@@ -356,7 +356,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -420,7 +420,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<integer>55800</integer>
 			</dict>
@@ -435,7 +435,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -553,9 +553,9 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
-				<integer>55800</integer>
+				<real>55800</real>
 			</dict>
 		</array>
 	</dict>
@@ -568,7 +568,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -620,7 +620,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<integer>51000</integer>
 			</dict>
@@ -635,7 +635,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -687,7 +687,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<integer>51000</integer>
 			</dict>
@@ -702,7 +702,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -736,7 +736,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<real>42300</real>
 			</dict>
@@ -751,7 +751,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -809,7 +809,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<integer>42000</integer>
 			</dict>
@@ -824,7 +824,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -882,7 +882,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<integer>45300</integer>
 			</dict>
@@ -897,7 +897,7 @@
 				<key>desc</key>
 				<string>Before School</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>desc</key>
@@ -1003,7 +1003,7 @@
 			</dict>
 			<dict>
 				<key>desc</key>
-				<string>Free</string>
+				<string>After School</string>
 				<key>timeInterval</key>
 				<integer>44100</integer>
 			</dict>
@@ -1018,7 +1018,7 @@
 				<key>desc</key>
 				<string>Weekend</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -1031,7 +1031,7 @@
 				<key>desc</key>
 				<string>Holiday</string>
 				<key>timeInterval</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
