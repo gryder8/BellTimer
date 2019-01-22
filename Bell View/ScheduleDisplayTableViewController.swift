@@ -38,7 +38,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
         schedules = myMaster.getWholeScheduleForDay()
         let cellIdentifier = "ScheduleTableViewCell" //CRUCIAL
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ScheduleTableViewCell else {
-            fatalError("Dequeued cell not an instance of ScheduleTableViewCell") //TODO: FIX ISSUE HERE
+            fatalError("Dequeued cell not an instance of ScheduleTableViewCell")
         }
         //let sched = schedules[indexPath.row]
         cell.scheduleLabel.text = schedules[indexPath.row]

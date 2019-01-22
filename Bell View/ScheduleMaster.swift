@@ -179,7 +179,7 @@ class ScheduleMaster {
 //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime)
 
         
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date()) //TODO: get schedule for a date object
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
         
         let currentBellTimes:Array = currentSchedule.bellTimes
         
