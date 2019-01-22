@@ -37,6 +37,8 @@
 		<string>Holiday</string>
 		<key>beginDate</key>
 		<date>2019-01-21T08:00:00Z</date>
+		<key>desc</key>
+		<string>MLK Day</string>
 	</dict>
 	<dict>
 		<key>scheduleType</key>
@@ -49,8 +51,6 @@
 		<string>Assembly</string>
 		<key>beginDate</key>
 		<date>2019-02-05T08:00:00Z</date>
-		<key>desc</key>
-		<string>Spring Spirit Assembly</string>
 	</dict>
 	<dict>
 		<key>scheduleType</key>
@@ -81,8 +81,6 @@
 		<date>2019-03-04T08:00:00Z</date>
 		<key>endDate</key>
 		<date>2019-03-08T08:00:00Z</date>
-		<key>desc</key>
-		<string>Writer&apos;s Week</string>
 	</dict>
 	<dict>
 		<key>scheduleType</key>
@@ -109,6 +107,48 @@
 		<date>2019-04-19T07:00:00Z</date>
 		<key>desc</key>
 		<string>Spring Break</string>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>Assembly</string>
+		<key>beginDate</key>
+		<date>2019-04-12T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>Holiday</string>
+		<key>beginDate</key>
+		<date>2019-05-27T07:00:00Z</date>
+		<key>desc</key>
+		<string>Memorial Day</string>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>Finals - Wednesday</string>
+		<key>beginDate</key>
+		<date>2019-06-05T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>Finals - Thursday</string>
+		<key>beginDate</key>
+		<date>2019-06-06T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>Finals - Friday</string>
+		<key>beginDate</key>
+		<date>2019-06-07T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>Holiday</string>
+		<key>beginDate</key>
+		<date>2019-06-10T07:00:00Z</date>
+		<key>endDate</key>
+		<date>2019-08-19T07:00:00Z</date>
+		<key>desc</key>
+		<string>Summer!</string>
 	</dict>
 </array>
 </plist>
