@@ -158,11 +158,11 @@
 				865A6F8621E910E700831E69 /* AppDelegate.swift */,
 				86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */,
 				865A6F8821E910E700831E69 /* ViewController.swift */,
-				865A6F8D21E910E800831E69 /* Assets.xcassets */,
-				865A6F8A21E910E700831E69 /* Main.storyboard */,
 				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
 				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
+				865A6F8A21E910E700831E69 /* Main.storyboard */,
 				865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */,
+				865A6F8D21E910E800831E69 /* Assets.xcassets */,
 				865A6F9221E910E800831E69 /* Info.plist */,
 			);
 			path = "Bell View";
