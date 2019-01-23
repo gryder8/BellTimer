@@ -14,7 +14,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //self.tableView.tableHeaderView = "Today's Schedule"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -46,6 +46,10 @@ class ScheduleDisplayTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Today's Schedule"
     }
  
 
