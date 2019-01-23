@@ -134,7 +134,7 @@ class ViewController: UIViewController, WKUIDelegate {
         progressRing.innerCapStyle = .butt
 
         if (isActive){
-            refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: isActive)
+            refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
         }
         
        
