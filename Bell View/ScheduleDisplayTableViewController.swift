@@ -47,7 +47,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
             if (schedules[indexPath.row].contains("Passing") && myMaster.getCurrentBellTimeDescription().contains("Passing") ||
                 !schedules[indexPath.row].contains("Passing") && !myMaster.getCurrentBellTimeDescription().contains("Passing")) {
                 
-                cell.backgroundColor = UIColor.yellow
+                cell.backgroundColor = UIColor(red:0.39, green:0.73, blue:0.98, alpha:1.0) //light blue
             }
         }
         // Configure the cell...
