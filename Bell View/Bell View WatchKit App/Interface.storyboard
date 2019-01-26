@@ -12,20 +12,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Bell_View_WatchKit_App" customModuleProvider="target">
-                    <items>
-                        <dateLabel width="112" height="30" alignment="left" id="T04-nG-cFk">
-                            <dateFormatterStyle key="dateStyle" short="YES"/>
-                        </dateLabel>
-                        <group width="1" height="113" alignment="left" id="yUw-P1-Gau">
-                            <items>
-                                <label width="110" height="27" alignment="center" verticalAlignment="bottom" text="Time Remaining" id="6Mr-7p-Pqp">
-                                    <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
-                                </label>
-                            </items>
-                        </group>
-                    </items>
-                </controller>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Bell_View_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
