@@ -7,74 +7,74 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0121CB9334FEC5A13CA341723A1A1341 /* UICircularProgressRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C28D12D6C979F89D515382ECF0DAAB3 /* UICircularProgressRing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05902338F1310C65BF30D1D5FE83FF8A /* UICircularProgressRingGradientPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91ED0A71D109257627C81B892EA3CA5 /* UICircularProgressRingGradientPosition.swift */; };
-		08B02D9BF24CA43EF0BE11C72671B2CA /* waitIndicatorGraphic-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 067D0D1A761AF3C9A7922E1B839F931C /* waitIndicatorGraphic-3@2x.png */; };
-		0AFE96FD8697540C7B960E2426804722 /* waitIndicatorGraphic-9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E742BCDD8B4AE283EBE4F3E4E09B0C /* waitIndicatorGraphic-9@2x.png */; };
-		0C4F5383B87AD55504EA10501A6BA4CD /* waitIndicatorGraphic-26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0D261E7A0D3C52917226A4801E8593 /* waitIndicatorGraphic-26@2x.png */; };
-		0EC5AE8AF000C3B6109E3F1A2873604B /* Pods-Bell View-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB53AAC0E161627E0652824DD23312B /* Pods-Bell View-dummy.m */; };
-		140AB36A3B36C2DF0526C15A731B39B7 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B964AF89EF3BDB6E23F3764BC4FC5CC /* WatchKit.framework */; };
-		1CE11568459EA48EF19BCDEDC67E8910 /* Pods-Bell View WatchKit Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FEF800FB6827965A06CCDC9F46D72B /* Pods-Bell View WatchKit Extension-dummy.m */; };
-		223C8D74111007DEBA707041D84141AE /* UICircularProgressRing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0309DFA5DC6AE224DA303BCDCF0DBF8 /* UICircularProgressRing-dummy.m */; };
-		2544A49463052888FEC44B866C9EC145 /* UICircularProgressRing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87BD6E8F657AA228D8AB201A254AE625 /* UICircularProgressRing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2FBC264B7773978FC05AC75C87F22172 /* waitIndicatorGraphic-13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C022B892FBC42BAF27DDADB285AA6C4C /* waitIndicatorGraphic-13@2x.png */; };
-		3BA9800254631B88A423392F22C4B0EF /* waitIndicatorGraphic-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7462B3E31F183D760BEDAC12C4D92 /* waitIndicatorGraphic-5@2x.png */; };
-		3E26CB3CE418CF9202169299B1D52AF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9564163E5A801473B84B4165286EA60C /* Foundation.framework */; };
-		45A51FA98567290006DDCE9F2F80A4F2 /* waitIndicatorGraphic-10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD81C66C179E344A44B6C683D58147D /* waitIndicatorGraphic-10@2x.png */; };
-		4B5913845D852A69A427B5EBBC978EAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94906A1658FFCD611D42F7E1981BD24 /* Foundation.framework */; };
-		4D9082B9A3BDD62BE7BEF6A7BB03873F /* waitIndicatorGraphic-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E98D3A209A40120309DC87B9899C64D6 /* waitIndicatorGraphic-29@2x.png */; };
-		5619BC5F4CF2CAD6848ACC966984B1C4 /* waitIndicatorGraphic-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 724DBA70F89E2E6DBE1BA55227530947 /* waitIndicatorGraphic-1@2x.png */; };
-		5AA7648FBE59B4270097E38A331FBC76 /* waitIndicatorGraphic-24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002C8140C4D5645CA9DF3A3E79662899 /* waitIndicatorGraphic-24@2x.png */; };
-		5C260B37C15D8A1FC7F224C482CD7D33 /* waitIndicatorGraphic-15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC10AE1A75672ECD73F62A7A6250C407 /* waitIndicatorGraphic-15@2x.png */; };
-		5D2C0593B748F5D552C3A50D1664B95E /* waitIndicatorGraphic-16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D52945B8A237BA1CA949C4AAE4360CC3 /* waitIndicatorGraphic-16@2x.png */; };
-		613160B6939963B8B06FD9C0652F9139 /* UICircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F76EFB7998DB583EEE55559F246631 /* UICircularProgressRing.swift */; };
-		6469D741A6E55A31F72EE885D304BBDA /* waitIndicatorGraphic-22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 893C5A78B6519A619EFBD38E46F9327B /* waitIndicatorGraphic-22@2x.png */; };
-		667E6C7FB77CE27B51B3AE85B7F9FBD0 /* waitIndicatorGraphic-18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CCAB86BC14FCFD84D315B3380318AA /* waitIndicatorGraphic-18@2x.png */; };
-		6D80DA1AD78073E3555CC9461720076B /* waitIndicatorGraphic-11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDB9B37EAF916B9BBE3001BADB85ECA /* waitIndicatorGraphic-11@2x.png */; };
-		6F4EEE47CAFFB5DD2D3698BCE1DEA1EF /* waitIndicatorGraphic-8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68000B0B2C4CA34873446608E204A1DA /* waitIndicatorGraphic-8@2x.png */; };
-		75972F3A25196EB64C6F2AE874CAD3C2 /* waitIndicatorGraphic-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5BAD5B365DD361C513ED2A6C3DB554 /* waitIndicatorGraphic-4@2x.png */; };
-		79C68B0772CA6F763347B75512754AB7 /* Pods-Bell View WatchKit Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 883A70722BC1311F575DC0E6E81DAA07 /* Pods-Bell View WatchKit Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F3E01652ED6C10ED1D9033F313CB82F /* waitIndicatorGraphic-17@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 039232E251D4410E3C23973C1D618509 /* waitIndicatorGraphic-17@2x.png */; };
-		8686E1BA3B38D1ABBCAA225FB1668974 /* waitIndicatorGraphic-27@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 458592C5E366135C61F2A3DF9F4229EC /* waitIndicatorGraphic-27@2x.png */; };
-		8745A770F4CEAD1D844DA6DE9AB6FD3E /* waitIndicatorGraphic-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D80071574783AB6307D1DE1CC26C520A /* waitIndicatorGraphic-20@2x.png */; };
-		8B7AC965DBB3B8CF63098149E72A6877 /* UICircularProgressRingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0475981754A993FFF735CDAB5E3D9B0 /* UICircularProgressRingStyle.swift */; };
-		8CBD47ED72FCCB74E4885CB5911EA477 /* EMTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919328C64707588F56048DF81566F43A /* EMTTimer.swift */; };
-		9D07A82BCC3B5B3EA0A4D2B331104EF2 /* EMTLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7221EF0BD528EE8B61117E4220CECBB5 /* EMTLoadingIndicator.swift */; };
-		A36FE13FDCE98A8F728C9909B88FBBA8 /* waitIndicatorGraphic-21@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40F775CEE328F17F6C8D0C0387299B0 /* waitIndicatorGraphic-21@2x.png */; };
-		A9B1F3943F1E96C4807802E6C52856F2 /* waitIndicatorGraphic-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D51CA56CF322D5640F66699F274AB7 /* waitIndicatorGraphic-2@2x.png */; };
-		AFB1583CD36B09E70DB011B6C0D17B6A /* EMTLoadingIndicator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EA33E261E0D9D453D68F358FCD23BE /* EMTLoadingIndicator-dummy.m */; };
-		B0B768D54C143399173C2A7F8BA3559F /* waitIndicatorGraphic-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A774F12B5CB02D709B76413A4ABBDC /* waitIndicatorGraphic-25@2x.png */; };
-		B252ED7513692D36BE3FB1DB6FCFAB10 /* waitIndicatorGraphic-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3D6D81A93A36F6DF12993C634E1834 /* waitIndicatorGraphic-0@2x.png */; };
-		B6C5715B059EB6728243FA872284023C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9564163E5A801473B84B4165286EA60C /* Foundation.framework */; };
-		B9D80980FBD1CEDB8D5CAC0E9E82C3ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94906A1658FFCD611D42F7E1981BD24 /* Foundation.framework */; };
-		C0780A36422CC8A5C982C0E336B583F6 /* waitIndicatorGraphic-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD186CCDABA53104B8D65399F4E85D0F /* waitIndicatorGraphic-7@2x.png */; };
-		C1CFF51202B84F4CC9B9FF10225CB76E /* UICircularProgressRingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61E82ADC79044C4F68E34BE410573FF /* UICircularProgressRingDelegate.swift */; };
-		C4C7B2163602E5233065E5B5D88DEC9D /* waitIndicatorGraphic-23@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4202E2150F95816028FB3952629B64 /* waitIndicatorGraphic-23@2x.png */; };
-		C99782D3C72939D5CD04EA53B656773F /* Pods-Bell View-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F027F969D087D4BB180C2A6AD927EB1A /* Pods-Bell View-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE9FC4FBA9795ECD8F3470508669A322 /* waitIndicatorGraphic-12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD78643D99214E96F85ED35243003F1A /* waitIndicatorGraphic-12@2x.png */; };
-		D93747CB88E95219F9A944DF6839C845 /* waitIndicatorGraphic-19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88F5738A160F6D20A420459B33D151A /* waitIndicatorGraphic-19@2x.png */; };
-		DA11CB1465EBFD3627289A67870CF4F7 /* waitIndicatorGraphic-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4286E32AE0032443B28A19DB36B1BD /* waitIndicatorGraphic-28@2x.png */; };
-		E2982E6EBF6D541A60A126B0E7587628 /* waitIndicatorGraphic-6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E085FB3096039F5A2E66D55BC17FC2 /* waitIndicatorGraphic-6@2x.png */; };
-		E4FC0B3A87475C76FF7CB9016C0FB0CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE56DAD5F9DFE02B554DEF9750E039D /* UIKit.framework */; };
-		EBD65D0F594186E9B08DE35380E40295 /* UICircularProgressRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11185720B801742B15CF7AFB832A99B3 /* UICircularProgressRingLayer.swift */; };
-		F731525DD51144B46FAC65820C27079F /* waitIndicatorGraphic-14@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0511C6E7509EAFD274B28F865B4C65CE /* waitIndicatorGraphic-14@2x.png */; };
-		FE21D1E1C883580910604370BF80955F /* EMTLoadingIndicator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B5CC629261325BF53F4E10063F8548AA /* EMTLoadingIndicator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0311BDC608C6A5367124D3ABD70E885E /* waitIndicatorGraphic-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 724DBA70F89E2E6DBE1BA55227530947 /* waitIndicatorGraphic-1@2x.png */; };
+		07A6C70CE28C07AEF9D91ADE16044178 /* waitIndicatorGraphic-10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD81C66C179E344A44B6C683D58147D /* waitIndicatorGraphic-10@2x.png */; };
+		0B8E1275696F6F95A3D940DCA6552730 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DECC5650D05A08BF2983548A7D8B670 /* Foundation.framework */; };
+		0D8C82F1A06C76D228081832BF5D0C76 /* waitIndicatorGraphic-13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C022B892FBC42BAF27DDADB285AA6C4C /* waitIndicatorGraphic-13@2x.png */; };
+		13087FCAE7D10F4CAEE3117FE0767111 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DECC5650D05A08BF2983548A7D8B670 /* Foundation.framework */; };
+		1588FF46DA2DD0ABE4E2C7E61913B3A6 /* waitIndicatorGraphic-6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E085FB3096039F5A2E66D55BC17FC2 /* waitIndicatorGraphic-6@2x.png */; };
+		1BE199B3C2448891859D6710BA599367 /* waitIndicatorGraphic-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A774F12B5CB02D709B76413A4ABBDC /* waitIndicatorGraphic-25@2x.png */; };
+		1DDBD42A8B3646D6F6D15161CDF1DC5F /* waitIndicatorGraphic-15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC10AE1A75672ECD73F62A7A6250C407 /* waitIndicatorGraphic-15@2x.png */; };
+		2213F5266A4725596C740BF069899B3B /* Pods-Bell View-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F027F969D087D4BB180C2A6AD927EB1A /* Pods-Bell View-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		244B01D65A1E1625DB2A2A50263DB1E9 /* EMTLoadingIndicator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EA33E261E0D9D453D68F358FCD23BE /* EMTLoadingIndicator-dummy.m */; };
+		25D30C5AFAD537331C58141375185375 /* UICircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F76EFB7998DB583EEE55559F246631 /* UICircularProgressRing.swift */; };
+		25F83DFF5ACE3C559CF16DA00DD750A2 /* waitIndicatorGraphic-21@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40F775CEE328F17F6C8D0C0387299B0 /* waitIndicatorGraphic-21@2x.png */; };
+		2BFCCC00050DB360B82F95C0BF884ED3 /* waitIndicatorGraphic-16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D52945B8A237BA1CA949C4AAE4360CC3 /* waitIndicatorGraphic-16@2x.png */; };
+		3504B0D6B76031874994A2AB938D0E82 /* EMTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919328C64707588F56048DF81566F43A /* EMTTimer.swift */; };
+		3F92A7A3532952AAEC3E03CE7B06494B /* waitIndicatorGraphic-9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E742BCDD8B4AE283EBE4F3E4E09B0C /* waitIndicatorGraphic-9@2x.png */; };
+		434E51E7D1DF90496C4821C22C245A62 /* Pods-Bell View WatchKit Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 883A70722BC1311F575DC0E6E81DAA07 /* Pods-Bell View WatchKit Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45C5E2176F8A201329B521D8922BEE7F /* waitIndicatorGraphic-17@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 039232E251D4410E3C23973C1D618509 /* waitIndicatorGraphic-17@2x.png */; };
+		52BA9F44DB4B0BA87AAEE141B2633C43 /* waitIndicatorGraphic-12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD78643D99214E96F85ED35243003F1A /* waitIndicatorGraphic-12@2x.png */; };
+		57C0E033EAED99557007C21730D33248 /* waitIndicatorGraphic-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD186CCDABA53104B8D65399F4E85D0F /* waitIndicatorGraphic-7@2x.png */; };
+		6286C3F9B3D8587565894B2B6B24A4C3 /* waitIndicatorGraphic-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 067D0D1A761AF3C9A7922E1B839F931C /* waitIndicatorGraphic-3@2x.png */; };
+		649577C98AE543565069718DFFDF7069 /* waitIndicatorGraphic-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5BAD5B365DD361C513ED2A6C3DB554 /* waitIndicatorGraphic-4@2x.png */; };
+		69E5955C0AFB8BF9B327762F29DB11E6 /* UICircularProgressRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11185720B801742B15CF7AFB832A99B3 /* UICircularProgressRingLayer.swift */; };
+		6BEE6CD2A39036B64767D3E7A1CDD8A5 /* UICircularProgressRing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0309DFA5DC6AE224DA303BCDCF0DBF8 /* UICircularProgressRing-dummy.m */; };
+		71C03952CB306E9332C3C5B28BC445AB /* Pods-Bell View WatchKit Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FEF800FB6827965A06CCDC9F46D72B /* Pods-Bell View WatchKit Extension-dummy.m */; };
+		71FDC99709B08E57A5F0AD04BE4C2FBB /* UICircularProgressRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C28D12D6C979F89D515382ECF0DAAB3 /* UICircularProgressRing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		727AA28DC4FF1B6E077A9AAE8497AD1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79525486083EEFD4A4BED8D5FFA269A /* Foundation.framework */; };
+		7717887007D5C16D79BC65B3D55C44C6 /* UICircularProgressRingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61E82ADC79044C4F68E34BE410573FF /* UICircularProgressRingDelegate.swift */; };
+		7C13982732336AA619BB6403307DFDEC /* waitIndicatorGraphic-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4286E32AE0032443B28A19DB36B1BD /* waitIndicatorGraphic-28@2x.png */; };
+		8B25A98ADBB614E75C0B9D4EF758B0AC /* waitIndicatorGraphic-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D51CA56CF322D5640F66699F274AB7 /* waitIndicatorGraphic-2@2x.png */; };
+		8B827D48D1ADD879584ADE324A818F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79525486083EEFD4A4BED8D5FFA269A /* Foundation.framework */; };
+		8BF262F9082861937E52C87ECC967342 /* EMTLoadingIndicator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B5CC629261325BF53F4E10063F8548AA /* EMTLoadingIndicator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C342121C298A48D8E002CEDF651ADAB /* Pods-Bell View-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB53AAC0E161627E0652824DD23312B /* Pods-Bell View-dummy.m */; };
+		91D323269D7F256E2EAEBDBB1D6FFD4A /* EMTLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7221EF0BD528EE8B61117E4220CECBB5 /* EMTLoadingIndicator.swift */; };
+		9807D1A064BCCBDBB48963D40ECEF72B /* waitIndicatorGraphic-26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0D261E7A0D3C52917226A4801E8593 /* waitIndicatorGraphic-26@2x.png */; };
+		A55CA67D2628928D8B7BC4CDE3E2E939 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897D468741EA99E9D68150F5CB76934 /* UIKit.framework */; };
+		A72C97660E8B476F0D07C4C7C09D7BCB /* waitIndicatorGraphic-8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68000B0B2C4CA34873446608E204A1DA /* waitIndicatorGraphic-8@2x.png */; };
+		A79AF06B12E6BB85BB65E4D73CF9E92E /* UICircularProgressRingGradientPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91ED0A71D109257627C81B892EA3CA5 /* UICircularProgressRingGradientPosition.swift */; };
+		AA68791857A7D24C9003CE9FFCBAE970 /* UICircularProgressRing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87BD6E8F657AA228D8AB201A254AE625 /* UICircularProgressRing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B178BE27832F966EDD4076E80600C0D9 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3325BC495C019C30A891BA272B23CDE /* WatchKit.framework */; };
+		B31DD79906213C9AC9AA1F2D174E4478 /* waitIndicatorGraphic-27@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 458592C5E366135C61F2A3DF9F4229EC /* waitIndicatorGraphic-27@2x.png */; };
+		B4C66CD699E2C7C4395D56A73F266335 /* waitIndicatorGraphic-14@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0511C6E7509EAFD274B28F865B4C65CE /* waitIndicatorGraphic-14@2x.png */; };
+		BEA218B9445AD499CC7A265684558D5B /* waitIndicatorGraphic-19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88F5738A160F6D20A420459B33D151A /* waitIndicatorGraphic-19@2x.png */; };
+		CC7A3A0EB959A040C2C5296298FA8E75 /* waitIndicatorGraphic-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A3D6D81A93A36F6DF12993C634E1834 /* waitIndicatorGraphic-0@2x.png */; };
+		D20F3EAADFE99FE98B0DED8D3FF2619B /* waitIndicatorGraphic-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D80071574783AB6307D1DE1CC26C520A /* waitIndicatorGraphic-20@2x.png */; };
+		E3306C2A1C6329D6F43ADD46722DC4F0 /* UICircularProgressRingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0475981754A993FFF735CDAB5E3D9B0 /* UICircularProgressRingStyle.swift */; };
+		E6A5748D5980E540C79C90FD87456EBB /* waitIndicatorGraphic-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E98D3A209A40120309DC87B9899C64D6 /* waitIndicatorGraphic-29@2x.png */; };
+		E74E386FEDDF78F3D0EB9B77BAD2A4ED /* waitIndicatorGraphic-18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CCAB86BC14FCFD84D315B3380318AA /* waitIndicatorGraphic-18@2x.png */; };
+		E7768F87D5642D964F20ABD31D125654 /* waitIndicatorGraphic-22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 893C5A78B6519A619EFBD38E46F9327B /* waitIndicatorGraphic-22@2x.png */; };
+		E7BE23104BC5563B7E6DF9474CB495E6 /* waitIndicatorGraphic-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7462B3E31F183D760BEDAC12C4D92 /* waitIndicatorGraphic-5@2x.png */; };
+		EC3348E855FF8E53F5D37F0EA1DAA4D3 /* waitIndicatorGraphic-24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002C8140C4D5645CA9DF3A3E79662899 /* waitIndicatorGraphic-24@2x.png */; };
+		F9BA7D852677EFE98BED28877B8971B4 /* waitIndicatorGraphic-11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDB9B37EAF916B9BBE3001BADB85ECA /* waitIndicatorGraphic-11@2x.png */; };
+		FE9975ECC93DCCDCBC56E7F938B2C4CB /* waitIndicatorGraphic-23@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4202E2150F95816028FB3952629B64 /* waitIndicatorGraphic-23@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		30CC2B36186972EF4645A34144ADB3F6 /* PBXContainerItemProxy */ = {
+		BC3B0018A4EBDDD34EE0E51D41B5182A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B6B7F89922E5AFF7BE712DF5D9CB7C7F;
-			remoteInfo = EMTLoadingIndicator;
-		};
-		DF98B91897D578B6BF201DDA772421F6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 918452FC3A28A66D5D4B13CB633389BD;
+			remoteGlobalIDString = 421316196909CB674EE5BD465E76508E;
 			remoteInfo = UICircularProgressRing;
+		};
+		EF754448F0400B3F18A8CFA7B451D2E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F5C9740297569AEB5F39CBCDC3FBF78;
+			remoteInfo = EMTLoadingIndicator;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,8 +84,8 @@
 		04C9AC069CD5FB048ABC56D75E806521 /* Pods-Bell View WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bell View WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		0511C6E7509EAFD274B28F865B4C65CE /* waitIndicatorGraphic-14@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-14@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-14@2x.png"; sourceTree = "<group>"; };
 		067D0D1A761AF3C9A7922E1B839F931C /* waitIndicatorGraphic-3@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-3@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-3@2x.png"; sourceTree = "<group>"; };
+		0897D468741EA99E9D68150F5CB76934 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		0AD81C66C179E344A44B6C683D58147D /* waitIndicatorGraphic-10@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-10@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-10@2x.png"; sourceTree = "<group>"; };
-		0B964AF89EF3BDB6E23F3764BC4FC5CC /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.0.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		0DA3A46CFCCEC3DAEF699F3F21803751 /* EMTLoadingIndicator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EMTLoadingIndicator.xcconfig; sourceTree = "<group>"; };
 		11185720B801742B15CF7AFB832A99B3 /* UICircularProgressRingLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingLayer.swift; path = src/UICircularProgressRing/UICircularProgressRingLayer.swift; sourceTree = "<group>"; };
 		27AC6F1639668C31038236A14AD4BB78 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UICircularProgressRing.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +93,7 @@
 		3DB7462B3E31F183D760BEDAC12C4D92 /* waitIndicatorGraphic-5@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-5@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-5@2x.png"; sourceTree = "<group>"; };
 		458592C5E366135C61F2A3DF9F4229EC /* waitIndicatorGraphic-27@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-27@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-27@2x.png"; sourceTree = "<group>"; };
 		46EA33E261E0D9D453D68F358FCD23BE /* EMTLoadingIndicator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EMTLoadingIndicator-dummy.m"; sourceTree = "<group>"; };
+		4DECC5650D05A08BF2983548A7D8B670 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4EAD7417D7531144573BBB4A33094CD6 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
 		51CCAB86BC14FCFD84D315B3380318AA /* waitIndicatorGraphic-18@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-18@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-18@2x.png"; sourceTree = "<group>"; };
 		52487DB0B2748E356223ACB9C2DD51DB /* Pods-Bell View WatchKit Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Bell View WatchKit Extension-frameworks.sh"; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		8BBC3B66BCDF682062FABEFB7A865444 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		919328C64707588F56048DF81566F43A /* EMTTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EMTTimer.swift; path = EMTLoadingIndicator/Classes/EMTTimer.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9564163E5A801473B84B4165286EA60C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9A3D6D81A93A36F6DF12993C634E1834 /* waitIndicatorGraphic-0@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-0@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-0@2x.png"; sourceTree = "<group>"; };
 		9B711B9B3FEC1C756D7D114B4DEBAEAA /* Pods-Bell View WatchKit Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Bell View WatchKit Extension-acknowledgements.plist"; sourceTree = "<group>"; };
 		9BA63601703330B980168EDED9EE261B /* Pods-Bell View WatchKit Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Bell View WatchKit Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -125,16 +125,15 @@
 		AEDB9B37EAF916B9BBE3001BADB85ECA /* waitIndicatorGraphic-11@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-11@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-11@2x.png"; sourceTree = "<group>"; };
 		B5CC629261325BF53F4E10063F8548AA /* EMTLoadingIndicator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EMTLoadingIndicator-umbrella.h"; sourceTree = "<group>"; };
 		B6E742BCDD8B4AE283EBE4F3E4E09B0C /* waitIndicatorGraphic-9@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-9@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-9@2x.png"; sourceTree = "<group>"; };
-		B94906A1658FFCD611D42F7E1981BD24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		BC9230DFDB28BEC9951B6469BDE48421 /* Pods-Bell View.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Bell View.modulemap"; sourceTree = "<group>"; };
 		BD186CCDABA53104B8D65399F4E85D0F /* waitIndicatorGraphic-7@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-7@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-7@2x.png"; sourceTree = "<group>"; };
 		BE0D261E7A0D3C52917226A4801E8593 /* waitIndicatorGraphic-26@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-26@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-26@2x.png"; sourceTree = "<group>"; };
 		C022B892FBC42BAF27DDADB285AA6C4C /* waitIndicatorGraphic-13@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-13@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-13@2x.png"; sourceTree = "<group>"; };
 		C0475981754A993FFF735CDAB5E3D9B0 /* UICircularProgressRingStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingStyle.swift; path = src/UICircularProgressRing/UICircularProgressRingStyle.swift; sourceTree = "<group>"; };
 		C3565A5E86373A48113ACA932B828195 /* UICircularProgressRing-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICircularProgressRing-prefix.pch"; sourceTree = "<group>"; };
+		C79525486083EEFD4A4BED8D5FFA269A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CB5571FE338A380DE47D91129151BB11 /* Pods-Bell View WatchKit Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Bell View WatchKit Extension.modulemap"; sourceTree = "<group>"; };
 		CC10AE1A75672ECD73F62A7A6250C407 /* waitIndicatorGraphic-15@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-15@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-15@2x.png"; sourceTree = "<group>"; };
-		CCE56DAD5F9DFE02B554DEF9750E039D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		CD78643D99214E96F85ED35243003F1A /* waitIndicatorGraphic-12@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-12@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-12@2x.png"; sourceTree = "<group>"; };
 		D2E085FB3096039F5A2E66D55BC17FC2 /* waitIndicatorGraphic-6@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-6@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-6@2x.png"; sourceTree = "<group>"; };
 		D40F775CEE328F17F6C8D0C0387299B0 /* waitIndicatorGraphic-21@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-21@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-21@2x.png"; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		F027F969D087D4BB180C2A6AD927EB1A /* Pods-Bell View-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Bell View-umbrella.h"; sourceTree = "<group>"; };
 		F0309DFA5DC6AE224DA303BCDCF0DBF8 /* UICircularProgressRing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICircularProgressRing-dummy.m"; sourceTree = "<group>"; };
 		F3133D9B717B3F6894A0EF16ABF82289 /* Pods-Bell View-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Bell View-acknowledgements.plist"; sourceTree = "<group>"; };
+		F3325BC495C019C30A891BA272B23CDE /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		F839A3E2CB4D810757ACD0D8F22E7299 /* Pods-Bell View WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bell View WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		F88F5738A160F6D20A420459B33D151A /* waitIndicatorGraphic-19@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-19@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-19@2x.png"; sourceTree = "<group>"; };
 		FEB53AAC0E161627E0652824DD23312B /* Pods-Bell View-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Bell View-dummy.m"; sourceTree = "<group>"; };
@@ -161,37 +161,37 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6CDB18A9B40F5A3851EDA4F5F0DC7FC7 /* Frameworks */ = {
+		23BB834747D8881CBCC0944B61B9D19B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9D80980FBD1CEDB8D5CAC0E9E82C3ED /* Foundation.framework in Frameworks */,
+				8B827D48D1ADD879584ADE324A818F87 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DECA19CE92695B67F18DA7B8E56F3CA9 /* Frameworks */ = {
+		34987A73A6E242FE9A13C9E6F399169A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6C5715B059EB6728243FA872284023C /* Foundation.framework in Frameworks */,
-				E4FC0B3A87475C76FF7CB9016C0FB0CE /* UIKit.framework in Frameworks */,
-				140AB36A3B36C2DF0526C15A731B39B7 /* WatchKit.framework in Frameworks */,
+				0B8E1275696F6F95A3D940DCA6552730 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE53AEFA35EB5A3C2557DC0C8183C08A /* Frameworks */ = {
+		977CC59997DCB84C085B25CD671F83C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E26CB3CE418CF9202169299B1D52AF9 /* Foundation.framework in Frameworks */,
+				13087FCAE7D10F4CAEE3117FE0767111 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB166B593A662D07ED57C843DAE83C54 /* Frameworks */ = {
+		BB86E33476A5494A662EB45FF51BDFA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B5913845D852A69A427B5EBBC978EAF /* Foundation.framework in Frameworks */,
+				727AA28DC4FF1B6E077A9AAE8497AD1C /* Foundation.framework in Frameworks */,
+				A55CA67D2628928D8B7BC4CDE3E2E939 /* UIKit.framework in Frameworks */,
+				B178BE27832F966EDD4076E80600C0D9 /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,16 +264,6 @@
 			path = UICircularProgressRing;
 			sourceTree = "<group>";
 		};
-		24B20EDD18C5F203D8C24CC1B8C552B1 /* watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				9564163E5A801473B84B4165286EA60C /* Foundation.framework */,
-				CCE56DAD5F9DFE02B554DEF9750E039D /* UIKit.framework */,
-				0B964AF89EF3BDB6E23F3764BC4FC5CC /* WatchKit.framework */,
-			);
-			name = watchOS;
-			sourceTree = "<group>";
-		};
 		6E7F3FD6E084EE366D9636F5FCB7E7FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +275,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		70F2B8E5418A986A3AE09B470C5C1DBB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4DECC5650D05A08BF2983548A7D8B670 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		73631B4536F411BC79BA596C8E5132AE /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,14 +290,6 @@
 				D6890924E1908E7E3D6EC19EF2F933E6 /* Pods-Bell View WatchKit Extension */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		778D23EB08CCC9F487031BA3FCE733FB /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				B94906A1658FFCD611D42F7E1981BD24 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -316,8 +306,8 @@
 		AA873B36886995E26566B28B530EBDE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				778D23EB08CCC9F487031BA3FCE733FB /* iOS */,
-				24B20EDD18C5F203D8C24CC1B8C552B1 /* watchOS */,
+				70F2B8E5418A986A3AE09B470C5C1DBB /* iOS */,
+				E111FFA5C1EBEEE2B65514D6983ECE63 /* watchOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -375,6 +365,16 @@
 			path = "Target Support Files/Pods-Bell View WatchKit Extension";
 			sourceTree = "<group>";
 		};
+		E111FFA5C1EBEEE2B65514D6983ECE63 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				C79525486083EEFD4A4BED8D5FFA269A /* Foundation.framework */,
+				0897D468741EA99E9D68150F5CB76934 /* UIKit.framework */,
+				F3325BC495C019C30A891BA272B23CDE /* WatchKit.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
 		FFC370AD1FC7D485D881DFE8A797C088 /* Pods-Bell View */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,88 +396,49 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		497966A4876C725CA562D7AED0A46C30 /* Headers */ = {
+		0815910B7690A3E02FF97259F0B1BEBB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C68B0772CA6F763347B75512754AB7 /* Pods-Bell View WatchKit Extension-umbrella.h in Headers */,
+				2213F5266A4725596C740BF069899B3B /* Pods-Bell View-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52F4A83277C8BEB15B46B7278CAA3171 /* Headers */ = {
+		1998E9F0BFB54B4392D1A646CA713E80 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99782D3C72939D5CD04EA53B656773F /* Pods-Bell View-umbrella.h in Headers */,
+				8BF262F9082861937E52C87ECC967342 /* EMTLoadingIndicator-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DE70EA91DD3692B1621BA5211B98D04 /* Headers */ = {
+		9114B16CE3E7EA86B7692150050FC562 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2544A49463052888FEC44B866C9EC145 /* UICircularProgressRing-umbrella.h in Headers */,
-				0121CB9334FEC5A13CA341723A1A1341 /* UICircularProgressRing.h in Headers */,
+				AA68791857A7D24C9003CE9FFCBAE970 /* UICircularProgressRing-umbrella.h in Headers */,
+				71FDC99709B08E57A5F0AD04BE4C2FBB /* UICircularProgressRing.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD8D9803D5A16F0FE1745F8ED83A17E0 /* Headers */ = {
+		E56E5F3B3824497E9C750C646A028747 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE21D1E1C883580910604370BF80955F /* EMTLoadingIndicator-umbrella.h in Headers */,
+				434E51E7D1DF90496C4821C22C245A62 /* Pods-Bell View WatchKit Extension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2F8B470257EDFDB62F3126842B118D6F /* Pods-Bell View WatchKit Extension */ = {
+		421316196909CB674EE5BD465E76508E /* UICircularProgressRing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C0F4F9564F379A73486D00B96A51502 /* Build configuration list for PBXNativeTarget "Pods-Bell View WatchKit Extension" */;
+			buildConfigurationList = 54EA5B535FD971F17D9A20BE119F63DD /* Build configuration list for PBXNativeTarget "UICircularProgressRing" */;
 			buildPhases = (
-				497966A4876C725CA562D7AED0A46C30 /* Headers */,
-				825668E81CD15093BD31AE89653CB688 /* Sources */,
-				EE53AEFA35EB5A3C2557DC0C8183C08A /* Frameworks */,
-				07383EDABFD356F2E2E3B4E96695B650 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CD383421DD5E80EF0C47B2924EC673AD /* PBXTargetDependency */,
-			);
-			name = "Pods-Bell View WatchKit Extension";
-			productName = "Pods-Bell View WatchKit Extension";
-			productReference = DA7313E5C8C8D256653CDBE6926D93D8 /* Pods_Bell_View_WatchKit_Extension.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		63B312930BA42287EC7F72AF70CB182A /* Pods-Bell View */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D36119CF9F838DDCE3F26683EE71F28C /* Build configuration list for PBXNativeTarget "Pods-Bell View" */;
-			buildPhases = (
-				52F4A83277C8BEB15B46B7278CAA3171 /* Headers */,
-				03A1E02F5E139837E958D02AB92845A2 /* Sources */,
-				6CDB18A9B40F5A3851EDA4F5F0DC7FC7 /* Frameworks */,
-				82A5736195F79967A033FC49289DFD94 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BF6EE587C14D6375847B5C8468EA06E /* PBXTargetDependency */,
-			);
-			name = "Pods-Bell View";
-			productName = "Pods-Bell View";
-			productReference = 596AF3472EACE97D69E422BC78C3617A /* Pods_Bell_View.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		918452FC3A28A66D5D4B13CB633389BD /* UICircularProgressRing */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E4884B83A5113FAFBA0D25398BB76CED /* Build configuration list for PBXNativeTarget "UICircularProgressRing" */;
-			buildPhases = (
-				8DE70EA91DD3692B1621BA5211B98D04 /* Headers */,
-				EDA5DC078094D3A89BD41EC0A5653759 /* Sources */,
-				FB166B593A662D07ED57C843DAE83C54 /* Frameworks */,
-				27C8AB62A21CC89A875E0360EC9E7324 /* Resources */,
+				C1156D92AA0446754CEE9362EAF12247 /* Sources */,
+				34987A73A6E242FE9A13C9E6F399169A /* Frameworks */,
+				9114B16CE3E7EA86B7692150050FC562 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -488,14 +449,32 @@
 			productReference = 27AC6F1639668C31038236A14AD4BB78 /* UICircularProgressRing.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B6B7F89922E5AFF7BE712DF5D9CB7C7F /* EMTLoadingIndicator */ = {
+		4DEB56978C94C29BA33BB84A607A83D9 /* Pods-Bell View */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8513D9B46F41E5B9F20BD981508CAF5 /* Build configuration list for PBXNativeTarget "EMTLoadingIndicator" */;
+			buildConfigurationList = 744EC9ABEE0F99FBFA4D05A1BA9A41DC /* Build configuration list for PBXNativeTarget "Pods-Bell View" */;
 			buildPhases = (
-				FD8D9803D5A16F0FE1745F8ED83A17E0 /* Headers */,
-				227FCB5AA1992D6883730664B4F356D3 /* Sources */,
-				DECA19CE92695B67F18DA7B8E56F3CA9 /* Frameworks */,
-				E66BC4BD625C688FA8F2225C7B52A7A7 /* Resources */,
+				EEA8613CAAD1204C7A8F6EF25DB2BC37 /* Sources */,
+				977CC59997DCB84C085B25CD671F83C9 /* Frameworks */,
+				0815910B7690A3E02FF97259F0B1BEBB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7827E37E2AB0A6E3B1F4D2481EC69824 /* PBXTargetDependency */,
+			);
+			name = "Pods-Bell View";
+			productName = "Pods-Bell View";
+			productReference = 596AF3472EACE97D69E422BC78C3617A /* Pods_Bell_View.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F5C9740297569AEB5F39CBCDC3FBF78 /* EMTLoadingIndicator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A64F2D934CE0E71BEBFA52AB13B2D050 /* Build configuration list for PBXNativeTarget "EMTLoadingIndicator" */;
+			buildPhases = (
+				EDF55700EE9F11A11B5AE26544522BD2 /* Sources */,
+				BB86E33476A5494A662EB45FF51BDFA2 /* Frameworks */,
+				DC56A6FB06CC48C4E172FF17FC798705 /* Resources */,
+				1998E9F0BFB54B4392D1A646CA713E80 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -504,6 +483,24 @@
 			name = EMTLoadingIndicator;
 			productName = EMTLoadingIndicator;
 			productReference = 6D649EEEDC9B60E476FFE325CEE75C8C /* EMTLoadingIndicator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		82F5730D3583A60655BF6098CE4BB782 /* Pods-Bell View WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B4BE31E68D2CD95495AACB4F35E2D1C /* Build configuration list for PBXNativeTarget "Pods-Bell View WatchKit Extension" */;
+			buildPhases = (
+				86DE49CDFF03C87D3C7566580FD08374 /* Sources */,
+				23BB834747D8881CBCC0944B61B9D19B /* Frameworks */,
+				E56E5F3B3824497E9C750C646A028747 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1726921646639C406BFC49DD274F47C /* PBXTargetDependency */,
+			);
+			name = "Pods-Bell View WatchKit Extension";
+			productName = "Pods-Bell View WatchKit Extension";
+			productReference = DA7313E5C8C8D256653CDBE6926D93D8 /* Pods_Bell_View_WatchKit_Extension.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -527,134 +524,113 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B6B7F89922E5AFF7BE712DF5D9CB7C7F /* EMTLoadingIndicator */,
-				63B312930BA42287EC7F72AF70CB182A /* Pods-Bell View */,
-				2F8B470257EDFDB62F3126842B118D6F /* Pods-Bell View WatchKit Extension */,
-				918452FC3A28A66D5D4B13CB633389BD /* UICircularProgressRing */,
+				6F5C9740297569AEB5F39CBCDC3FBF78 /* EMTLoadingIndicator */,
+				4DEB56978C94C29BA33BB84A607A83D9 /* Pods-Bell View */,
+				82F5730D3583A60655BF6098CE4BB782 /* Pods-Bell View WatchKit Extension */,
+				421316196909CB674EE5BD465E76508E /* UICircularProgressRing */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		07383EDABFD356F2E2E3B4E96695B650 /* Resources */ = {
+		DC56A6FB06CC48C4E172FF17FC798705 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27C8AB62A21CC89A875E0360EC9E7324 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82A5736195F79967A033FC49289DFD94 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E66BC4BD625C688FA8F2225C7B52A7A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B252ED7513692D36BE3FB1DB6FCFAB10 /* waitIndicatorGraphic-0@2x.png in Resources */,
-				45A51FA98567290006DDCE9F2F80A4F2 /* waitIndicatorGraphic-10@2x.png in Resources */,
-				6D80DA1AD78073E3555CC9461720076B /* waitIndicatorGraphic-11@2x.png in Resources */,
-				CE9FC4FBA9795ECD8F3470508669A322 /* waitIndicatorGraphic-12@2x.png in Resources */,
-				2FBC264B7773978FC05AC75C87F22172 /* waitIndicatorGraphic-13@2x.png in Resources */,
-				F731525DD51144B46FAC65820C27079F /* waitIndicatorGraphic-14@2x.png in Resources */,
-				5C260B37C15D8A1FC7F224C482CD7D33 /* waitIndicatorGraphic-15@2x.png in Resources */,
-				5D2C0593B748F5D552C3A50D1664B95E /* waitIndicatorGraphic-16@2x.png in Resources */,
-				7F3E01652ED6C10ED1D9033F313CB82F /* waitIndicatorGraphic-17@2x.png in Resources */,
-				667E6C7FB77CE27B51B3AE85B7F9FBD0 /* waitIndicatorGraphic-18@2x.png in Resources */,
-				D93747CB88E95219F9A944DF6839C845 /* waitIndicatorGraphic-19@2x.png in Resources */,
-				5619BC5F4CF2CAD6848ACC966984B1C4 /* waitIndicatorGraphic-1@2x.png in Resources */,
-				8745A770F4CEAD1D844DA6DE9AB6FD3E /* waitIndicatorGraphic-20@2x.png in Resources */,
-				A36FE13FDCE98A8F728C9909B88FBBA8 /* waitIndicatorGraphic-21@2x.png in Resources */,
-				6469D741A6E55A31F72EE885D304BBDA /* waitIndicatorGraphic-22@2x.png in Resources */,
-				C4C7B2163602E5233065E5B5D88DEC9D /* waitIndicatorGraphic-23@2x.png in Resources */,
-				5AA7648FBE59B4270097E38A331FBC76 /* waitIndicatorGraphic-24@2x.png in Resources */,
-				B0B768D54C143399173C2A7F8BA3559F /* waitIndicatorGraphic-25@2x.png in Resources */,
-				0C4F5383B87AD55504EA10501A6BA4CD /* waitIndicatorGraphic-26@2x.png in Resources */,
-				8686E1BA3B38D1ABBCAA225FB1668974 /* waitIndicatorGraphic-27@2x.png in Resources */,
-				DA11CB1465EBFD3627289A67870CF4F7 /* waitIndicatorGraphic-28@2x.png in Resources */,
-				4D9082B9A3BDD62BE7BEF6A7BB03873F /* waitIndicatorGraphic-29@2x.png in Resources */,
-				A9B1F3943F1E96C4807802E6C52856F2 /* waitIndicatorGraphic-2@2x.png in Resources */,
-				08B02D9BF24CA43EF0BE11C72671B2CA /* waitIndicatorGraphic-3@2x.png in Resources */,
-				75972F3A25196EB64C6F2AE874CAD3C2 /* waitIndicatorGraphic-4@2x.png in Resources */,
-				3BA9800254631B88A423392F22C4B0EF /* waitIndicatorGraphic-5@2x.png in Resources */,
-				E2982E6EBF6D541A60A126B0E7587628 /* waitIndicatorGraphic-6@2x.png in Resources */,
-				C0780A36422CC8A5C982C0E336B583F6 /* waitIndicatorGraphic-7@2x.png in Resources */,
-				6F4EEE47CAFFB5DD2D3698BCE1DEA1EF /* waitIndicatorGraphic-8@2x.png in Resources */,
-				0AFE96FD8697540C7B960E2426804722 /* waitIndicatorGraphic-9@2x.png in Resources */,
+				CC7A3A0EB959A040C2C5296298FA8E75 /* waitIndicatorGraphic-0@2x.png in Resources */,
+				07A6C70CE28C07AEF9D91ADE16044178 /* waitIndicatorGraphic-10@2x.png in Resources */,
+				F9BA7D852677EFE98BED28877B8971B4 /* waitIndicatorGraphic-11@2x.png in Resources */,
+				52BA9F44DB4B0BA87AAEE141B2633C43 /* waitIndicatorGraphic-12@2x.png in Resources */,
+				0D8C82F1A06C76D228081832BF5D0C76 /* waitIndicatorGraphic-13@2x.png in Resources */,
+				B4C66CD699E2C7C4395D56A73F266335 /* waitIndicatorGraphic-14@2x.png in Resources */,
+				1DDBD42A8B3646D6F6D15161CDF1DC5F /* waitIndicatorGraphic-15@2x.png in Resources */,
+				2BFCCC00050DB360B82F95C0BF884ED3 /* waitIndicatorGraphic-16@2x.png in Resources */,
+				45C5E2176F8A201329B521D8922BEE7F /* waitIndicatorGraphic-17@2x.png in Resources */,
+				E74E386FEDDF78F3D0EB9B77BAD2A4ED /* waitIndicatorGraphic-18@2x.png in Resources */,
+				BEA218B9445AD499CC7A265684558D5B /* waitIndicatorGraphic-19@2x.png in Resources */,
+				0311BDC608C6A5367124D3ABD70E885E /* waitIndicatorGraphic-1@2x.png in Resources */,
+				D20F3EAADFE99FE98B0DED8D3FF2619B /* waitIndicatorGraphic-20@2x.png in Resources */,
+				25F83DFF5ACE3C559CF16DA00DD750A2 /* waitIndicatorGraphic-21@2x.png in Resources */,
+				E7768F87D5642D964F20ABD31D125654 /* waitIndicatorGraphic-22@2x.png in Resources */,
+				FE9975ECC93DCCDCBC56E7F938B2C4CB /* waitIndicatorGraphic-23@2x.png in Resources */,
+				EC3348E855FF8E53F5D37F0EA1DAA4D3 /* waitIndicatorGraphic-24@2x.png in Resources */,
+				1BE199B3C2448891859D6710BA599367 /* waitIndicatorGraphic-25@2x.png in Resources */,
+				9807D1A064BCCBDBB48963D40ECEF72B /* waitIndicatorGraphic-26@2x.png in Resources */,
+				B31DD79906213C9AC9AA1F2D174E4478 /* waitIndicatorGraphic-27@2x.png in Resources */,
+				7C13982732336AA619BB6403307DFDEC /* waitIndicatorGraphic-28@2x.png in Resources */,
+				E6A5748D5980E540C79C90FD87456EBB /* waitIndicatorGraphic-29@2x.png in Resources */,
+				8B25A98ADBB614E75C0B9D4EF758B0AC /* waitIndicatorGraphic-2@2x.png in Resources */,
+				6286C3F9B3D8587565894B2B6B24A4C3 /* waitIndicatorGraphic-3@2x.png in Resources */,
+				649577C98AE543565069718DFFDF7069 /* waitIndicatorGraphic-4@2x.png in Resources */,
+				E7BE23104BC5563B7E6DF9474CB495E6 /* waitIndicatorGraphic-5@2x.png in Resources */,
+				1588FF46DA2DD0ABE4E2C7E61913B3A6 /* waitIndicatorGraphic-6@2x.png in Resources */,
+				57C0E033EAED99557007C21730D33248 /* waitIndicatorGraphic-7@2x.png in Resources */,
+				A72C97660E8B476F0D07C4C7C09D7BCB /* waitIndicatorGraphic-8@2x.png in Resources */,
+				3F92A7A3532952AAEC3E03CE7B06494B /* waitIndicatorGraphic-9@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		03A1E02F5E139837E958D02AB92845A2 /* Sources */ = {
+		86DE49CDFF03C87D3C7566580FD08374 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EC5AE8AF000C3B6109E3F1A2873604B /* Pods-Bell View-dummy.m in Sources */,
+				71C03952CB306E9332C3C5B28BC445AB /* Pods-Bell View WatchKit Extension-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		227FCB5AA1992D6883730664B4F356D3 /* Sources */ = {
+		C1156D92AA0446754CEE9362EAF12247 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFB1583CD36B09E70DB011B6C0D17B6A /* EMTLoadingIndicator-dummy.m in Sources */,
-				9D07A82BCC3B5B3EA0A4D2B331104EF2 /* EMTLoadingIndicator.swift in Sources */,
-				8CBD47ED72FCCB74E4885CB5911EA477 /* EMTTimer.swift in Sources */,
+				6BEE6CD2A39036B64767D3E7A1CDD8A5 /* UICircularProgressRing-dummy.m in Sources */,
+				25D30C5AFAD537331C58141375185375 /* UICircularProgressRing.swift in Sources */,
+				7717887007D5C16D79BC65B3D55C44C6 /* UICircularProgressRingDelegate.swift in Sources */,
+				A79AF06B12E6BB85BB65E4D73CF9E92E /* UICircularProgressRingGradientPosition.swift in Sources */,
+				69E5955C0AFB8BF9B327762F29DB11E6 /* UICircularProgressRingLayer.swift in Sources */,
+				E3306C2A1C6329D6F43ADD46722DC4F0 /* UICircularProgressRingStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		825668E81CD15093BD31AE89653CB688 /* Sources */ = {
+		EDF55700EE9F11A11B5AE26544522BD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CE11568459EA48EF19BCDEDC67E8910 /* Pods-Bell View WatchKit Extension-dummy.m in Sources */,
+				244B01D65A1E1625DB2A2A50263DB1E9 /* EMTLoadingIndicator-dummy.m in Sources */,
+				91D323269D7F256E2EAEBDBB1D6FFD4A /* EMTLoadingIndicator.swift in Sources */,
+				3504B0D6B76031874994A2AB938D0E82 /* EMTTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EDA5DC078094D3A89BD41EC0A5653759 /* Sources */ = {
+		EEA8613CAAD1204C7A8F6EF25DB2BC37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				223C8D74111007DEBA707041D84141AE /* UICircularProgressRing-dummy.m in Sources */,
-				613160B6939963B8B06FD9C0652F9139 /* UICircularProgressRing.swift in Sources */,
-				C1CFF51202B84F4CC9B9FF10225CB76E /* UICircularProgressRingDelegate.swift in Sources */,
-				05902338F1310C65BF30D1D5FE83FF8A /* UICircularProgressRingGradientPosition.swift in Sources */,
-				EBD65D0F594186E9B08DE35380E40295 /* UICircularProgressRingLayer.swift in Sources */,
-				8B7AC965DBB3B8CF63098149E72A6877 /* UICircularProgressRingStyle.swift in Sources */,
+				8C342121C298A48D8E002CEDF651ADAB /* Pods-Bell View-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2BF6EE587C14D6375847B5C8468EA06E /* PBXTargetDependency */ = {
+		7827E37E2AB0A6E3B1F4D2481EC69824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = UICircularProgressRing;
-			target = 918452FC3A28A66D5D4B13CB633389BD /* UICircularProgressRing */;
-			targetProxy = DF98B91897D578B6BF201DDA772421F6 /* PBXContainerItemProxy */;
+			target = 421316196909CB674EE5BD465E76508E /* UICircularProgressRing */;
+			targetProxy = BC3B0018A4EBDDD34EE0E51D41B5182A /* PBXContainerItemProxy */;
 		};
-		CD383421DD5E80EF0C47B2924EC673AD /* PBXTargetDependency */ = {
+		A1726921646639C406BFC49DD274F47C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EMTLoadingIndicator;
-			target = B6B7F89922E5AFF7BE712DF5D9CB7C7F /* EMTLoadingIndicator */;
-			targetProxy = 30CC2B36186972EF4645A34144ADB3F6 /* PBXContainerItemProxy */;
+			target = 6F5C9740297569AEB5F39CBCDC3FBF78 /* EMTLoadingIndicator */;
+			targetProxy = EF754448F0400B3F18A8CFA7B451D2E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		123AFBB361CE735A5E63C2D6BC4B5BDB /* Release */ = {
+		1EC6E4DDFAF0CF9A295106F9197EE8EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D4522818DA0619F4C36FEC7895D5591F /* UICircularProgressRing.xcconfig */;
 			buildSettings = {
@@ -682,90 +658,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		22B4FA308857716936448D1DFC1291A9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6EAD0BD7BA78AE299B9D1B809DE0500 /* Pods-Bell View.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Bell View/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Bell View/Pods-Bell View.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		3B1938E5255CF3A3EADFEE0C64ADC6D5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DA3A46CFCCEC3DAEF699F3F21803751 /* EMTLoadingIndicator.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/EMTLoadingIndicator/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator.modulemap";
-				PRODUCT_MODULE_NAME = EMTLoadingIndicator;
-				PRODUCT_NAME = EMTLoadingIndicator;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
-			};
-			name = Release;
-		};
-		554159E30380E6E93B7A3B8CDB3F6582 /* Release */ = {
+		2A7C3B507EE7D010D9E9A059AB7EAE01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F839A3E2CB4D810757ACD0D8F22E7299 /* Pods-Bell View WatchKit Extension.release.xcconfig */;
 			buildSettings = {
@@ -796,6 +697,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -804,12 +706,12 @@
 			};
 			name = Release;
 		};
-		6B7702BBA84114A4CCAAFEF7AFDE5BC9 /* Release */ = {
+		3316C203952FB918C64F51A05939F100 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EAD7417D7531144573BBB4A33094CD6 /* Pods-Bell View.release.xcconfig */;
+			baseConfigurationReference = 04C9AC069CD5FB048ABC56D75E806521 /* Pods-Bell View WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -819,129 +721,32 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Bell View/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Bell View/Pods-Bell View.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7EEC324EF5AF8C8718595DE2CBE175D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4522818DA0619F4C36FEC7895D5591F /* UICircularProgressRing.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/UICircularProgressRing/UICircularProgressRing-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UICircularProgressRing/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/UICircularProgressRing/UICircularProgressRing.modulemap";
-				PRODUCT_MODULE_NAME = UICircularProgressRing;
-				PRODUCT_NAME = UICircularProgressRing;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
 			};
 			name = Debug;
 		};
-		8C4408BA18F785B29CC008BE731EBFAD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				SYMROOT = "${SRCROOT}/../build";
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
-			};
-			name = Release;
-		};
-		C46F6881E364D9683729E9C183A7D5E7 /* Debug */ = {
+		5504AA2F858E1A97C81B36292E7D6B6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -995,58 +800,17 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 				WATCHOS_DEPLOYMENT_TARGET = 5.1;
 			};
 			name = Debug;
 		};
-		C87DEB8EA8C85CDEA4867D47666A6E71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04C9AC069CD5FB048ABC56D75E806521 /* Pods-Bell View WatchKit Extension.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
-			};
-			name = Debug;
-		};
-		DDAFF2BF4219535B1DE6A8BE1FF7658C /* Debug */ = {
+		5D37AD1D2D845C0451D3F0855A1C3BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0DA3A46CFCCEC3DAEF699F3F21803751 /* EMTLoadingIndicator.xcconfig */;
 			buildSettings = {
@@ -1074,6 +838,85 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		66EF376FBD20EE56E940B7D3B2683AF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6EAD0BD7BA78AE299B9D1B809DE0500 /* Pods-Bell View.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Bell View/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Bell View/Pods-Bell View.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9052D2009E41654C732F5BF7F6F2DD4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DA3A46CFCCEC3DAEF699F3F21803751 /* EMTLoadingIndicator.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EMTLoadingIndicator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator.modulemap";
+				PRODUCT_MODULE_NAME = EMTLoadingIndicator;
+				PRODUCT_NAME = EMTLoadingIndicator;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1082,50 +925,186 @@
 			};
 			name = Debug;
 		};
+		9FE7AEEF29DA4430FDAA242C082C16B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EAD7417D7531144573BBB4A33094CD6 /* Pods-Bell View.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Bell View/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Bell View/Pods-Bell View.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BBE16C39CE379362F69CF85AD8BBE458 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		C31C123C4A70B5454FFED40031A15D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4522818DA0619F4C36FEC7895D5591F /* UICircularProgressRing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICircularProgressRing/UICircularProgressRing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICircularProgressRing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICircularProgressRing/UICircularProgressRing.modulemap";
+				PRODUCT_MODULE_NAME = UICircularProgressRing;
+				PRODUCT_NAME = UICircularProgressRing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C46F6881E364D9683729E9C183A7D5E7 /* Debug */,
-				8C4408BA18F785B29CC008BE731EBFAD /* Release */,
+				5504AA2F858E1A97C81B36292E7D6B6A /* Debug */,
+				BBE16C39CE379362F69CF85AD8BBE458 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C0F4F9564F379A73486D00B96A51502 /* Build configuration list for PBXNativeTarget "Pods-Bell View WatchKit Extension" */ = {
+		3B4BE31E68D2CD95495AACB4F35E2D1C /* Build configuration list for PBXNativeTarget "Pods-Bell View WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C87DEB8EA8C85CDEA4867D47666A6E71 /* Debug */,
-				554159E30380E6E93B7A3B8CDB3F6582 /* Release */,
+				3316C203952FB918C64F51A05939F100 /* Debug */,
+				2A7C3B507EE7D010D9E9A059AB7EAE01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8513D9B46F41E5B9F20BD981508CAF5 /* Build configuration list for PBXNativeTarget "EMTLoadingIndicator" */ = {
+		54EA5B535FD971F17D9A20BE119F63DD /* Build configuration list for PBXNativeTarget "UICircularProgressRing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDAFF2BF4219535B1DE6A8BE1FF7658C /* Debug */,
-				3B1938E5255CF3A3EADFEE0C64ADC6D5 /* Release */,
+				1EC6E4DDFAF0CF9A295106F9197EE8EC /* Debug */,
+				C31C123C4A70B5454FFED40031A15D0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D36119CF9F838DDCE3F26683EE71F28C /* Build configuration list for PBXNativeTarget "Pods-Bell View" */ = {
+		744EC9ABEE0F99FBFA4D05A1BA9A41DC /* Build configuration list for PBXNativeTarget "Pods-Bell View" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				22B4FA308857716936448D1DFC1291A9 /* Debug */,
-				6B7702BBA84114A4CCAAFEF7AFDE5BC9 /* Release */,
+				66EF376FBD20EE56E940B7D3B2683AF2 /* Debug */,
+				9FE7AEEF29DA4430FDAA242C082C16B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4884B83A5113FAFBA0D25398BB76CED /* Build configuration list for PBXNativeTarget "UICircularProgressRing" */ = {
+		A64F2D934CE0E71BEBFA52AB13B2D050 /* Build configuration list for PBXNativeTarget "EMTLoadingIndicator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7EEC324EF5AF8C8718595DE2CBE175D7 /* Debug */,
-				123AFBB361CE735A5E63C2D6BC4B5BDB /* Release */,
+				9052D2009E41654C732F5BF7F6F2DD4B /* Debug */,
+				5D37AD1D2D845C0451D3F0855A1C3BE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
