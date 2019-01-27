@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-import EMTLoadingIndicator
+import EMTLoadingIndicator //Did this stupid thing work??!
 
 class InterfaceController: WKInterfaceController {
 
