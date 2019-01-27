@@ -10,8 +10,6 @@ import WatchKit
 import Foundation
 import EMTLoadingIndicator //Did this stupid thing work??!
 
-
-
 class InterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
