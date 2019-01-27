@@ -14,7 +14,7 @@ class InterfaceController: WKInterfaceController {
     
     //MARK: Properties
     @IBOutlet weak var progressRing: WKInterfaceImage!
-    @IBOutlet weak var periodDesc: WKInterfaceLabel!
+    @IBOutlet weak var currentPeriodDesc: WKInterfaceLabel!
     @IBOutlet weak var timeRemaining: WKInterfaceLabel!
     
     private var ring:EMTLoadingIndicator?
@@ -27,42 +27,74 @@ class InterfaceController: WKInterfaceController {
     
     private var isActive:Bool = true;
     
+    public func colorForTime () -> UIColor {
+        let percentRemaining  = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
+        if percentRemaining > 0.25 {
+            return UIColor.green
+        } else if percentRemaining > 0.20 {
+            return UIColor.yellow
+        } else if percentRemaining > 0.10 {
+            return UIColor.orange
+        }
+        return UIColor.red
+    }
+    
     public func setState(active:Bool){
         self.isActive = active
     }
     
-    private func setupRing(){
+    @objc func refreshInterface(){
+        if (isActive) {
+            generateRing()
+            generateTimeRemaining()
+            generatePeriodDesc()
+        }
+    }
+    
+    private func generateRing(){
         ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 110, height: 110, style: .line)
         ring?.showProgress(startPercentage: 0)
-        EMTLoadingIndicator.progressLineColorOuter = UIColor.blue
+        EMTLoadingIndicator.progressLineColorOuter = colorForTime()
         EMTLoadingIndicator.progressLineColorInner = UIColor.gray
         ring?.prepareImagesForProgress()
-        let startPercentage:Float = Float((myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())*100)
-        ring?.showProgress(startPercentage: startPercentage)
+        let progressPercent:Float = Float((myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())*100)
+        ring?.showProgress(startPercentage: progressPercent)
+    }
+    
+    private func generateTimeRemaining(){
+        timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
+    }
+    
+    private func generatePeriodDesc(){
+        currentPeriodDesc.setText(myMaster.getCurrentBellTimeDescription())
+        currentPeriodDesc.setTextColor(colorForTime())
     }
     
     
-
     
-
     override func awake(withContext context: Any?) {
+        setState(active: true)
         super.awake(withContext: context)
         // Configure interface objects here.
     }
     
     override func willActivate() {
+        setState(active: true)
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
     
     override func didDeactivate() {
-        
+        setState(active: false)
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
     
     override func didAppear() {
-        setupRing()
+        refreshInterface()
+        if (isActive){
+            refreshTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
+        }
     }
 
 }
