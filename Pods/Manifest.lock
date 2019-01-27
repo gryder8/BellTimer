@@ -1,16 +1,20 @@
 PODS:
+  - EMTLoadingIndicator (4.0.0)
   - UICircularProgressRing (4.1.0)
 
 DEPENDENCIES:
+  - EMTLoadingIndicator
   - UICircularProgressRing
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - EMTLoadingIndicator
     - UICircularProgressRing
 
 SPEC CHECKSUMS:
+  EMTLoadingIndicator: 84b875fbe500606bb9a5e411885bc152ae9a371f
   UICircularProgressRing: 5a32c01f54474571b1e66e8fa050c0f83d6d981b
 
-PODFILE CHECKSUM: 9b74a0b4cbe38bae0e820a2b8ecf9307674a0037
+PODFILE CHECKSUM: a339f51249f00f347a53d7407e0fbbadd09162a9
 
 COCOAPODS: 1.5.3

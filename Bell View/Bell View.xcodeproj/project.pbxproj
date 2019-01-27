@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4451ED5960E68A22AE3F77C3 /* Pods_Bell_View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */; };
+		780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */; };
 		861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
 		861DBD9F21F2D80500DBC4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */; };
 		86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86576F7C21F16A28002FD7D5 /* GradientView.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		86576F7C21F16A28002FD7D5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -99,8 +101,10 @@
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
 		86BBF67421ED8CF100BFC5FF /* Schedules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedules.plist; sourceTree = "<group>"; };
+		8A6BE31DD74C88441D5C1113 /* Pods-Bell View WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View WatchKit Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.debug.xcconfig"; sourceTree = "<group>"; };
 		B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
+		CDF41DD01FFFFCD6F2CB0775 /* Pods-Bell View WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View WatchKit Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */,
+				24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +222,8 @@
 			children = (
 				AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */,
 				B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */,
+				CDF41DD01FFFFCD6F2CB0775 /* Pods-Bell View WatchKit Extension.debug.xcconfig */,
+				8A6BE31DD74C88441D5C1113 /* Pods-Bell View WatchKit Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -266,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 865A6FB521E910E900831E69 /* Build configuration list for PBXNativeTarget "Bell View WatchKit Extension" */;
 			buildPhases = (
+				47638B7C96EE218C916DB5FE /* [CP] Check Pods Manifest.lock */,
 				865A6FA021E910E900831E69 /* Sources */,
 				865A6FA121E910E900831E69 /* Frameworks */,
 				865A6FA221E910E900831E69 /* Resources */,
+				B5E5FBB6E8F48E1D0C2F8D60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,6 +386,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		47638B7C96EE218C916DB5FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bell View WatchKit Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A4D770B4259813E27F7C4B53 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,6 +428,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Bell View/Pods-Bell View-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5E5FBB6E8F48E1D0C2F8D60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EMTLoadingIndicator/EMTLoadingIndicator.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EMTLoadingIndicator.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -577,6 +631,7 @@
 		};
 		865A6FB621E910E900831E69 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDF41DD01FFFFCD6F2CB0775 /* Pods-Bell View WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -599,6 +654,7 @@
 		};
 		865A6FB721E910E900831E69 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A6BE31DD74C88441D5C1113 /* Pods-Bell View WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
