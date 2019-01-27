@@ -52,15 +52,18 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func generateRing(){
+        if (isActive){
         ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 110, height: 110, style: .line)
         ring?.showProgress(startPercentage: 0)
         EMTLoadingIndicator.progressLineWidthOuter = 3
         EMTLoadingIndicator.progressLineWidthInner = 3
+        print(EMTLoadingIndicator.progressLineWidthInner)
         EMTLoadingIndicator.progressLineColorOuter = colorForTime()
         EMTLoadingIndicator.progressLineColorInner = UIColor.green
         ring?.prepareImagesForProgress()
         let progressPercent:Float = Float((myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())*100)
         ring?.showProgress(startPercentage: progressPercent)
+        }
     }
     
     private func generateTimeRemaining(){
@@ -76,12 +79,14 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         setState(active: true)
+        refreshInterface()
         super.awake(withContext: context)
         // Configure interface objects here.
     }
     
     override func willActivate() {
         setState(active: true)
+        refreshInterface()
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
