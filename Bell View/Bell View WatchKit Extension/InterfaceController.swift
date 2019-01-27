@@ -12,6 +12,7 @@ import EMTLoadingIndicator
 
 class InterfaceController: WKInterfaceController {
     
+    private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

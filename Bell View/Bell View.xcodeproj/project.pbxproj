@@ -14,6 +14,7 @@
 		86512ABC21FE43990012A1D4 /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
 		86512ABD21FE43990012A1D4 /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
 		86512ABE21FE43990012A1D4 /* Schedules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67421ED8CF100BFC5FF /* Schedules.plist */; };
+		86512ABF21FE44DC0012A1D4 /* ScheduleMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */; };
 		86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86576F7C21F16A28002FD7D5 /* GradientView.swift */; };
 		865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8621E910E700831E69 /* AppDelegate.swift */; };
 		865A6F8921E910E700831E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8821E910E700831E69 /* ViewController.swift */; };
@@ -478,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86512ABF21FE44DC0012A1D4 /* ScheduleMaster.swift in Sources */,
 				861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */,
 				865A6FAE21E910E900831E69 /* NotificationController.swift in Sources */,
 				865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */,
