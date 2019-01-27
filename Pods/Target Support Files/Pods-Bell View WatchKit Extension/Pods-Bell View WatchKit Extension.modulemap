@@ -1,0 +1,6 @@
+framework module Pods_Bell_View_WatchKit_Extension {
+  umbrella header "Pods-Bell View WatchKit Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}
