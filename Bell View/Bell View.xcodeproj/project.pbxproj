@@ -11,6 +11,9 @@
 		780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */; };
 		861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
 		861DBD9F21F2D80500DBC4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */; };
+		86512ABC21FE43990012A1D4 /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
+		86512ABD21FE43990012A1D4 /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
+		86512ABE21FE43990012A1D4 /* Schedules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67421ED8CF100BFC5FF /* Schedules.plist */; };
 		86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86576F7C21F16A28002FD7D5 /* GradientView.swift */; };
 		865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8621E910E700831E69 /* AppDelegate.swift */; };
 		865A6F8921E910E700831E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6F8821E910E700831E69 /* ViewController.swift */; };
@@ -357,6 +360,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86512ABC21FE43990012A1D4 /* defaultSchedule.plist in Resources */,
+				86512ABD21FE43990012A1D4 /* specialDays.plist in Resources */,
+				86512ABE21FE43990012A1D4 /* Schedules.plist in Resources */,
 				865A6FB021E910E900831E69 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
