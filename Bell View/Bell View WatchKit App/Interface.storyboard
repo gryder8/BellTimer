@@ -19,7 +19,7 @@
                         <label width="112" alignment="center" verticalAlignment="bottom" text="00:00:00" textAlignment="center" id="BrU-SK-hUK"/>
                     </items>
                     <connections>
-                        <outlet property="periodDesc" destination="i2x-ku-ncR" id="j4s-Gq-5cq"/>
+                        <outlet property="currentPeriodDesc" destination="i2x-ku-ncR" id="GJu-CN-Tv9"/>
                         <outlet property="progressRing" destination="qF9-Nn-lZ6" id="pIW-ry-e4u"/>
                         <outlet property="timeRemaining" destination="BrU-SK-hUK" id="FRL-Ru-1H9"/>
                     </connections>
