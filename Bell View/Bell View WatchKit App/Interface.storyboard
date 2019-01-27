@@ -16,6 +16,9 @@
                     <items>
                         <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="qF9-Nn-lZ6"/>
                     </items>
+                    <connections>
+                        <outlet property="progressRing" destination="qF9-Nn-lZ6" id="pIW-ry-e4u"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
