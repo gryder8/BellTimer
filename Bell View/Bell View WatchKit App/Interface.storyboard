@@ -14,14 +14,18 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Bell_View_WatchKit_App" customModuleProvider="target">
                     <items>
+                        <label width="136" alignment="center" text="Passing to Period 5" textAlignment="center" numberOfLines="2" id="i2x-ku-ncR"/>
                         <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="qF9-Nn-lZ6"/>
+                        <label width="112" alignment="center" verticalAlignment="bottom" text="00:00:00" textAlignment="center" id="BrU-SK-hUK"/>
                     </items>
                     <connections>
+                        <outlet property="periodDesc" destination="i2x-ku-ncR" id="j4s-Gq-5cq"/>
                         <outlet property="progressRing" destination="qF9-Nn-lZ6" id="pIW-ry-e4u"/>
+                        <outlet property="timeRemaining" destination="BrU-SK-hUK" id="FRL-Ru-1H9"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="219.69230769230771" y="344.79487179487182"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

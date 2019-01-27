@@ -14,6 +14,8 @@ class InterfaceController: WKInterfaceController {
     
     //MARK: Properties
     @IBOutlet weak var progressRing: WKInterfaceImage!
+    @IBOutlet weak var periodDesc: WKInterfaceLabel!
+    @IBOutlet weak var timeRemaining: WKInterfaceLabel!
     
     private var ring:EMTLoadingIndicator?
     
@@ -30,7 +32,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func setupRing(){
-        ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 100, height: 100, style: .line)
+        ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 110, height: 110, style: .line)
         ring?.showProgress(startPercentage: 0)
         EMTLoadingIndicator.progressLineColorOuter = UIColor.blue
         EMTLoadingIndicator.progressLineColorInner = UIColor.gray
