@@ -20,7 +20,7 @@ class InterfaceController: WKInterfaceController {
     
     private var ring:EMTLoadingIndicator?
     
-    private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
+    private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main)
     
     private var timeRemainingAsInt:Int = 0
     
@@ -46,10 +46,10 @@ class InterfaceController: WKInterfaceController {
     
     @objc func refreshInterface(){
         if (isActive) {
-            generateRing()
             generateTimeRemaining()
             generatePeriodDesc()
             generateNextPeriodDesc()
+            generateRing()
         }
     }
     
