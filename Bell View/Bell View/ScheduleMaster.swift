@@ -109,25 +109,12 @@ class ScheduleMaster {
                 defaultScheduleForNextDay = defaultDay.scheduleType
             }
         }
-
+        
     }
     
     //************************************************************************************************************
     //************************************************************************************************************
     //************************************************************************************************************
-    
-    private func hoursInInterval(interval:TimeInterval) -> Int {
-        return Int(interval/3600)
-    }
-    
-    private func minutesInInterval(interval:TimeInterval) -> Int {
-        let minutes = (interval / 60).truncatingRemainder(dividingBy: 60)
-        return Int(minutes)
-    }
-    
-    private func secondsInInterval(interval: TimeInterval) -> Int {
-        return Int(interval.truncatingRemainder(dividingBy: 60))
-    }
     
     public func getScheduleType(myDate:Date) -> String {
         let now = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
@@ -139,7 +126,7 @@ class ScheduleMaster {
                 theSpecialDay = canidateSpecialDay
             }
         }
-
+        
         if (theSpecialDay == nil){
             if (now == inputDate) {
                 return defaultScheduleForToday
@@ -151,16 +138,13 @@ class ScheduleMaster {
         return (theSpecialDay?.scheduleType)!
         
     }
-
+    
     public func getFirstBellDescriptionForNextDay() -> String {
         let calendar = Calendar.current
         var forwardedDate:Date = calendar.date(byAdding: .day, value: 1, to: Date())!
         forwardedDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: forwardedDate)!
         if (specialDayDescIfApplicable(date: forwardedDate) != ""){
             return specialDayDescIfApplicable(date: forwardedDate)
-        }
-        while (getCurrentBellTimeDescription() == getNextBellTimeDescription(date: forwardedDate)){
-            forwardedDate = calendar.date(byAdding: .day, value: 1, to: forwardedDate)!
         }
         
         return getNextBellTimeDescription(date: forwardedDate)
@@ -172,7 +156,7 @@ class ScheduleMaster {
         for canidateSpecialDay in allSpecialDays! {
             if self.isDateWithininSpecialDay(specialDay: canidateSpecialDay, dateInput: date) {
                 if canidateSpecialDay.desc != nil {
-                return canidateSpecialDay.desc!
+                    return canidateSpecialDay.desc!
                 }
             }
         }
@@ -181,19 +165,14 @@ class ScheduleMaster {
     
     public func getCurrentBellTimeDescription() -> String {
         
-//        for canidateSpecialDay in allSpecialDays! {
-//            if self.isDateWithininSpecialDay(specialDay: canidateSpecialDay, dateInput: Date()) {
-//                return canidateSpecialDay.desc!
-//            }
-//        }
+
         if (specialDayDescIfApplicable(date: Date()) != ""){
             return specialDayDescIfApplicable(date: Date())
         }
         
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
-//        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime)
-
+        
         
         let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
         
@@ -213,8 +192,8 @@ class ScheduleMaster {
     public func getNextBellTimeDescription(date:Date) -> String {
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date)!
         let currentTimeAsInterval:TimeInterval = date.timeIntervalSince(baseTime)
-//        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) /***KEEP FOR TESTING***
-
+        //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) /***KEEP FOR TESTING***
+        
         
         let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: date)
         let currentBellTimes:Array = currentSchedule.bellTimes
@@ -225,7 +204,7 @@ class ScheduleMaster {
                 return bellTime.desc
             }
         }
-
+        
         return getFirstBellDescriptionForNextDay()
     }
     
@@ -233,26 +212,18 @@ class ScheduleMaster {
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
-//        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) //***KEEP FOR TESTING***
-
+        //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) //***KEEP FOR TESTING***
+        
         let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
         
         let currentBellTimes:Array = currentSchedule.bellTimes
-        
-        
         
         for bellTime in currentBellTimes {
             if bellTime.timeInterval > currentTimeAsInterval {
                 return bellTime.timeInterval - currentTimeAsInterval
             }
         }
-        var forwardedDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        while (getCurrentBellTimeDescription() == getNextBellTimeDescription(date: forwardedDate)){
-            forwardedDate = calendar.date(byAdding: .day, value: 1, to: forwardedDate)!
-        }
-
-        return forwardedDate.timeIntervalSince(Date())
-        //return endTime.timeIntervalSince(Date()) //time until end of the day
+        return endTime.timeIntervalSince(Date()) //time until end of the day
     }
     
     
@@ -268,26 +239,13 @@ class ScheduleMaster {
         var endInterval:TimeInterval = 0.0
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
-//        let endOfDay = Calendar.current.date(bySettingHour: 15, minute: 30, second: 00, of: Date())!
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
-//        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) //***KEEP FOR TESTING***
+        //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) //***KEEP FOR TESTING***
         
-        var forwardedDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: forwardedDate)
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
         
         let currentBellTimes:Array = currentSchedule.bellTimes
-        
-        while (getCurrentBellTimeDescription() == getNextBellTimeDescription(date: forwardedDate)) {
-            forwardedDate = calendar.date(byAdding: .day, value: 1, to: forwardedDate)!
-        }
-        let endOfDay = Calendar.current.date(bySettingHour: hoursInInterval(interval: (currentBellTimes.last?.timeInterval)!),
-                                             minute: minutesInInterval(interval: (currentBellTimes.last?.timeInterval)!),
-                                             second: secondsInInterval(interval: (currentBellTimes.last?.timeInterval)!), of: Date())!
-        //currentBellTimes.last?.timeInterval
-        if (forwardedDate != baseTime){
-            return forwardedDate.timeIntervalSince(endOfDay)
-        }
         
         for bellTime in currentBellTimes {
             if bellTime.timeInterval <= currentTimeAsInterval {
@@ -302,12 +260,10 @@ class ScheduleMaster {
             }
         }
         
-        
-        
         if (endInterval == 0.0){ //if the current time is greater than any of the period start times the interval will still be 0
             return endTime.timeIntervalSince(baseTime)-beginInterval
         }
-    
+        
         return endInterval-beginInterval
     }
     
@@ -344,7 +300,7 @@ class ScheduleMaster {
         let currentBellTimes:Array = currentSchedule.bellTimes
         if (currentSchedule.bellTimes.count > 1){
             for bellSchedule in currentBellTimes {
-            schedulesArray += ["\(bellSchedule.desc) - " + "\(stringFromTimeInterval(interval: bellSchedule.timeInterval, is12Hour: true, useSeconds: false))"]
+                schedulesArray += ["\(bellSchedule.desc) - " + "\(stringFromTimeInterval(interval: bellSchedule.timeInterval, is12Hour: true, useSeconds: false))"]
             }
         } else if (currentSchedule.bellTimes.count <= 1){
             if (specialDayDescIfApplicable(date: Date()) != ""){

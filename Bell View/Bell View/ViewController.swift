@@ -11,7 +11,7 @@ import WebKit
 import UICircularProgressRing
 
 class ViewController: UIViewController, WKUIDelegate {
-
+    
     private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
     
     private var timeRemainingAsInt:Int = 0
@@ -20,7 +20,7 @@ class ViewController: UIViewController, WKUIDelegate {
     
     private var isActive:Bool = true;
     
-
+    
     //MARK: Properties
     @IBOutlet weak var currentDate: UITextField!
     @IBOutlet weak var timeRemaining: UITextField!
@@ -29,15 +29,14 @@ class ViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var nextPeriodDescription: UITextField!
     @IBOutlet weak var progressRing: UICircularProgressRing!
     
-    //@IBOutlet weak var textView: UITextView!
     
     //***SETUP***
-//    self.setTimeRemaining()
-//    self.setUpCurrentDate()
-//    self.setUpCurrentPeriodDescription()
-//    self.setUpNextPeriodDescription()
-//    self.setUpScheduleType()
-//    self.setupProgressBar()
+    //    self.setTimeRemaining()
+    //    self.setUpCurrentDate()
+    //    self.setUpCurrentPeriodDescription()
+    //    self.setUpNextPeriodDescription()
+    //    self.setUpScheduleType()
+    //    self.setupProgressBar()
     
     public func setState(active:Bool){
         self.isActive = active
@@ -46,12 +45,12 @@ class ViewController: UIViewController, WKUIDelegate {
     
     @objc func refreshUI(){
         if (isActive){
-        self.setTimeRemaining()
-        self.setUpCurrentDate()
-        self.setUpCurrentPeriodDescription()
-        self.setUpNextPeriodDescription()
-        self.setUpScheduleType()
-        self.setupProgressBar()
+            self.setTimeRemaining()
+            self.setUpCurrentDate()
+            self.setUpCurrentPeriodDescription()
+            self.setUpNextPeriodDescription()
+            self.setUpScheduleType()
+            self.setupProgressBar()
         }
     }
     
@@ -82,15 +81,6 @@ class ViewController: UIViewController, WKUIDelegate {
         scheduleType.text = myMaster.getScheduleType(myDate: Date())
     }
     
-
-    //    private func stringFromTimeInterval(interval: TimeInterval, is12Hour:false) -> String {
-//        let interval = Int(interval)
-//        let seconds = interval % 60
-//        let minutes = (interval / 60) % 60
-//        let hours = (interval / 3600)
-//        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-//    }
-    
     private func setTimeRemaining(){
         timeRemaining.text = myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: true)
         timeRemainingAsInt = Int(myMaster.getTimeIntervalUntilNextEvent())
@@ -99,11 +89,8 @@ class ViewController: UIViewController, WKUIDelegate {
     private func setupProgressBar () {
         var progressPercent: Double = 0.0
         
-//        print("Time to Next: ", myMaster.getTimeIntervalUntilNextEvent())
-//        print("Period length: ", myMaster.getCurrentPeriodLengthAsTimeInterval())
-        
         progressPercent = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //Use 1-() to count the bar up
-
+        
         let ringGradient = [UIColor.white, colorForTime()]
         progressRing.gradientColors = ringGradient
         progressRing.startProgress(to: UICircularProgressRing.ProgressValue (progressPercent), duration: 0.3)
@@ -126,7 +113,6 @@ class ViewController: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         self.navigationController!.navigationBar.isHidden = true
         
-        //print(myMaster.printWholeScheduleForDay())
         refreshUI() //initialize
         
         progressRing.shouldShowValueText = false
@@ -135,13 +121,13 @@ class ViewController: UIViewController, WKUIDelegate {
         progressRing.ringStyle = .gradient
         progressRing.outerCapStyle = .butt
         progressRing.innerCapStyle = .butt
-
+        
         if (isActive){
             refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
         }
         
-       
-
+        
+        
     }
 }
 
