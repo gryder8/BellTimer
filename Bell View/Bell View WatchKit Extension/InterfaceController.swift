@@ -86,12 +86,14 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         setState(active: true)
+        refreshInterface()
         super.awake(withContext: context)
         // Configure interface objects here.
     }
     
     override func willActivate() {
         setState(active: true)
+        refreshInterface()
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
