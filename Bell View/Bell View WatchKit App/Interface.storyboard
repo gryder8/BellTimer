@@ -14,12 +14,17 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Bell_View_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" alignment="center" text="Passing to Period 5" textAlignment="center" numberOfLines="2" id="i2x-ku-ncR"/>
+                        <label width="136" alignment="center" text="Passing to Period 5" textAlignment="center" numberOfLines="2" id="i2x-ku-ncR">
+                            <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                        </label>
                         <imageView width="80" height="80" alignment="center" verticalAlignment="center" id="qF9-Nn-lZ6"/>
+                        <label width="112" alignment="center" verticalAlignment="bottom" text="00:00:00" textAlignment="center" id="BrU-SK-hUK">
+                            <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                        </label>
                         <label width="136" alignment="center" verticalAlignment="bottom" text="Next: Passing to Period 5" textAlignment="center" numberOfLines="2" id="Oc7-1r-G03">
+                            <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
-                        <label width="112" alignment="center" verticalAlignment="bottom" text="00:00:00" textAlignment="center" id="BrU-SK-hUK"/>
                     </items>
                     <connections>
                         <outlet property="currentPeriodDesc" destination="i2x-ku-ncR" id="GJu-CN-Tv9"/>
