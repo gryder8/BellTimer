@@ -58,7 +58,6 @@ class InterfaceController: WKInterfaceController {
         ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 80, height: 80, style: .line)
         EMTLoadingIndicator.progressLineWidthOuter = 3
         EMTLoadingIndicator.progressLineWidthInner = 8
-        print(EMTLoadingIndicator.progressLineWidthInner)
         EMTLoadingIndicator.progressLineColorOuter = UIColor(red:0.68, green:0.68, blue:0.68, alpha:1.0)
         EMTLoadingIndicator.progressLineColorInner = colorForTime()
         ring?.prepareImagesForProgress()
@@ -74,7 +73,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func generateTimeRemaining(){
-        timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
+        timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: true))
     }
     
     private func generatePeriodDesc(){
@@ -107,7 +106,7 @@ class InterfaceController: WKInterfaceController {
     override func didAppear() {
         refreshInterface()
         if (isActive){
-            refreshTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
+            refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
         }
     }
 
