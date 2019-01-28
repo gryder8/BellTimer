@@ -15,7 +15,7 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Bell_View_WatchKit_App" customModuleProvider="target">
                     <items>
                         <label width="136" alignment="center" text="Passing to Period 5" textAlignment="center" numberOfLines="2" id="i2x-ku-ncR"/>
-                        <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="qF9-Nn-lZ6"/>
+                        <imageView width="80" height="80" alignment="center" verticalAlignment="center" id="qF9-Nn-lZ6"/>
                         <label width="136" alignment="center" verticalAlignment="bottom" text="Next: Passing to Period 5" textAlignment="center" numberOfLines="2" id="Oc7-1r-G03">
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -29,7 +29,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="219.69230769230771" y="344.79487179487182"/>
+            <point key="canvasLocation" x="219.69230769230771" y="332.58974358974359"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -55,7 +55,7 @@ class InterfaceController: WKInterfaceController {
     
     private func generateRing(){
         if (isActive){
-        ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 110, height: 110, style: .line)
+        ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 85, height: 85, style: .line)
         EMTLoadingIndicator.progressLineWidthOuter = 3
         EMTLoadingIndicator.progressLineWidthInner = 8
         print(EMTLoadingIndicator.progressLineWidthInner)
