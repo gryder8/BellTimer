@@ -73,7 +73,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func generateTimeRemaining(){
-        timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: true))
+        timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
     }
     
     private func generatePeriodDesc(){
@@ -106,7 +106,7 @@ class InterfaceController: WKInterfaceController {
     override func didAppear() {
         refreshInterface()
         if (isActive){
-            refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
+            refreshTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
         }
     }
 
