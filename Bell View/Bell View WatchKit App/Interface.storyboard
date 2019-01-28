@@ -17,9 +17,13 @@
                         <label width="136" alignment="center" text="Passing to Period 5" textAlignment="center" numberOfLines="2" id="i2x-ku-ncR"/>
                         <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="qF9-Nn-lZ6"/>
                         <label width="112" alignment="center" verticalAlignment="bottom" text="00:00:00" textAlignment="center" id="BrU-SK-hUK"/>
+                        <label width="136" alignment="center" verticalAlignment="bottom" text="Next: Passing to Period 5" textAlignment="center" numberOfLines="2" id="Oc7-1r-G03">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="currentPeriodDesc" destination="i2x-ku-ncR" id="GJu-CN-Tv9"/>
+                        <outlet property="nextPeriodDesc" destination="Oc7-1r-G03" id="5ml-vw-1cM"/>
                         <outlet property="progressRing" destination="qF9-Nn-lZ6" id="pIW-ry-e4u"/>
                         <outlet property="timeRemaining" destination="BrU-SK-hUK" id="FRL-Ru-1H9"/>
                     </connections>

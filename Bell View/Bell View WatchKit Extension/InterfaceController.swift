@@ -16,6 +16,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var progressRing: WKInterfaceImage!
     @IBOutlet weak var timeRemaining: WKInterfaceLabel!
     @IBOutlet weak var currentPeriodDesc: WKInterfaceLabel!
+    @IBOutlet weak var nextPeriodDesc: WKInterfaceLabel!
     
     private var ring:EMTLoadingIndicator?
     
@@ -48,6 +49,7 @@ class InterfaceController: WKInterfaceController {
             generateRing()
             generateTimeRemaining()
             generatePeriodDesc()
+            generateNextPeriodDesc()
         }
     }
     
@@ -62,6 +64,12 @@ class InterfaceController: WKInterfaceController {
         ring?.prepareImagesForProgress()
         let progressPercent:Float = Float((myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())*100)
         ring?.showProgress(startPercentage: progressPercent)
+        }
+    }
+    
+    private func generateNextPeriodDesc(){
+        if (isActive){
+            nextPeriodDesc.setText("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
         }
     }
     
