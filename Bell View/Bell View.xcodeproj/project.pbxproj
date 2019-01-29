@@ -33,6 +33,7 @@
 		86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
 		86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
 		86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67421ED8CF100BFC5FF /* Schedules.plist */; };
+		E4C3A6F82200F60E009BBAC7 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3A6F72200F60E009BBAC7 /* ComplicationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.debug.xcconfig"; sourceTree = "<group>"; };
 		B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
 		CDF41DD01FFFFCD6F2CB0775 /* Pods-Bell View WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View WatchKit Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		E4C3A6F72200F60E009BBAC7 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				865A6FA921E910E900831E69 /* InterfaceController.swift */,
+				E4C3A6F72200F60E009BBAC7 /* ComplicationController.swift */,
 				865A6FAB21E910E900831E69 /* ExtensionDelegate.swift */,
 				865A6FAD21E910E900831E69 /* NotificationController.swift */,
 				865A6FAF21E910E900831E69 /* Assets.xcassets */,
@@ -481,6 +484,7 @@
 			files = (
 				86512ABF21FE44DC0012A1D4 /* ScheduleMaster.swift in Sources */,
 				861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */,
+				E4C3A6F82200F60E009BBAC7 /* ComplicationController.swift in Sources */,
 				865A6FAE21E910E900831E69 /* NotificationController.swift in Sources */,
 				865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */,
 			);
