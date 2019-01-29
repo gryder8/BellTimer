@@ -59,7 +59,7 @@ class InterfaceController: WKInterfaceController {
         EMTLoadingIndicator.progressLineWidthOuter = 3
         EMTLoadingIndicator.progressLineWidthInner = 8
         EMTLoadingIndicator.progressLineColorOuter = UIColor(red:0.68, green:0.68, blue:0.68, alpha:1.0)
-        EMTLoadingIndicator.progressLineColorInner = colorForTime()
+        EMTLoadingIndicator.progressLineColorInner = UIColor(red:0.36, green:0.69, blue:1.00, alpha:1.0)
         ring?.prepareImagesForProgress()
         let progressPercent:Float = Float((myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())*100)
         ring?.showProgress(startPercentage: progressPercent)
