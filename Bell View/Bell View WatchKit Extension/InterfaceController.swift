@@ -46,10 +46,10 @@ class InterfaceController: WKInterfaceController {
     
     @objc func refreshInterface(){
         if (isActive) {
+            generateRing()
             generateTimeRemaining()
             generatePeriodDesc()
             generateNextPeriodDesc()
-            generateRing()
         }
     }
     
