@@ -74,7 +74,7 @@ class InterfaceController: WKInterfaceController {
     
     private func generateTimeRemaining(){
         if (myMaster.getTimeIntervalUntilNextEvent() < 60){
-            timeRemaining.setText("Less than 1 minute");
+            timeRemaining.setText("> 1 minute");
         }
         timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
     }
