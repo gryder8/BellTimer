@@ -163,6 +163,21 @@ class ScheduleMaster {
         return ""
     }
     
+    public func getCurrentPeriodStartTimeInterval() -> TimeInterval {
+        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
+        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
+        let currentBellTimes:Array = currentSchedule.bellTimes
+        var currentBellTime:BellTime?
+        for bellTime in currentBellTimes {
+            if bellTime.timeInterval <= currentTimeAsInterval {
+                currentBellTime = bellTime
+            }
+        }
+        return (currentBellTime?.timeInterval)!
+        }
+    
     public func getCurrentBellTimeDescription() -> String {
         
 

@@ -43,15 +43,19 @@ class ScheduleDisplayTableViewController: UITableViewController {
         //let sched = schedules[indexPath.row]
         cell.scheduleLabel.text = schedules[indexPath.row]
         
-        if (schedules[indexPath.row].contains(myMaster.getCurrentBellTimeDescription())){
-            if (schedules[indexPath.row].contains("Passing") && myMaster.getCurrentBellTimeDescription().contains("Passing") ||
-                !schedules[indexPath.row].contains("Passing") && !myMaster.getCurrentBellTimeDescription().contains("Passing")) {
-                
-                cell.backgroundColor = UIColor(red:0.39, green:0.73, blue:0.98, alpha:1.0) //light blue
-            }
-        } 
-        // Configure the cell...
+//        if (schedules[indexPath.row].contains(myMaster.getCurrentBellTimeDescription())){
+//            if (schedules[indexPath.row].contains("Passing") && myMaster.getCurrentBellTimeDescription().contains("Passing") ||
+//                !schedules[indexPath.row].contains("Passing") && !myMaster.getCurrentBellTimeDescription().contains("Passing")) {
+//
+//                cell.backgroundColor = UIColor(red:0.39, green:0.73, blue:0.98, alpha:1.0) //light blue
+//            }
+//        }
+        if (schedules[indexPath.row].contains(myMaster.stringFromTimeInterval(interval: myMaster.getCurrentPeriodStartTimeInterval(), is12Hour: true, useSeconds: false))) {
+            cell.backgroundColor = UIColor(red:0.39, green:0.73, blue:0.98, alpha:1.0) //light blue
 
+        }
+        // Configure the cell...
+        
         return cell
     }
     
