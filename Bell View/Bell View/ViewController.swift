@@ -98,7 +98,10 @@ class ViewController: UIViewController, WKUIDelegate {
     
     private func setupProgressBar () {
         var progressPercent: Double = 0.0
-
+        
+//        print("Time to Next: ", myMaster.getTimeIntervalUntilNextEvent())
+//        print("Period length: ", myMaster.getCurrentPeriodLengthAsTimeInterval())
+        
         progressPercent = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //Use 1-() to count the bar up
 
         let ringGradient = [UIColor.white, colorForTime()]
