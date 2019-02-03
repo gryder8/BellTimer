@@ -283,7 +283,7 @@ class ScheduleMaster {
         }
         let endOfDay = Calendar.current.date(bySettingHour: hoursInInterval(interval: (currentBellTimes.last?.timeInterval)!),
                                              minute: minutesInInterval(interval: (currentBellTimes.last?.timeInterval)!),
-                                             second: secondsInInterval(interval: (currentBellTimes.last?.timeInterval)!), of: )!
+                                             second: secondsInInterval(interval: (currentBellTimes.last?.timeInterval)!), of: Date())!
         //currentBellTimes.last?.timeInterval
         if (forwardedDate != baseTime){
             return forwardedDate.timeIntervalSince(endOfDay)
