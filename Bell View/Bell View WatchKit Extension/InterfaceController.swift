@@ -69,6 +69,8 @@ class InterfaceController: WKInterfaceController {
     private func generateNextPeriodDesc(){
         if (isActive){
             nextPeriodDesc.setText("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
+            print("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
+            print("Called with Date: ", Date())
         }
     }
     
@@ -107,9 +109,10 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func didAppear() {
+        isActive = true;
         refreshInterface()
         if (isActive){
-            refreshTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
+            refreshTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
         }
     }
 
