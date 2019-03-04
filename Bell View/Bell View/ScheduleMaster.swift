@@ -285,11 +285,11 @@ class ScheduleMaster {
     private func getScheduleFor(scheduleType: String) -> Schedule {
         var resultSchedule:Schedule?
         for currentSchedule in allSchedules! {
-            if currentSchedule.scheduleType.lowercased() == scheduleType.lowercased() {
+            if currentSchedule.scheduleType == scheduleType {
                 resultSchedule = currentSchedule
             }
         }
-        return resultSchedule!
+        return resultSchedule! //FIX: Throws for Modified Block
     }
     
     public func stringFromTimeInterval(interval: TimeInterval, is12Hour: Bool, useSeconds: Bool) -> String {

@@ -70,14 +70,6 @@
 	</dict>
 	<dict>
 		<key>scheduleType</key>
-		<string>Tutorial</string>
-		<key>beginDate</key>
-		<date>2019-03-04T08:00:00Z</date>
-		<key>endDate</key>
-		<date>2019-03-08T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
 		<string>Holiday</string>
 		<key>beginDate</key>
 		<date>2019-03-18T07:00:00Z</date>
