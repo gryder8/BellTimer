@@ -215,7 +215,7 @@ class ScheduleMaster {
         
         
         for bellTime in currentBellTimes {
-            if bellTime.timeInterval > currentTimeAsInterval {
+            if bellTime.timeInterval > currentTimeAsInterval { //TODO: passing a sim Monday is returning "Free"
                 return bellTime.desc
             }
         }
@@ -223,7 +223,7 @@ class ScheduleMaster {
         return getFirstBellDescriptionForNextDay()
     }
     
-    public func getTimeIntervalUntilNextEvent() -> TimeInterval {
+    public func getTimeIntervalUntilNextEvent(isWeekend: Bool = false) -> TimeInterval { //isWeekend is a default parameter and is optionally passed
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
@@ -238,6 +238,9 @@ class ScheduleMaster {
                 return bellTime.timeInterval - currentTimeAsInterval
             }
         }
+//        if (isWeekend == true){
+//            return endTime.timeIntervalSince(Date()) + 86400; //86400 is seconds in one day (24 hrs)
+//        }
         return endTime.timeIntervalSince(Date()) //time until end of the day
     }
     

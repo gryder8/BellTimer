@@ -12,13 +12,18 @@ import UICircularProgressRing
 
 class ViewController: UIViewController, WKUIDelegate {
     
-    private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
+    private let master: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
     
     private var timeRemainingAsInt:Int = 0
     
     private var refreshTimer:Timer!
     
-    private var isActive:Bool = true;
+    private var isActive:Bool = true
+    
+    private let currentDay = Calendar.current.component(.weekday, from: Date())
+    
+    private var isSaturday = false;
+    
     
     
     //MARK: Properties
@@ -69,27 +74,42 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     private func setUpCurrentPeriodDescription(){
-        currentPeriodDescription.text = myMaster.getCurrentBellTimeDescription()
+        currentPeriodDescription.text = master.getCurrentBellTimeDescription()
         currentPeriodDescription.backgroundColor = colorForTime()
     }
     
-    private func setUpNextPeriodDescription(){
-        nextPeriodDescription.text = "Next: "+myMaster.getNextBellTimeDescription(date:Date())
+    private func setUpNextPeriodDescription(isSaturday: Bool = false){
+        
+        if (isSaturday == true){
+            let calendar = Calendar.current
+            var simulatedMonday = calendar.date(byAdding: .day, value: 2, to: Date())!
+            simulatedMonday = Calendar.current.date(bySettingHour: 0, minute: 0, second: 5, of: simulatedMonday)!
+            print(simulatedMonday)
+            nextPeriodDescription.text = "Next: "+master.getNextBellTimeDescription(date:simulatedMonday)
+            return
+        }
+        nextPeriodDescription.text = "Next: "+master.getNextBellTimeDescription(date:Date())
     }
     
     private func setUpScheduleType() {
-        scheduleType.text = myMaster.getScheduleType(myDate: Date())
+        scheduleType.text = master.getScheduleType(myDate: Date())
     }
     
     private func setTimeRemaining(){
-        timeRemaining.text = myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: true)
-        timeRemainingAsInt = Int(myMaster.getTimeIntervalUntilNextEvent())
+        if (currentDay == 7){
+            timeRemaining.text = master.stringFromTimeInterval(interval: master.getTimeIntervalUntilNextEvent(isWeekend: true), is12Hour: false, useSeconds: true)
+            timeRemainingAsInt = Int(master.getTimeIntervalUntilNextEvent(isWeekend: true))
+            setUpNextPeriodDescription(isSaturday: true)
+        } else {
+            timeRemaining.text = master.stringFromTimeInterval(interval: master.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: true)
+            timeRemainingAsInt = Int(master.getTimeIntervalUntilNextEvent())
+        }
     }
     
     private func setupProgressBar () {
         var progressPercent: Double = 0.0
         
-        progressPercent = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //Use 1-() to count the bar up
+        progressPercent = (master.getTimeIntervalUntilNextEvent()/master.getCurrentPeriodLengthAsTimeInterval()) //Use 1-() to count the bar up
         
         let ringGradient = [UIColor.white, colorForTime()]
         progressRing.gradientColors = ringGradient
@@ -97,12 +117,13 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     public func colorForTime () -> UIColor {
-        let percentRemaining  = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
-        if percentRemaining > 0.25 {
+        //let percentRemaining  = (master.getTimeIntervalUntilNextEvent()/master.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
+        let timeRemainingInterval = master.getTimeIntervalUntilNextEvent();
+        if timeRemainingInterval > 900 {
             return UIColor.green
-        } else if percentRemaining > 0.20 {
+        } else if timeRemainingInterval >= 900 {
             return UIColor.yellow
-        } else if percentRemaining > 0.10 {
+        } else if timeRemainingInterval >= 300 {
             return UIColor.orange
         }
         return UIColor.red
