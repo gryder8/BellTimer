@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bell View/Bell View/ScheduleMaster.swift"
-            timestampString = "574282852.8400559"
+            timestampString = "575155901.219749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "getNextBellTimeDescription(date:)"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "init(mainBundle:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

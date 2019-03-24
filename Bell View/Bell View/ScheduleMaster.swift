@@ -67,7 +67,8 @@ class ScheduleMaster {
     
     init (mainBundle: Bundle) {
         //Parser for Special Days
-        let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")!
+        let plistURLSpecialDays: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+        //let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")!
         
         if let data = try? Data(contentsOf: plistURLSpecialDays) {
             let decoder = PropertyListDecoder()
@@ -77,8 +78,8 @@ class ScheduleMaster {
         //*****************************************************
         
         //Bell Schedule Parser
-        
-        let pListURLBellSchedules: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")!
+        let pListURLBellSchedules: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+        //let pListURLBellSchedules: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")!
         
         if let data = try? Data(contentsOf: pListURLBellSchedules) {
             let decoder = PropertyListDecoder()
@@ -90,7 +91,8 @@ class ScheduleMaster {
         
         //Default Schedule Parser
         
-        let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
+        let plistURLDefaultDays: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+        //let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
         
         if let data = try? Data(contentsOf: plistURLDefaultDays) {
             let decoder = PropertyListDecoder()
@@ -138,6 +140,8 @@ class ScheduleMaster {
         return (theSpecialDay?.scheduleType)!
         
     }
+    
+    
     
     public func getFirstBellDescriptionForNextDay() -> String {
         let calendar = Calendar.current

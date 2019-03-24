@@ -84,11 +84,10 @@ class ViewController: UIViewController, WKUIDelegate {
             let calendar = Calendar.current
             var simulatedMonday = calendar.date(byAdding: .day, value: 2, to: Date())!
             simulatedMonday = Calendar.current.date(bySettingHour: 0, minute: 0, second: 5, of: simulatedMonday)!
-            print(simulatedMonday)
-            nextPeriodDescription.text = "Next: "+master.getNextBellTimeDescription(date:simulatedMonday)
+            nextPeriodDescription.text = "Next: " + master.getNextBellTimeDescription(date:simulatedMonday)
             return
         }
-        nextPeriodDescription.text = "Next: "+master.getNextBellTimeDescription(date:Date())
+        nextPeriodDescription.text = "Next: " + master.getNextBellTimeDescription(date:Date())
     }
     
     private func setUpScheduleType() {
