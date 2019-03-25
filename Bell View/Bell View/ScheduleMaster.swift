@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+//import Network
 //import SystemConfiguration
 
 class ScheduleMaster {
@@ -63,6 +64,7 @@ class ScheduleMaster {
     
     
     
+    
     //Struct that holds all the belltimes
     struct Schedule: Decodable {
         var scheduleType: String
@@ -71,6 +73,7 @@ class ScheduleMaster {
     
     
     init (mainBundle: Bundle) {
+        
         //*** SETUP ***
         
         //print(isConnectedToNetwork())
@@ -88,6 +91,7 @@ class ScheduleMaster {
 
         
         //Parser for Special Days
+        
         let specialDaysFileName: String = "specialDays#\(timeDiff)" //adds a specified file with a time interval for checking expiration
         let specialDaysFilePath = getCachesDirectory().appendingPathComponent(specialDaysFileName)
         deleteExpiredFiles()
@@ -103,7 +107,7 @@ class ScheduleMaster {
                 }
                 try fileManager.createFile(atPath: specialDaysFilePath.path, contents: Data(contentsOf: plistSpecialDaysURL))
             } catch {
-                print ("File writing error!")
+                print("Fatal file writing error!!")
             }
             
         } else {
@@ -114,14 +118,12 @@ class ScheduleMaster {
             }
         }
         
-        
-        
-        
-        
-        
+        //*****************************************************
+        //*****************************************************
         //*****************************************************
         
         //Bell Schedule Parser
+        
         let bellScheduleFileName: String = "Schedules#\(timeDiff)" //adds a specified file with a time interval for checking expiration
         let bellScheduleFilePath = getCachesDirectory().appendingPathComponent(bellScheduleFileName)
         deleteExpiredFiles()
@@ -137,7 +139,7 @@ class ScheduleMaster {
                 }
                 try fileManager.createFile(atPath: bellScheduleFilePath.path, contents: Data(contentsOf: pListBellSchedulesURL))
             } catch {
-                print ("File writing error!")
+                print("Fatal file writing error!!")
             }
             
         } else {
@@ -149,13 +151,11 @@ class ScheduleMaster {
         }
         
         
-        
-        
-        
+        //******************************************************
+        //******************************************************
         //******************************************************
         
         //Default Schedule Parser
-        
         
         let defaultScheduleFileName: String = "defaultSchedule#\(timeDiff)" //adds a specified file with a time interval for checking expiration
         let defaultFilePath = getCachesDirectory().appendingPathComponent(defaultScheduleFileName)
@@ -172,7 +172,7 @@ class ScheduleMaster {
                 }
                 try fileManager.createFile(atPath: defaultFilePath.path, contents: Data(contentsOf: plistDefaultDaysURL))
             } catch {
-                print ("File writing error!")
+                print("Fatal file writing error!!")
             }
             
         } else {
@@ -228,6 +228,26 @@ class ScheduleMaster {
         let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
         return paths[0]
     }
+    
+    // *** FIX MODULE ISSUES AND TEST THESE ***
+    
+//    public func isConnected() -> Bool {
+//        var isConnected:Bool = false
+//        let monitor = NWPathMonitor()
+//        monitor.pathUpdateHandler = { path in
+//            if (path.status == .satisfied) {
+//                isConnected = true
+//            } else {
+//                isConnected = false
+//            }
+//        }
+//        return isConnected
+//    }
+    
+    //************************************************************************************************************
+    //************************************************************************************************************
+    //************************************************************************************************************
+    //************************************************************************************************************
     
 //    public func isConnectedToNetwork() -> Bool { //uses SystemConfiguration
 //

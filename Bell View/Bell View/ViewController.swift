@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import WebKit
 import UICircularProgressRing
 
-class ViewController: UIViewController, WKUIDelegate {
+class ViewController: UIViewController {
     
     private let master: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
     
