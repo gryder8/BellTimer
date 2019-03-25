@@ -111,7 +111,7 @@ class ScheduleMaster {
             }
             
         } else {
-            let plistURLSpecialDays: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+            let plistURLSpecialDays: URL = searchForFileFromCache(fileName: "specialDays")!
             if let data = try? Data(contentsOf: plistURLSpecialDays) {
                 let decoder = PropertyListDecoder()
                 allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
