@@ -82,6 +82,7 @@
 		24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		86242FF222489F6A001EBA18 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		86576F7C21F16A28002FD7D5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		865A6F8321E910E700831E69 /* Bell View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bell View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A6F8621E910E700831E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		A88C78BE4AE66E535B2F1795 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86242FF222489F6A001EBA18 /* SystemConfiguration.framework */,
 				4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */,
 				24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */,
 			);
