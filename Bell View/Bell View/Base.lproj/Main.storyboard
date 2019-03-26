@@ -51,6 +51,17 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No connection. Data may be incorrect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-q0-q42">
+                                        <rect key="frame" x="21" y="263" width="330" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                        <color key="textColor" red="0.80224857233502544" green="0.0" blue="0.082299583597888443" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -137,6 +148,7 @@
                         <outlet property="currentDate" destination="Rd1-8w-7rp" id="NH0-bB-KyF"/>
                         <outlet property="currentPeriodDescription" destination="pFg-Ll-H7A" id="QjH-7u-Ix2"/>
                         <outlet property="nextPeriodDescription" destination="fBl-df-wyq" id="n15-zq-iYu"/>
+                        <outlet property="noConnection" destination="Urx-q0-q42" id="6hL-y0-bdo"/>
                         <outlet property="progressRing" destination="ScF-qL-eRc" id="KMe-zq-bBI"/>
                         <outlet property="scheduleType" destination="efa-8S-OYF" id="lMT-3E-sDO"/>
                         <outlet property="timeRemaining" destination="Wdm-YO-xpY" id="tM5-eC-Lkq"/>

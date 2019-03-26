@@ -81,7 +81,7 @@ class ScheduleMaster {
         
         //*** SETUP ***
         
-        print(isConnectedToNetwork())
+        //print(isConnectedToNetwork())
         let expirationDate = Calendar.current.date(byAdding: .hour, value: 12, to: Date())
         //let expirationDate = Calendar.current.date(byAdding: .second, value: 5, to: Date()) //DEBUG USE
         
@@ -97,11 +97,12 @@ class ScheduleMaster {
         
         //Parser for Special Days
         
+        if (isConnectedToNetwork()) {
+            
         let specialDaysFileName: String = "specialDays#\(timeDiff)" //adds a specified file with a time interval for checking expiration
         let specialDaysFilePath = getCachesDirectory().appendingPathComponent(specialDaysFileName)
         deleteExpiredFiles()
         
-        //let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
         
         if (searchForFileFromCache(fileName: "specialDays") == nil) {
             do {
@@ -122,12 +123,31 @@ class ScheduleMaster {
                 allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
             }
         }
+            
+        //no connection, so check the cache and then write from the local data if no cached file exists
+        } else {
+            if (searchForFileFromCache(fileName: "specialDays") == nil){
+            let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")!
+                if let data = try? Data(contentsOf: plistURLSpecialDays) {
+                    let decoder = PropertyListDecoder()
+                    allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+                }
+            } else {
+                let plistURLSpecialDays: URL = searchForFileFromCache(fileName: "specialDays")!
+                if let data = try? Data(contentsOf: plistURLSpecialDays) {
+                    let decoder = PropertyListDecoder()
+                    allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+                }
+            }
+        }
         
         //*****************************************************
         //*****************************************************
         //*****************************************************
         
         //Bell Schedule Parser
+        if (isConnectedToNetwork()) {
+        
         
         let bellScheduleFileName: String = "Schedules#\(timeDiff)" //adds a specified file with a time interval for checking expiration
         let bellScheduleFilePath = getCachesDirectory().appendingPathComponent(bellScheduleFileName)
@@ -146,12 +166,28 @@ class ScheduleMaster {
             } catch {
                 print("Fatal file writing error!!")
             }
-            
         } else {
             let pListBellSchedulesURL: URL = searchForFileFromCache(fileName: "Schedules")!
             if let data = try? Data(contentsOf: pListBellSchedulesURL) {
                 let decoder = PropertyListDecoder()
                 allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+            }
+        }
+            
+        //no connection, so check the cache and then write from the local data if no cached file exists
+        } else {
+            if (searchForFileFromCache(fileName: "Schedules") == nil){
+            let pListBellSchedulesURL: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")!
+                if let data = try? Data(contentsOf: pListBellSchedulesURL) {
+                    let decoder = PropertyListDecoder()
+                    allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+                }
+            } else {
+                let pListBellSchedulesURL: URL = searchForFileFromCache(fileName: "Schedules")!
+                if let data = try? Data(contentsOf: pListBellSchedulesURL) {
+                    let decoder = PropertyListDecoder()
+                    allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+                }
             }
         }
         
@@ -161,6 +197,8 @@ class ScheduleMaster {
         //******************************************************
         
         //Default Schedule Parser
+        if (isConnectedToNetwork()){
+        
         
         let defaultScheduleFileName: String = "defaultSchedule#\(timeDiff)" //adds a specified file with a time interval for checking expiration
         let defaultFilePath = getCachesDirectory().appendingPathComponent(defaultScheduleFileName)
@@ -185,6 +223,23 @@ class ScheduleMaster {
             if let data = try? Data(contentsOf: plistURLDefaultDays) {
                 let decoder = PropertyListDecoder()
                 allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+            }
+        }
+            
+        //no connection, so check the cache and then write from the local data if no cached file exists
+        } else {
+            if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
+            let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
+                if let data = try? Data(contentsOf: plistURLDefaultDays) {
+                    let decoder = PropertyListDecoder()
+                    allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+                }
+            } else {
+                let plistURLDefaultDays: URL = searchForFileFromCache(fileName: "defaultSchedule")!
+                if let data = try? Data(contentsOf: plistURLDefaultDays) {
+                    let decoder = PropertyListDecoder()
+                    allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+                }
             }
         }
         

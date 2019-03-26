@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scheduleType: UITextField!
     @IBOutlet weak var nextPeriodDescription: UITextField!
     @IBOutlet weak var progressRing: UICircularProgressRing!
+    @IBOutlet weak var noConnection: UITextField!
     
     
     //***SETUP***
@@ -55,6 +56,15 @@ class ViewController: UIViewController {
             self.setUpNextPeriodDescription()
             self.setUpScheduleType()
             self.setupProgressBar()
+        }
+    }
+    
+    private func updateConnectionStatus() {
+        let connected = master.isConnectedToNetwork()
+        if (connected){
+            noConnection.text = "";
+        } else if (!connected){
+            noConnection.text = "No connection. Data may be incorrect"
         }
     }
     
@@ -140,6 +150,7 @@ class ViewController: UIViewController {
         progressRing.ringStyle = .gradient
         progressRing.outerCapStyle = .butt
         progressRing.innerCapStyle = .butt
+        updateConnectionStatus()
         
         if (isActive){
             refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
