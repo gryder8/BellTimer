@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var myMasterView = ViewController()
     
+    private let master: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main)
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         myMasterView.setState(active: true)
@@ -35,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
+        if (master.isConnectedToNetwork()){
+            master.deleteExpiredFiles()
+            master.loadData()
+        }
         myMasterView.setState(active: true)
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }

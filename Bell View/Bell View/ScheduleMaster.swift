@@ -63,13 +63,6 @@ class ScheduleMaster {
     
     let fileManager:FileManager  = FileManager()
     
-    
-
-
-  
-    
-    
-    
     //Struct that holds all the belltimes
     struct Schedule: Decodable {
         var scheduleType: String
@@ -78,7 +71,16 @@ class ScheduleMaster {
     
     
     init (mainBundle: Bundle) {
-        
+     loadData()
+    }
+    
+    //************************************************************************************************************
+    //************************************************************************************************************
+    //************************************************************************************************************
+ 
+    
+    func loadData(){
+        let mainBundle = Bundle.main
         //*** SETUP ***
         
         //print(isConnectedToNetwork())
@@ -89,45 +91,41 @@ class ScheduleMaster {
         let timeDiff: TimeInterval = expirationDate!.timeIntervalSince(refDate)
         
         //************************************************************************************************************************
-        //************************************************************************************************************************
-        //************************************************************************************************************************
-        //************************************************************************************************************************
-        //************************************************************************************************************************
-
+        
         
         //Parser for Special Days
         
         if (isConnectedToNetwork()) {
             
-        let specialDaysFileName: String = "specialDays#\(timeDiff)" //adds a specified file with a time interval for checking expiration
-        let specialDaysFilePath = getCachesDirectory().appendingPathComponent(specialDaysFileName)
-        deleteExpiredFiles()
-        
-        
-        if (searchForFileFromCache(fileName: "specialDays") == nil) {
-            do {
-                let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
-                if let data = try? Data(contentsOf: plistSpecialDaysURL) {
+            let specialDaysFileName: String = "specialDays#\(timeDiff)" //adds a specified file with a time interval for checking expiration
+            let specialDaysFilePath = getCachesDirectory().appendingPathComponent(specialDaysFileName)
+            deleteExpiredFiles()
+            
+            
+            if (searchForFileFromCache(fileName: "specialDays") == nil) {
+                do {
+                    let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+                    if let data = try? Data(contentsOf: plistSpecialDaysURL) {
+                        let decoder = PropertyListDecoder()
+                        allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+                    }
+                    try fileManager.createFile(atPath: specialDaysFilePath.path, contents: Data(contentsOf: plistSpecialDaysURL))
+                } catch {
+                    print("Fatal file writing error!!")
+                }
+                
+            } else {
+                let plistURLSpecialDays: URL = searchForFileFromCache(fileName: "specialDays")!
+                if let data = try? Data(contentsOf: plistURLSpecialDays) {
                     let decoder = PropertyListDecoder()
                     allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
                 }
-                try fileManager.createFile(atPath: specialDaysFilePath.path, contents: Data(contentsOf: plistSpecialDaysURL))
-            } catch {
-                print("Fatal file writing error!!")
             }
             
-        } else {
-            let plistURLSpecialDays: URL = searchForFileFromCache(fileName: "specialDays")!
-            if let data = try? Data(contentsOf: plistURLSpecialDays) {
-                let decoder = PropertyListDecoder()
-                allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
-            }
-        }
-            
-        //no connection, so check the cache and then write from the local data if no cached file exists
+            //no connection, so check the cache and then write from the local data if no cached file exists
         } else {
             if (searchForFileFromCache(fileName: "specialDays") == nil){
-            let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")!
+                let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")!
                 if let data = try? Data(contentsOf: plistURLSpecialDays) {
                     let decoder = PropertyListDecoder()
                     allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
@@ -147,37 +145,37 @@ class ScheduleMaster {
         
         //Bell Schedule Parser
         if (isConnectedToNetwork()) {
-        
-        
-        let bellScheduleFileName: String = "Schedules#\(timeDiff)" //adds a specified file with a time interval for checking expiration
-        let bellScheduleFilePath = getCachesDirectory().appendingPathComponent(bellScheduleFileName)
-        deleteExpiredFiles()
-        
-        //let pListURLBellSchedules: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
-        
-        if (searchForFileFromCache(fileName: "Schedules") == nil) {
-            do {
-                let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+            
+            
+            let bellScheduleFileName: String = "Schedules#\(timeDiff)" //adds a specified file with a time interval for checking expiration
+            let bellScheduleFilePath = getCachesDirectory().appendingPathComponent(bellScheduleFileName)
+            deleteExpiredFiles()
+            
+            //let pListURLBellSchedules: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
+            
+            if (searchForFileFromCache(fileName: "Schedules") == nil) {
+                do {
+                    let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+                    if let data = try? Data(contentsOf: pListBellSchedulesURL) {
+                        let decoder = PropertyListDecoder()
+                        allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+                    }
+                    try fileManager.createFile(atPath: bellScheduleFilePath.path, contents: Data(contentsOf: pListBellSchedulesURL))
+                } catch {
+                    print("Fatal file writing error!!")
+                }
+            } else {
+                let pListBellSchedulesURL: URL = searchForFileFromCache(fileName: "Schedules")!
                 if let data = try? Data(contentsOf: pListBellSchedulesURL) {
                     let decoder = PropertyListDecoder()
                     allSchedules = try! decoder.decode(BellSchedules.self, from:data)
                 }
-                try fileManager.createFile(atPath: bellScheduleFilePath.path, contents: Data(contentsOf: pListBellSchedulesURL))
-            } catch {
-                print("Fatal file writing error!!")
             }
-        } else {
-            let pListBellSchedulesURL: URL = searchForFileFromCache(fileName: "Schedules")!
-            if let data = try? Data(contentsOf: pListBellSchedulesURL) {
-                let decoder = PropertyListDecoder()
-                allSchedules = try! decoder.decode(BellSchedules.self, from:data)
-            }
-        }
             
-        //no connection, so check the cache and then write from the local data if no cached file exists
+            //no connection, so check the cache and then write from the local data if no cached file exists
         } else {
             if (searchForFileFromCache(fileName: "Schedules") == nil){
-            let pListBellSchedulesURL: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")!
+                let pListBellSchedulesURL: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")!
                 if let data = try? Data(contentsOf: pListBellSchedulesURL) {
                     let decoder = PropertyListDecoder()
                     allSchedules = try! decoder.decode(BellSchedules.self, from:data)
@@ -198,38 +196,38 @@ class ScheduleMaster {
         
         //Default Schedule Parser
         if (isConnectedToNetwork()){
-        
-        
-        let defaultScheduleFileName: String = "defaultSchedule#\(timeDiff)" //adds a specified file with a time interval for checking expiration
-        let defaultFilePath = getCachesDirectory().appendingPathComponent(defaultScheduleFileName)
-        deleteExpiredFiles()
-        
-        //let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
-        
-        if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
-            do {
-                let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")! //TODO: Handle no internet
-                if let data = try? Data(contentsOf: plistDefaultDaysURL) {
+            
+            
+            let defaultScheduleFileName: String = "defaultSchedule#\(timeDiff)" //adds a specified file with a time interval for checking expiration
+            let defaultFilePath = getCachesDirectory().appendingPathComponent(defaultScheduleFileName)
+            deleteExpiredFiles()
+            
+            //let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
+            
+            if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
+                do {
+                    let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")! //TODO: Handle no internet
+                    if let data = try? Data(contentsOf: plistDefaultDaysURL) {
+                        let decoder = PropertyListDecoder()
+                        allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+                    }
+                    try fileManager.createFile(atPath: defaultFilePath.path, contents: Data(contentsOf: plistDefaultDaysURL))
+                } catch {
+                    print("Fatal file writing error!!")
+                }
+                
+            } else {
+                let plistURLDefaultDays: URL = searchForFileFromCache(fileName: "defaultSchedule")!
+                if let data = try? Data(contentsOf: plistURLDefaultDays) {
                     let decoder = PropertyListDecoder()
                     allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
                 }
-                try fileManager.createFile(atPath: defaultFilePath.path, contents: Data(contentsOf: plistDefaultDaysURL))
-            } catch {
-                print("Fatal file writing error!!")
             }
             
-        } else {
-            let plistURLDefaultDays: URL = searchForFileFromCache(fileName: "defaultSchedule")!
-            if let data = try? Data(contentsOf: plistURLDefaultDays) {
-                let decoder = PropertyListDecoder()
-                allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
-            }
-        }
-            
-        //no connection, so check the cache and then write from the local data if no cached file exists
+            //no connection, so check the cache and then write from the local data if no cached file exists
         } else {
             if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
-            let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
+                let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
                 if let data = try? Data(contentsOf: plistURLDefaultDays) {
                     let decoder = PropertyListDecoder()
                     allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
@@ -261,15 +259,12 @@ class ScheduleMaster {
         
     }
     
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
+    //************************************************************************************************************************
+    //************************************************************************************************************************
+    //************************************************************************************************************************
+    //************************************************************************************************************************
+    //************************************************************************************************************************
+
     
     public func isConnectedToNetwork() -> Bool { //uses SystemConfiguration
         
@@ -372,7 +367,7 @@ class ScheduleMaster {
         return nil
     }
     
-    private func deleteExpiredFiles(){
+    func deleteExpiredFiles(){
         let cacheDirectory:URL = getCachesDirectory()
         var contentsOfCache: [URL] = []
         do {
