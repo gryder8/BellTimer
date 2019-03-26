@@ -69,8 +69,8 @@ class InterfaceController: WKInterfaceController {
     private func generateNextPeriodDesc(){
         if (isActive){
             nextPeriodDesc.setText("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
-            print("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
-            print("Called with Date: ", Date())
+//            print("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
+//            print("Called with Date: ", Date())
         }
     }
     
