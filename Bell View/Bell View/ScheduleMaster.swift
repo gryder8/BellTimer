@@ -86,7 +86,7 @@ class ScheduleMaster {
         let expirationDate = Calendar.current.date(byAdding: .hour, value: 12, to: Date())
         //let expirationDate = Calendar.current.date(byAdding: .second, value: 5, to: Date()) //DEBUG USE
         
-        let refDate:Date = referenceDate()
+        let refDate:Date = referenceDate() //Y2K
         let timeDiff: TimeInterval = expirationDate!.timeIntervalSince(refDate)
         
         //************************************************************************************************************************
