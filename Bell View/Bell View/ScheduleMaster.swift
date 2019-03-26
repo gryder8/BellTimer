@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-//import Network
 #if os(iOS)
 import SystemConfiguration
 #endif
@@ -324,27 +323,6 @@ class ScheduleMaster {
         let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
-    // *** FIX MODULE ISSUES AND TEST THESE ***
-    
-//    public func isConnected() -> Bool {
-//        var isConnected:Bool = false
-//        let monitor = NWPathMonitor()
-//        monitor.pathUpdateHandler = { path in
-//            if (path.status == .satisfied) {
-//                isConnected = true
-//            } else {
-//                isConnected = false
-//            }
-//        }
-//        return isConnected
-//    }
-    
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
-    
     
     private func searchForFileFromCache (fileName: String) -> URL? {
         let cacheDirectory:URL = getCachesDirectory()

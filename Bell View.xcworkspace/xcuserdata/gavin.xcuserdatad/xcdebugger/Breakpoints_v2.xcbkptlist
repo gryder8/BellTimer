@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bell View/Bell View/ScheduleMaster.swift"
-            timestampString = "575270376.419901"
+            timestampString = "575273125.573313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "391"
             endingLineNumber = "391"
-            landmarkName = "deleteExpiredFiles()"
+            landmarkName = "getScheduleType(myDate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
