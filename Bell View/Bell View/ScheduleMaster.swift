@@ -80,6 +80,7 @@ class ScheduleMaster {
     
     func loadData(){
         let mainBundle = Bundle.main
+        
         //*** SETUP ***
         
         //print(isConnectedToNetwork())
