@@ -35,14 +35,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var noConnection: UITextField!
     
     
-    //***SETUP***
-    //    self.setTimeRemaining()
-    //    self.setUpCurrentDate()
-    //    self.setUpCurrentPeriodDescription()
-    //    self.setUpNextPeriodDescription()
-    //    self.setUpScheduleType()
-    //    self.setupProgressBar()
-    
     public func setState(active:Bool){
         self.isActive = active
     }
@@ -129,7 +121,7 @@ class ViewController: UIViewController {
         let timeRemainingInterval = master.getTimeIntervalUntilNextEvent();
         if timeRemainingInterval > 900 {
             return UIColor.green
-        } else if timeRemainingInterval >= 900 {
+        } else if timeRemainingInterval >= 600 {
             return UIColor.yellow
         } else if timeRemainingInterval >= 300 {
             return UIColor.orange

@@ -95,7 +95,7 @@ class ScheduleMaster {
         //Parser for Special Days
         
         if (isConnectedToNetwork()) {
-            
+            //print(Date().timeIntervalSince(referenceDate()))
             let specialDaysFileName: String = "specialDays#\(timeDiff)" //adds a specified file with a time interval for checking expiration
             let specialDaysFilePath = getCachesDirectory().appendingPathComponent(specialDaysFileName)
             deleteExpiredFiles()
@@ -150,7 +150,6 @@ class ScheduleMaster {
             let bellScheduleFilePath = getCachesDirectory().appendingPathComponent(bellScheduleFileName)
             deleteExpiredFiles()
             
-            //let pListURLBellSchedules: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
             
             if (searchForFileFromCache(fileName: "Schedules") == nil) {
                 do {
@@ -201,8 +200,6 @@ class ScheduleMaster {
             let defaultFilePath = getCachesDirectory().appendingPathComponent(defaultScheduleFileName)
             deleteExpiredFiles()
             
-            //let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")! //DEFAULT (DO NOT REMOVE)
-            
             if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
                 do {
                     let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")! //TODO: Handle no internet
@@ -239,8 +236,6 @@ class ScheduleMaster {
                 }
             }
         }
-        
-        
         
         
         let today = Calendar.current.component(.weekday, from:Date())
@@ -314,7 +309,6 @@ class ScheduleMaster {
         var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Y2K)
         component.year = 2000
         Y2K = Calendar.current.date(from: component)!
-//        myBirthday = Calendar.current.date(bySetting: .year, value: 2002, of: myBirthday)!
         return Y2K;
     }
     
@@ -349,20 +343,16 @@ class ScheduleMaster {
         let cacheDirectory:URL = getCachesDirectory()
         var contentsOfCache: [URL] = []
         do {
-            contentsOfCache = try fileManager.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: nil, options: [.skipsSubdirectoryDescendants, .skipsHiddenFiles, .skipsPackageDescendants])
+            contentsOfCache = try fileManager.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: nil, options: [.skipsSubdirectoryDescendants, .skipsPackageDescendants])
         } catch {
             print("Cache directory listing failed!")
         }
         
         for currentURL in contentsOfCache {
             let timeValue:String? = String(currentURL.lastPathComponent.split(separator: "#").last ?? "")
-            //print(timeValue)
-            //print(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: timeValue!)))
             let firstHalf: String? = String(timeValue!.split(separator: ".").first ?? "")
-            //print(firstHalf)
             if (CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: firstHalf!))) {
-                let expireInterval: TimeInterval = Double(timeValue!)! //TODO: Brittle code!!!! (possibly change to int)
-                //print(expireInterval)
+                let expireInterval: TimeInterval = Double(timeValue!)! //TODO: Brittle code!!!!
                 let expireDate: Date  = Date(timeInterval: expireInterval, since: referenceDate())
                 if (Date().timeIntervalSince(expireDate) > 0){
                     do {
@@ -503,9 +493,6 @@ class ScheduleMaster {
                 return bellTime.timeInterval - currentTimeAsInterval
             }
         }
-//        if (isWeekend == true){
-//            return endTime.timeIntervalSince(Date()) + 86400; //86400 is seconds in one day (24 hrs)
-//        }
         return endTime.timeIntervalSince(Date()) //time until end of the day
     }
     
@@ -557,7 +544,7 @@ class ScheduleMaster {
                 resultSchedule = currentSchedule
             }
         }
-        return resultSchedule! //FIX: Throws for Modified Block
+        return resultSchedule!
     }
     
     public func stringFromTimeInterval(interval: TimeInterval, is12Hour: Bool, useSeconds: Bool) -> String {
