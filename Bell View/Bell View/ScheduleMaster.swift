@@ -316,6 +316,7 @@ class ScheduleMaster {
     
     private func getCachesDirectory() -> URL {
         let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+        //print (paths[0]) //DEBUG TO GET PATHS
         return paths[0]
     }
     
