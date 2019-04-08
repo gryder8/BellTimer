@@ -12,10 +12,53 @@ import Foundation
 import SystemConfiguration
 #endif
 
+extension URLResponse {
+    var serverEtag: String? {
+        get {
+            if let httpResp = self as? HTTPURLResponse, let etag = httpResp.allHeaderFields["Etag"] as? String {
+                return etag
+            }
+            return nil
+        }
+    }
+    
+    var contentLength: Int? {
+        get {
+            if let httpResp = self as? HTTPURLResponse, let contentLen = httpResp.allHeaderFields["Content-Length"] as? Int{
+                return contentLen
+            }
+            return nil
+        }
+    }
+}
+
 class ScheduleMaster {
+    
+/*
+    ***ISSUES***
+     -File manager cannot find file even when it exsists
+     -
+*/
+    
+    
+    private var loadStatesDict: [URL:Bool] = Dictionary(minimumCapacity: 3) //empty
     
     private var defaultScheduleForToday:String = ""
     private var defaultScheduleForNextDay:String = ""
+    
+    func setDefaultSchedule(){
+        let today = Calendar.current.component(.weekday, from:Date())
+        let nextDayDateHolder = calendar.date(byAdding: .day, value: 1, to: Date())!
+        let nextDay = Calendar.current.component(.weekday, from:nextDayDateHolder)
+        for defaultDay in allDefaultDays! {
+            if defaultDay.dayOfWeek.rawValue == today {
+                defaultScheduleForToday = defaultDay.scheduleType
+            }
+            if defaultDay.dayOfWeek.rawValue == nextDay {
+                defaultScheduleForNextDay = defaultDay.scheduleType
+            }
+        }
+    }
     
     enum weekDay: Int, Decodable {
         case sunday = 1
@@ -60,6 +103,12 @@ class ScheduleMaster {
     
     var allDefaultDays: AllDefaultDays?
     
+    var isConnected:Bool = false
+    
+    var readyToContinueTimer:Timer = Timer()
+    
+    var doneLoading = false
+    
     let fileManager:FileManager  = FileManager()
     
     //Struct that holds all the belltimes
@@ -68,190 +117,321 @@ class ScheduleMaster {
         let bellTimes: [BellTime]
     }
     
-    
-    init (mainBundle: Bundle) {
-     loadData()
+    func canContinue() -> Bool {
+        for val in loadStatesDict.values{
+            if (val == false){
+                return false;
+            }
+        }
+        return true;
     }
     
-    //************************************************************************************************************
-    //************************************************************************************************************
-    //************************************************************************************************************
- 
     
-    func loadData(){
-        let mainBundle = Bundle.main
+    static let shared = ScheduleMaster() //SINGLETON
+    
+    private init () { //INITIALIZER
+        loadFromServerIfNeeded()
+        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+        let plistBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+        //let plistBellSchedulesURL: URL = URL(string: "http://192.168.7.43/Schedules.plist")!
+        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!//
+        initDict()
+        startLoad(urlToLoad: plistSpecialDaysURL)
+        startLoad(urlToLoad: plistBellSchedulesURL)
+        startLoad(urlToLoad: plistDefaultDaysURL)
         
-        //*** SETUP ***
+        //****************************************************************************************************
         
-        //print(isConnectedToNetwork())
+        //Schedule Timer to check if the above network operations are done
+        readyToContinueTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(readyToContinueTimerTriggered), userInfo: nil, repeats: true)
+        
+    }
+    
+    
+    //New Method that's called byh the timer (takes the timer as an argument passed into it)
+    @objc func readyToContinueTimerTriggered () {
+        if (self.canContinue()) {
+            self.readyToContinueTimer.invalidate()
+            loadAllData()
+        } else {
+            return
+        }
+    }
+
+
+    //************************************************************************************************************
+    //************************************************************************************************************
+    //************************************************************************************************************
+    
+    func initDict() {
+        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+        let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+        //let pListBellSchedulesURL: URL = URL(string: "http://192.168.7.43/Schedules.plist")!
+        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+
+        loadStatesDict.updateValue(false, forKey: plistSpecialDaysURL)
+        loadStatesDict.updateValue(false, forKey: pListBellSchedulesURL)
+        loadStatesDict.updateValue(false, forKey: plistDefaultDaysURL)
+        
+    }
+    
+    func readEtagFromPrefs(urlAbsString: String) -> String {
+        let defaults = UserDefaults.standard
+        
+        if (defaults.string(forKey: urlAbsString) != nil) {
+            
+            //print("E-tag returned:" + defaults.string(forKey: urlAbsString)!)
+            return defaults.string(forKey: urlAbsString)!
+        }
+        return "no-etag-exists"
+    }
+    
+    func clearEtags(){
+        let defaults = UserDefaults.standard
+        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+        let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+        
+        defaults.removeObject(forKey: plistSpecialDaysURL.absoluteString)
+        defaults.removeObject(forKey: pListBellSchedulesURL.absoluteString)
+        defaults.removeObject(forKey: plistDefaultDaysURL.absoluteString)
+    }
+    
+    func loadFromServerIfNeeded(){
+        let defaults = UserDefaults.standard
         let expirationDate = Calendar.current.date(byAdding: .hour, value: 12, to: Date())
-        //let expirationDate = Calendar.current.date(byAdding: .second, value: 5, to: Date()) //DEBUG USE
+        if (defaults.object(forKey: "expirationDate") == nil){
+            clearEtags()
+            defaults.set(expirationDate, forKey: "expirationDate")
+            print("Found no expiration date")
+            
+        } else if (Date() > defaults.object(forKey: "expirationDate") as! Date){
+            clearEtags()
+            defaults.set(expirationDate, forKey: "expirationDate")
+            print("Passed expiration date")
+        } else {
         
-        let refDate:Date = referenceDate() //Y2K
-        let timeDiff: TimeInterval = expirationDate!.timeIntervalSince(refDate)
+        if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "Schedules").path) == false){
+            
+            self.clearEtags()
+            //print(getCacheURLToFile(fileName: "Schedules"))
+            print(getCacheURLToFile(fileName: "Schedules").path)
+            print("Schedules file didn't exist")
+        }
+        else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "specialDays").path) == false){
+            self.clearEtags()
+            print("specialDays file didn't exist")
+        }
+        else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "defaultSchedule").path) == false){
+            self.clearEtags()
+            print("defaultSchedule file didn't exist")
+        }
+    }
+}
+    
+    
+    func startLoad(urlToLoad: URL){ //FIX: 304 IS NEVER RETURNED
+        // let fileNameFromLoadURL:String = urlToLoad.deletingPathExtension().lastPathComponent
+
+        isConnected = isConnectedToNetwork()
+
+        var request = URLRequest(url: urlToLoad)
+        
+        //print(urlToLoad.absoluteString)
+        
+        let etagOfObjOnServer:String = readEtagFromPrefs(urlAbsString: urlToLoad.absoluteString)
+        
+        //print("E-tag returned:" + etagOfObjOnServer)
+
+        //request.setValue("dogisgreat", forHTTPHeaderField: "If-None-Match")
+        request.setValue(etagOfObjOnServer, forHTTPHeaderField: "If-None-Match")
+        
+        //print("URL:", urlToLoad.absoluteString)
+        //print("Request value:", request.value(forHTTPHeaderField: "If-None-Match"))
+        
+        print("*********************************************")
+        let myURLSessionConfig = URLSessionConfiguration.ephemeral
+        myURLSessionConfig.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        let myURLSession = URLSession.init(configuration: myURLSessionConfig)
+        
+        let task = myURLSession.dataTask(with: request) { data, response, error in
+            
+            //print ("...Task Executed")
+            
+            if error != nil {
+                
+                DispatchQueue.main.sync {
+                    self.isConnected = false
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
+                    self.loadDataFor(url: urlToLoad)
+                }
+                return
+            }
+            
+            let httpResponse = response as! HTTPURLResponse
+            let status = httpResponse.statusCode
+            
+            //print(request.description)
+            //print(request.allHTTPHeaderFields)
+            
+            print ("HTTP Status Code From Server:\(status)")
+            
+            //print("Length", httpResponse.contentLength)
+            
+            if (200...299).contains(status) {
+                
+                
+                //print("Data from", urlToLoad.absoluteString)
+                 print ("Downloaded Data With Status:\(status)")
+                DispatchQueue.main.async {
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
+                    self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
+                }
+            }
+            
+            if status == 304 {
+                print ("Got 304 - Not Modified")
+                //let plistURL: URL = self.searchForFileFromCache(fileName: fileNameFromLoadURL)!
+                DispatchQueue.main.sync {
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
+                    self.loadDataFor(url: urlToLoad)
+                }
+                //self.readLocalDataFor(plistURL: plistURL, fileNameFromURL: fileNameFromLoadURL)
+
+                return
+            }
+            
+            if (400...499).contains(status) || (500...599).contains(status) {
+                
+                DispatchQueue.main.sync {
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
+                    //self.isConnected = false;
+                    self.loadDataFor(url: urlToLoad)
+                }
+                return
+            }
+            
+            //print ("The e-Tag is:\(httpResponse.serverEtag!)")
+            print("*********************************************")
+
+            
+//            DispatchQueue.main.async {
+//                self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
+//            }
+        }
+        task.resume()
+        //print ("Task Executing...")
+    }
+    
+    func finishLoad(data: Data, urlForParse: URL, Etag:String?){ //writes data to cache when getting new data
+        let defaults = UserDefaults.standard
+
+        let fileNamePlain:String = urlForParse.deletingPathExtension().lastPathComponent
+        var filePath = getCachesDirectory().appendingPathComponent(fileNamePlain)
+        filePath = filePath.appendingPathExtension("plist")
+
+        
+        let decoder = PropertyListDecoder()
+        switch (fileNamePlain){ //assign each file name to correct structures
+        case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+            break
+            
+        case "defaultSchedule": allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+                setDefaultSchedule()
+            break
+            
+        default : allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+            break
+        }
+        
+        if (Etag != nil){
+            defaults.set(Etag, forKey: urlForParse.absoluteString)
+        }
+        fileManager.createFile(atPath: filePath.path, contents: data)
+    }
+    
+    
+    func readLocalDataFor (plistURL: URL, fileNameFromURL:String){
+        if let data = try? Data(contentsOf: plistURL) {
+            let decoder = PropertyListDecoder()
+            switch (fileNameFromURL){ //assign each file name to correct structures
+            case "specialDays": self.allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+                break
+                
+            case "defaultSchedule": self.allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+            self.setDefaultSchedule()
+                break //BREAK HERE
+                
+            default : self.allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+                break
+            }
+        }
+    }
+    
+
+    
+    
+    
+    //************************************************************************************************************
+    //************************************************************************************************************
+    //************************************************************************************************************
+    
+    func loadAllData(){
+        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
+        let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
+        //let pListBellSchedulesURL: URL = URL(string: "http://192.168.7.43/Schedules.plist")!
+        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+        
+        loadDataFor(url: plistSpecialDaysURL)
+        loadDataFor(url: pListBellSchedulesURL)
+        loadDataFor(url: plistDefaultDaysURL)
+        
+        doneLoading = true
+}
+    
+    func loadDataFor(url:URL){
+        let mainBundle = Bundle.main
         
         //************************************************************************************************************************
         
+        let fileNameFromKey:String = url.deletingPathExtension().lastPathComponent
+        let pathToFileInCache:URL = self.getCacheURLToFile(fileName: fileNameFromKey)
         
-        //Parser for Special Days
-        
-        if (isConnectedToNetwork()) {
-            //print(Date().timeIntervalSince(referenceDate()))
-            let specialDaysFileName: String = "specialDays#\(timeDiff)" //adds a specified file with a time interval for checking expiration
-            let specialDaysFilePath = getCachesDirectory().appendingPathComponent(specialDaysFileName)
-            deleteExpiredFiles()
-            
-            
-            if (searchForFileFromCache(fileName: "specialDays") == nil) {
-                do {
-                    let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
-                    if let data = try? Data(contentsOf: plistSpecialDaysURL) {
-                        let decoder = PropertyListDecoder()
-                        allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
-                    }
-                    try fileManager.createFile(atPath: specialDaysFilePath.path, contents: Data(contentsOf: plistSpecialDaysURL))
-                } catch {
-                    print("Fatal file writing error!!")
-                }
+        if let data = try? Data(contentsOf: pathToFileInCache) {
+            let decoder = PropertyListDecoder()
+            switch (fileNameFromKey){ //assign each file name to correct structures
+            case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+                break
                 
-            } else {
-                let plistURLSpecialDays: URL = searchForFileFromCache(fileName: "specialDays")!
-                if let data = try? Data(contentsOf: plistURLSpecialDays) {
-                    let decoder = PropertyListDecoder()
-                    allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
-                }
-            }
-            
-            //no connection, so check the cache and then write from the local data if no cached file exists
-        } else {
-            if (searchForFileFromCache(fileName: "specialDays") == nil){
-                let plistURLSpecialDays: URL = mainBundle.url(forResource:"specialDays", withExtension:"plist")!
-                if let data = try? Data(contentsOf: plistURLSpecialDays) {
-                    let decoder = PropertyListDecoder()
-                    allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
-                }
-            } else {
-                let plistURLSpecialDays: URL = searchForFileFromCache(fileName: "specialDays")!
-                if let data = try? Data(contentsOf: plistURLSpecialDays) {
-                    let decoder = PropertyListDecoder()
-                    allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
-                }
-            }
-        }
-        
-        //*****************************************************
-        //*****************************************************
-        //*****************************************************
-        
-        //Bell Schedule Parser
-        if (isConnectedToNetwork()) {
-            
-            
-            let bellScheduleFileName: String = "Schedules#\(timeDiff)" //adds a specified file with a time interval for checking expiration
-            let bellScheduleFilePath = getCachesDirectory().appendingPathComponent(bellScheduleFileName)
-            deleteExpiredFiles()
-            
-            
-            if (searchForFileFromCache(fileName: "Schedules") == nil) {
-                do {
-                    let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-                    if let data = try? Data(contentsOf: pListBellSchedulesURL) {
-                        let decoder = PropertyListDecoder()
-                        allSchedules = try! decoder.decode(BellSchedules.self, from:data)
-                    }
-                    try fileManager.createFile(atPath: bellScheduleFilePath.path, contents: Data(contentsOf: pListBellSchedulesURL))
-                } catch {
-                    print("Fatal file writing error!!")
-                }
-            } else {
-                let pListBellSchedulesURL: URL = searchForFileFromCache(fileName: "Schedules")!
-                if let data = try? Data(contentsOf: pListBellSchedulesURL) {
-                    let decoder = PropertyListDecoder()
-                    allSchedules = try! decoder.decode(BellSchedules.self, from:data)
-                }
-            }
-            
-            //no connection, so check the cache and then write from the local data if no cached file exists
-        } else {
-            if (searchForFileFromCache(fileName: "Schedules") == nil){
-                let pListBellSchedulesURL: URL = mainBundle.url(forResource:"Schedules", withExtension:"plist")!
-                if let data = try? Data(contentsOf: pListBellSchedulesURL) {
-                    let decoder = PropertyListDecoder()
-                    allSchedules = try! decoder.decode(BellSchedules.self, from:data)
-                }
-            } else {
-                let pListBellSchedulesURL: URL = searchForFileFromCache(fileName: "Schedules")!
-                if let data = try? Data(contentsOf: pListBellSchedulesURL) {
-                    let decoder = PropertyListDecoder()
-                    allSchedules = try! decoder.decode(BellSchedules.self, from:data)
-                }
-            }
-        }
-        
-        
-        //******************************************************
-        //******************************************************
-        //******************************************************
-        
-        //Default Schedule Parser
-        if (isConnectedToNetwork()){
-            
-            
-            let defaultScheduleFileName: String = "defaultSchedule#\(timeDiff)" //adds a specified file with a time interval for checking expiration
-            let defaultFilePath = getCachesDirectory().appendingPathComponent(defaultScheduleFileName)
-            deleteExpiredFiles()
-            
-            if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
-                do {
-                    let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")! //TODO: Handle no internet
-                    if let data = try? Data(contentsOf: plistDefaultDaysURL) {
-                        let decoder = PropertyListDecoder()
-                        allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
-                    }
-                    try fileManager.createFile(atPath: defaultFilePath.path, contents: Data(contentsOf: plistDefaultDaysURL))
-                } catch {
-                    print("Fatal file writing error!!")
-                }
+            case "defaultSchedule": allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+                self.setDefaultSchedule()
+                break
                 
-            } else {
-                let plistURLDefaultDays: URL = searchForFileFromCache(fileName: "defaultSchedule")!
-                if let data = try? Data(contentsOf: plistURLDefaultDays) {
-                    let decoder = PropertyListDecoder()
-                    allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
-                }
+            default : allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+                break
             }
             
-            //no connection, so check the cache and then write from the local data if no cached file exists
+            return
+        }
+        
+        let localURL: URL = mainBundle.url(forResource:fileNameFromKey, withExtension:"plist")!
+        
+        if let data = try? Data(contentsOf: localURL) {
+            let decoder = PropertyListDecoder()
+            switch (fileNameFromKey){ //assign each file name to correct structures
+            case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+                break
+                
+            case "defaultSchedule": allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+                self.setDefaultSchedule()
+                break
+                
+            default : allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+                break
+            }
         } else {
-            if (searchForFileFromCache(fileName: "defaultSchedule") == nil) {
-                let plistURLDefaultDays: URL = mainBundle.url(forResource:"defaultSchedule", withExtension:"plist")!
-                if let data = try? Data(contentsOf: plistURLDefaultDays) {
-                    let decoder = PropertyListDecoder()
-                    allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
-                }
-            } else {
-                let plistURLDefaultDays: URL = searchForFileFromCache(fileName: "defaultSchedule")!
-                if let data = try? Data(contentsOf: plistURLDefaultDays) {
-                    let decoder = PropertyListDecoder()
-                    allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
-                }
-            }
+            fatalError("Something VERY VERY bad happend and we were unable to load anything from cache or bundle")
         }
-        
-        
-        let today = Calendar.current.component(.weekday, from:Date())
-        let nextDayDateHolder = calendar.date(byAdding: .day, value: 1, to: Date())!
-        let nextDay = Calendar.current.component(.weekday, from:nextDayDateHolder)
-        
-        for defaultDay in allDefaultDays! {
-            if defaultDay.dayOfWeek.rawValue == today {
-                defaultScheduleForToday = defaultDay.scheduleType
-            }
-            if defaultDay.dayOfWeek.rawValue == nextDay {
-                defaultScheduleForNextDay = defaultDay.scheduleType
-            }
-        }
-        
     }
     
     //************************************************************************************************************************
@@ -283,14 +463,6 @@ class ScheduleMaster {
             return false
         }
         
-        /* Only Working for WIFI
-         let isReachable = flags == .reachable
-         let needsConnection = flags == .connectionRequired
-         
-         return isReachable && !needsConnection
-         */
-        
-        // Working for Cellular and WIFI
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         ret = (isReachable && !needsConnection)
@@ -320,26 +492,14 @@ class ScheduleMaster {
         return paths[0]
     }
     
-    private func searchForFileFromCache (fileName: String) -> URL? {
-        let cacheDirectory:URL = getCachesDirectory()
-        var contentsOfCache: [URL] = []
-        do {
-            contentsOfCache = try fileManager.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: nil, options: [.skipsSubdirectoryDescendants, .skipsHiddenFiles])
-        } catch {
-            print("Cache directory listing failed!")
-        }
+    private func getCacheURLToFile (fileName:String) -> URL {
+        var targetFile:URL = getCachesDirectory()
+        targetFile.appendPathComponent(fileName)
+        targetFile.appendPathExtension("plist")
         
-        for currentURL in contentsOfCache {
-            let nameInCache:String? = String(currentURL.lastPathComponent.split(separator: "#").first ?? "")
-            if (nameInCache == ""){
-                print ("Bad description value!")
-            }
-            if (fileName == nameInCache){
-                return currentURL;
-            }
-        }
-        return nil
+        return targetFile
     }
+    
     
     func deleteExpiredFiles(){
         let cacheDirectory:URL = getCachesDirectory()
@@ -386,7 +546,7 @@ class ScheduleMaster {
             if (now == inputDate) {
                 return defaultScheduleForToday
             } else {
-                return defaultScheduleForNextDay //TODO: TEST!
+                return defaultScheduleForNextDay
             }
         }
         
@@ -540,6 +700,7 @@ class ScheduleMaster {
     }
     
     private func getScheduleFor(scheduleType: String) -> Schedule {
+        //print("XXXX"+scheduleType)
         var resultSchedule:Schedule?
         for currentSchedule in allSchedules! {
             if currentSchedule.scheduleType == scheduleType {

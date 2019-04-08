@@ -20,7 +20,7 @@ class InterfaceController: WKInterfaceController {
     
     private var ring:EMTLoadingIndicator?
     
-    private let myMaster: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main)
+    private let myMaster: ScheduleMaster = ScheduleMaster.shared
     
     private var timeRemainingAsInt:Int = 0
     

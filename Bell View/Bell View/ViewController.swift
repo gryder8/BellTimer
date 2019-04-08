@@ -11,7 +11,7 @@ import UICircularProgressRing
 
 class ViewController: UIViewController {
     
-    private let master: ScheduleMaster = ScheduleMaster(mainBundle: Bundle.main) //load the resource so we can attach getter outputs to outlets
+    private let master: ScheduleMaster = ScheduleMaster.shared //load the resource so we can attach getter outputs to outlets
     
     private var timeRemainingAsInt:Int = 0
     
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     
     
     @objc func refreshUI(){
-        if (isActive){
+        if (isActive && master.canContinue()){
             self.setTimeRemaining()
             self.setUpCurrentDate()
             self.setUpCurrentPeriodDescription()
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
     
     private func updateConnectionStatus() {
-        let connected = master.isConnectedToNetwork()
+        let connected = master.isConnected
         if (connected){
             noConnection.text = "";
         } else if (!connected){
@@ -147,8 +147,6 @@ class ViewController: UIViewController {
         if (isActive){
             refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
         }
-        
-        
         
     }
 }
