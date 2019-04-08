@@ -36,7 +36,7 @@ class ScheduleMaster {
     
 /*
     ***ISSUES***
-     -File manager cannot find file even when it exsists
+     -Unable to push to remote GitHub due to local instance being out of date
      -
 */
     
