@@ -27,7 +27,7 @@ class ScheduleMaster {
     
 /*
     ***ISSUES***
-     -Unable to push to remote GitHub due to local instance being out of date
+     -TODO: Testing
      -
 */
     
