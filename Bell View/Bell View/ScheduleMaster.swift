@@ -139,7 +139,7 @@ class ScheduleMaster {
     }
     
     
-    //New Method that's called byh the timer (takes the timer as an argument passed into it)
+    //New Method that's called by the timer to check load comnpletion
     @objc func readyToContinueTimerTriggered () {
         if (self.canContinue()) {
             self.readyToContinueTimer.invalidate()
@@ -251,7 +251,7 @@ class ScheduleMaster {
             
             if error != nil {
                 
-                DispatchQueue.main.sync {
+                DispatchQueue.main.sync { //possilby run async?
                     self.isConnected = false
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
@@ -274,7 +274,7 @@ class ScheduleMaster {
                 
                 //print("Data from", urlToLoad.absoluteString)
                  print ("Downloaded Data With Status:\(status)")
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { //possilby run async?
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
                 }
@@ -282,13 +282,10 @@ class ScheduleMaster {
             
             if status == 304 {
                 print ("Got 304 - Not Modified")
-                //let plistURL: URL = self.searchForFileFromCache(fileName: fileNameFromLoadURL)!
-                DispatchQueue.main.sync {
+                DispatchQueue.main.sync { //possilby run async?
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
                 }
-                //self.readLocalDataFor(plistURL: plistURL, fileNameFromURL: fileNameFromLoadURL)
-
                 return
             }
             
