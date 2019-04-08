@@ -21,15 +21,6 @@ extension URLResponse {
             return nil
         }
     }
-    
-    var contentLength: Int? {
-        get {
-            if let httpResp = self as? HTTPURLResponse, let contentLen = httpResp.allHeaderFields["Content-Length"] as? Int{
-                return contentLen
-            }
-            return nil
-        }
-    }
 }
 
 class ScheduleMaster {
