@@ -486,35 +486,6 @@ class ScheduleMaster {
     }
     
     
-    func deleteExpiredFiles(){
-        let cacheDirectory:URL = getCachesDirectory()
-        var contentsOfCache: [URL] = []
-        do {
-            contentsOfCache = try fileManager.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: nil, options: [.skipsSubdirectoryDescendants, .skipsPackageDescendants])
-        } catch {
-            print("Cache directory listing failed!")
-        }
-        
-        for currentURL in contentsOfCache {
-            let timeValue:String? = String(currentURL.lastPathComponent.split(separator: "#").last ?? "")
-            let firstHalf: String? = String(timeValue!.split(separator: ".").first ?? "")
-            if (CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: firstHalf!))) {
-                let expireInterval: TimeInterval = Double(timeValue!)! //TODO: Brittle code!!!!
-                let expireDate: Date  = Date(timeInterval: expireInterval, since: referenceDate())
-                if (Date().timeIntervalSince(expireDate) > 0){
-                    do {
-                        try fileManager.removeItem(at: currentURL)
-                    } catch {
-                        print("File removal error!")
-                    }
-                }
-            }
-            if (timeValue == ""){
-                print ("Bad time value!")
-            }
-            
-        }
-    }
     
     public func getScheduleType(myDate:Date) -> String {
         let now = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
@@ -538,7 +509,6 @@ class ScheduleMaster {
         return (theSpecialDay?.scheduleType)!
         
     }
-    
     
     
     public func getFirstBellDescriptionForNextDay() -> String {
