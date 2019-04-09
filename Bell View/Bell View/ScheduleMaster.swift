@@ -124,7 +124,6 @@ class ScheduleMaster {
         loadFromServerIfNeeded()
         let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
         let plistBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-        //let plistBellSchedulesURL: URL = URL(string: "http://192.168.7.43/Schedules.plist")!
         let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!//
         initDict()
         startLoad(urlToLoad: plistSpecialDaysURL)
@@ -157,7 +156,6 @@ class ScheduleMaster {
     func initDict() {
         let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
         let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-        //let pListBellSchedulesURL: URL = URL(string: "http://192.168.7.43/Schedules.plist")!
         let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
 
         loadStatesDict.updateValue(false, forKey: plistSpecialDaysURL)
@@ -234,7 +232,6 @@ class ScheduleMaster {
         
         //print("E-tag returned:" + etagOfObjOnServer)
 
-        //request.setValue("dogisgreat", forHTTPHeaderField: "If-None-Match")
         request.setValue(etagOfObjOnServer, forHTTPHeaderField: "If-None-Match")
         
         //print("URL:", urlToLoad.absoluteString)
@@ -248,10 +245,10 @@ class ScheduleMaster {
         let task = myURLSession.dataTask(with: request) { data, response, error in
             
             //print ("...Task Executed")
-            
+            //TODO: Test async!!!
             if error != nil {
                 
-                DispatchQueue.main.sync { //possilby run async?
+                DispatchQueue.main.async { //possilby run async?
                     self.isConnected = false
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
@@ -282,7 +279,7 @@ class ScheduleMaster {
             
             if status == 304 {
                 print ("Got 304 - Not Modified")
-                DispatchQueue.main.sync { //possilby run async?
+                DispatchQueue.main.async { //possilby run async?
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
                 }
@@ -291,7 +288,7 @@ class ScheduleMaster {
             
             if (400...499).contains(status) || (500...599).contains(status) {
                 
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async { //possilby run async?
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     //self.isConnected = false;
                     self.loadDataFor(url: urlToLoad)
