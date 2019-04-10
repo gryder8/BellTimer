@@ -415,7 +415,7 @@ class ScheduleMaster {
                 break
             }
         } else {
-            fatalError("Something VERY VERY bad happend and we were unable to load anything from cache or bundle")
+            fatalError("Something VERY VERY bad happened and we were unable to load anything from cache or bundle")
         }
     }
     
