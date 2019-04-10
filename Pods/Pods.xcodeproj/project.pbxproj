@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -88,7 +88,7 @@
 		0AD81C66C179E344A44B6C683D58147D /* waitIndicatorGraphic-10@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-10@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-10@2x.png"; sourceTree = "<group>"; };
 		0DA3A46CFCCEC3DAEF699F3F21803751 /* EMTLoadingIndicator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EMTLoadingIndicator.xcconfig; sourceTree = "<group>"; };
 		11185720B801742B15CF7AFB832A99B3 /* UICircularProgressRingLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingLayer.swift; path = src/UICircularProgressRing/UICircularProgressRingLayer.swift; sourceTree = "<group>"; };
-		27AC6F1639668C31038236A14AD4BB78 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UICircularProgressRing.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27AC6F1639668C31038236A14AD4BB78 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3D51FF9C2DFBDA45E7C8FF0AAEAF1F /* Pods-Bell View-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Bell View-frameworks.sh"; sourceTree = "<group>"; };
 		3DB7462B3E31F183D760BEDAC12C4D92 /* waitIndicatorGraphic-5@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-5@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-5@2x.png"; sourceTree = "<group>"; };
 		458592C5E366135C61F2A3DF9F4229EC /* waitIndicatorGraphic-27@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-27@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-27@2x.png"; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 		4EAD7417D7531144573BBB4A33094CD6 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
 		51CCAB86BC14FCFD84D315B3380318AA /* waitIndicatorGraphic-18@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-18@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-18@2x.png"; sourceTree = "<group>"; };
 		52487DB0B2748E356223ACB9C2DD51DB /* Pods-Bell View WatchKit Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Bell View WatchKit Extension-frameworks.sh"; sourceTree = "<group>"; };
-		596AF3472EACE97D69E422BC78C3617A /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Bell_View.framework; path = "Pods-Bell View.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		596AF3472EACE97D69E422BC78C3617A /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B596FC30F6CFA229227BA867FF0A566 /* Pods-Bell View-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Bell View-acknowledgements.markdown"; sourceTree = "<group>"; };
 		68000B0B2C4CA34873446608E204A1DA /* waitIndicatorGraphic-8@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-8@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-8@2x.png"; sourceTree = "<group>"; };
 		6C28D12D6C979F89D515382ECF0DAAB3 /* UICircularProgressRing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UICircularProgressRing.h; path = src/UICircularProgressRing/UICircularProgressRing.h; sourceTree = "<group>"; };
-		6D649EEEDC9B60E476FFE325CEE75C8C /* EMTLoadingIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EMTLoadingIndicator.framework; path = EMTLoadingIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D649EEEDC9B60E476FFE325CEE75C8C /* EMTLoadingIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EMTLoadingIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7221EF0BD528EE8B61117E4220CECBB5 /* EMTLoadingIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EMTLoadingIndicator.swift; path = EMTLoadingIndicator/Classes/EMTLoadingIndicator.swift; sourceTree = "<group>"; };
 		724DBA70F89E2E6DBE1BA55227530947 /* waitIndicatorGraphic-1@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-1@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-1@2x.png"; sourceTree = "<group>"; };
 		87BD6E8F657AA228D8AB201A254AE625 /* UICircularProgressRing-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICircularProgressRing-umbrella.h"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		89D51CA56CF322D5640F66699F274AB7 /* waitIndicatorGraphic-2@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-2@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-2@2x.png"; sourceTree = "<group>"; };
 		8BBC3B66BCDF682062FABEFB7A865444 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		919328C64707588F56048DF81566F43A /* EMTTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EMTTimer.swift; path = EMTLoadingIndicator/Classes/EMTTimer.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A3D6D81A93A36F6DF12993C634E1834 /* waitIndicatorGraphic-0@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-0@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-0@2x.png"; sourceTree = "<group>"; };
 		9B711B9B3FEC1C756D7D114B4DEBAEAA /* Pods-Bell View WatchKit Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Bell View WatchKit Extension-acknowledgements.plist"; sourceTree = "<group>"; };
 		9BA63601703330B980168EDED9EE261B /* Pods-Bell View WatchKit Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Bell View WatchKit Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		D59EB1699ED97FD805FBA74CF24E50D8 /* Pods-Bell View WatchKit Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Bell View WatchKit Extension-resources.sh"; sourceTree = "<group>"; };
 		D6EAD0BD7BA78AE299B9D1B809DE0500 /* Pods-Bell View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bell View.debug.xcconfig"; sourceTree = "<group>"; };
 		D80071574783AB6307D1DE1CC26C520A /* waitIndicatorGraphic-20@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-20@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-20@2x.png"; sourceTree = "<group>"; };
-		DA7313E5C8C8D256653CDBE6926D93D8 /* Pods_Bell_View_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Bell_View_WatchKit_Extension.framework; path = "Pods-Bell View WatchKit Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA7313E5C8C8D256653CDBE6926D93D8 /* Pods_Bell_View_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFB211A32034602FFFA2918E9272539 /* EMTLoadingIndicator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EMTLoadingIndicator.modulemap; sourceTree = "<group>"; };
 		DC5BAD5B365DD361C513ED2A6C3DB554 /* waitIndicatorGraphic-4@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "waitIndicatorGraphic-4@2x.png"; path = "EMTLoadingIndicator/Resources/waitIndicatorGraphic-4@2x.png"; sourceTree = "<group>"; };
 		E7F76EFB7998DB583EEE55559F246631 /* UICircularProgressRing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRing.swift; path = src/UICircularProgressRing/UICircularProgressRing.swift; sourceTree = "<group>"; };
@@ -260,7 +260,6 @@
 				C0475981754A993FFF735CDAB5E3D9B0 /* UICircularProgressRingStyle.swift */,
 				08D4A5175E18BC29DAE83ED99CEA8788 /* Support Files */,
 			);
-			name = UICircularProgressRing;
 			path = UICircularProgressRing;
 			sourceTree = "<group>";
 		};
@@ -320,7 +319,6 @@
 				142B2DB3A752A1E8AB9C3BBF22AD239F /* Resources */,
 				ABBB3E33194A03045C2AE2BF50FBF589 /* Support Files */,
 			);
-			name = EMTLoadingIndicator;
 			path = EMTLoadingIndicator;
 			sourceTree = "<group>";
 		};
@@ -511,13 +509,22 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					421316196909CB674EE5BD465E76508E = {
+						LastSwiftMigration = 1020;
+					};
+					6F5C9740297569AEB5F39CBCDC3FBF78 = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 6E7F3FD6E084EE366D9636F5FCB7E7FD /* Products */;
@@ -647,11 +654,7 @@
 				INFOPLIST_FILE = "Target Support Files/UICircularProgressRing/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/UICircularProgressRing/UICircularProgressRing.modulemap";
 				PRODUCT_MODULE_NAME = UICircularProgressRing;
 				PRODUCT_NAME = UICircularProgressRing;
@@ -659,7 +662,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -683,11 +686,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.modulemap";
 				OTHER_LDFLAGS = "";
@@ -723,11 +722,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.modulemap";
 				OTHER_LDFLAGS = "";
@@ -827,11 +822,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/EMTLoadingIndicator/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator.modulemap";
 				PRODUCT_MODULE_NAME = EMTLoadingIndicator;
 				PRODUCT_NAME = EMTLoadingIndicator;
@@ -839,7 +830,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -866,11 +857,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Bell View/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Bell View/Pods-Bell View.modulemap";
 				OTHER_LDFLAGS = "";
@@ -905,11 +892,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/EMTLoadingIndicator/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/EMTLoadingIndicator/EMTLoadingIndicator.modulemap";
 				PRODUCT_MODULE_NAME = EMTLoadingIndicator;
 				PRODUCT_NAME = EMTLoadingIndicator;
@@ -917,7 +900,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -943,11 +926,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Bell View/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Bell View/Pods-Bell View.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1041,11 +1020,7 @@
 				INFOPLIST_FILE = "Target Support Files/UICircularProgressRing/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/UICircularProgressRing/UICircularProgressRing.modulemap";
 				PRODUCT_MODULE_NAME = UICircularProgressRing;
 				PRODUCT_NAME = UICircularProgressRing;
@@ -1053,7 +1028,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
