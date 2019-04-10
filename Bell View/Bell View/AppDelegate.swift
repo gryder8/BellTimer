@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var myMasterView = ViewController()
+    var myMasterView: ViewController = ViewController.shared
     
     private let master: ScheduleMaster = ScheduleMaster.shared
     

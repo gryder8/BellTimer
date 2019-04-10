@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     private var isSaturday = false;
     
     
+    static let shared = ViewController()
+    
     
     //MARK: Properties
     @IBOutlet weak var currentDate: UITextField!
@@ -51,10 +53,10 @@ class ViewController: UIViewController {
         }
     }
     
-    private func updateConnectionStatus() {
+    func updateConnectionStatus() {
         let connected = master.isConnected
         if (connected){
-            noConnection.text = "";
+            noConnection.text = ""
         } else if (!connected){
             noConnection.text = "No connection. Data may be incorrect"
         }
