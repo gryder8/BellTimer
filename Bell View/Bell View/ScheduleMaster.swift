@@ -37,6 +37,10 @@ class ScheduleMaster {
     private var defaultScheduleForToday:String = ""
     private var defaultScheduleForNextDay:String = ""
     
+    private final let SCHEDULES_URL: URL = URL(string: "https://bell-server.vapor.cloud/Schedules.plist")!
+    private final let SPECIAL_DAYS_URL: URL = URL(string:"https://bell-server.vapor.cloud/specialDays.plist")!
+    private final let DEFAULT_DAYS_URL: URL = URL(string:"https://bell-server.vapor.cloud/defaultSchedule.plist")!
+    
     func setDefaultSchedule(){
         let today = Calendar.current.component(.weekday, from:Date())
         let nextDayDateHolder = calendar.date(byAdding: .day, value: 1, to: Date())!
@@ -122,9 +126,9 @@ class ScheduleMaster {
     
     private init () { //INITIALIZER
         loadFromServerIfNeeded()
-        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
-        let plistBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!//
+        let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
+        let plistBellSchedulesURL: URL = SCHEDULES_URL
+        let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
         initDict()
         startLoad(urlToLoad: plistSpecialDaysURL)
         startLoad(urlToLoad: plistBellSchedulesURL)
@@ -154,9 +158,9 @@ class ScheduleMaster {
     //************************************************************************************************************
     
     func initDict() {
-        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
-        let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+        let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
+        let pListBellSchedulesURL: URL = SCHEDULES_URL
+        let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
 
         loadStatesDict.updateValue(false, forKey: plistSpecialDaysURL)
         loadStatesDict.updateValue(false, forKey: pListBellSchedulesURL)
@@ -177,9 +181,9 @@ class ScheduleMaster {
     
     func clearEtags(){
         let defaults = UserDefaults.standard
-        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
-        let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+        let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
+        let pListBellSchedulesURL: URL = SCHEDULES_URL
+        let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
         
         defaults.removeObject(forKey: plistSpecialDaysURL.absoluteString)
         defaults.removeObject(forKey: pListBellSchedulesURL.absoluteString)
@@ -362,10 +366,9 @@ class ScheduleMaster {
     //************************************************************************************************************
     
     func loadAllData(){
-        let plistSpecialDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/specialDays.plist")!
-        let pListBellSchedulesURL: URL = URL(string: "https://hello-swryder-staging.vapor.cloud/Schedules.plist")!
-        //let pListBellSchedulesURL: URL = URL(string: "http://192.168.7.43/Schedules.plist")!
-        let plistDefaultDaysURL: URL = URL(string:"https://hello-swryder-staging.vapor.cloud/defaultSchedule.plist")!
+        let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
+        let pListBellSchedulesURL: URL = SCHEDULES_URL
+        let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
         
         loadDataFor(url: plistSpecialDaysURL)
         loadDataFor(url: pListBellSchedulesURL)
