@@ -223,9 +223,8 @@ class ScheduleMaster {
 }
     
     
-    func startLoad(urlToLoad: URL){ //FIX: 304 IS NEVER RETURNED
+    func startLoad(urlToLoad: URL){
         // let fileNameFromLoadURL:String = urlToLoad.deletingPathExtension().lastPathComponent
-
         isConnected = isConnectedToNetwork()
 
         var request = URLRequest(url: urlToLoad)
