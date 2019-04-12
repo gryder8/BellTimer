@@ -480,11 +480,11 @@ class ScheduleMaster {
     }
     
     private func getCacheURLToFile (fileName:String) -> URL {
-        var targetFile:URL = getCachesDirectory()
-        targetFile.appendPathComponent(fileName)
-        targetFile.appendPathExtension("plist")
+        var targetFileURL:URL = getCachesDirectory()
+        targetFileURL.appendPathComponent(fileName)
+        targetFileURL.appendPathExtension("plist")
         
-        return targetFile
+        return targetFileURL
     }
     
     
