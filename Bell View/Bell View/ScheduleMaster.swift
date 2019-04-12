@@ -192,7 +192,7 @@ class ScheduleMaster {
     
     func loadFromServerIfNeeded(){
         let defaults = UserDefaults.standard
-        let expirationDate = Calendar.current.date(byAdding: .hour, value: 12, to: Date())
+        let expirationDate = Calendar.current.date(byAdding: .hour, value: 8, to: Date())
         if (defaults.object(forKey: "expirationDate") == nil){
             clearEtags()
             defaults.set(expirationDate, forKey: "expirationDate")
