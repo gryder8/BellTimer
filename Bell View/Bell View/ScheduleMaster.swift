@@ -141,7 +141,6 @@ class ScheduleMaster {
         
     }
     
-    
     //New Method that's called by the timer to check load comnpletion
     @objc func readyToContinueTimerTriggered () {
         if (self.canContinue()) {
@@ -151,7 +150,6 @@ class ScheduleMaster {
             return
         }
     }
-
 
     //************************************************************************************************************
     //************************************************************************************************************
@@ -194,20 +192,18 @@ class ScheduleMaster {
         let defaults = UserDefaults.standard
         let expirationDate = Calendar.current.date(byAdding: .hour, value: 8, to: Date())
         if (defaults.object(forKey: "expirationDate") == nil){
-            clearEtags()
+            self.clearEtags()
             defaults.set(expirationDate, forKey: "expirationDate")
             print("Found no expiration date")
             
         } else if (Date() > defaults.object(forKey: "expirationDate") as! Date){
-            clearEtags()
+            self.clearEtags()
             defaults.set(expirationDate, forKey: "expirationDate")
             print("Passed expiration date")
         } else {
         
         if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "Schedules").path) == false){
-            
             self.clearEtags()
-            //print(getCacheURLToFile(fileName: "Schedules"))
             print(getCacheURLToFile(fileName: "Schedules").path)
             print("Schedules file didn't exist")
         }
@@ -301,11 +297,6 @@ class ScheduleMaster {
             
             //print ("The e-Tag is:\(httpResponse.serverEtag!)")
             print("*********************************************")
-
-            
-//            DispatchQueue.main.async {
-//                self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
-//            }
         }
         task.resume()
         //print ("Task Executing...")

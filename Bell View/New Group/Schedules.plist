@@ -1035,5 +1035,260 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>SBAC/CAST (Tuesday)</string>
+		<key>bellTimes</key>
+		<array>
+			<dict>
+				<key>desc</key>
+				<string>Before School</string>
+				<key>timeInterval</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to SBAC/CAST</string>
+				<key>timeInterval</key>
+				<real>29100</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>SBAC/CAST Testing</string>
+				<key>timeInterval</key>
+				<real>29400</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 2</string>
+				<key>timeInterval</key>
+				<integer>38700</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 2</string>
+				<key>timeInterval</key>
+				<integer>39000</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Lunch</string>
+				<key>timeInterval</key>
+				<integer>42300</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 4</string>
+				<key>timeInterval</key>
+				<integer>48600</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 4</string>
+				<key>timeInterval</key>
+				<integer>48900</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 6</string>
+				<key>timeInterval</key>
+				<real>48600</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 6</string>
+				<key>timeInterval</key>
+				<integer>48900</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 0</string>
+				<key>timeInterval</key>
+				<integer>52200</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 0</string>
+				<key>timeInterval</key>
+				<integer>52500</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>After School</string>
+				<key>timeInterval</key>
+				<integer>55800</integer>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>SBAC (Wed/Fri)</string>
+		<key>bellTimes</key>
+		<array>
+			<dict>
+				<key>desc</key>
+				<string>Before School</string>
+				<key>timeInterval</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to SBAC/CAST</string>
+				<key>timeInterval</key>
+				<real>29100</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>SBAC/CAST Testing</string>
+				<key>timeInterval</key>
+				<real>29400</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 1</string>
+				<key>timeInterval</key>
+				<integer>37500</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 1</string>
+				<key>timeInterval</key>
+				<integer>37800</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Lunch</string>
+				<key>timeInterval</key>
+				<integer>41700</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 3</string>
+				<key>timeInterval</key>
+				<real>44100</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 3</string>
+				<key>timeInterval</key>
+				<real>44400</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 5</string>
+				<key>timeInterval</key>
+				<integer>48000</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 5</string>
+				<key>timeInterval</key>
+				<integer>48300</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 7</string>
+				<key>timeInterval</key>
+				<integer>51900</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 7</string>
+				<key>timeInterval</key>
+				<integer>52200</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>After School</string>
+				<key>timeInterval</key>
+				<integer>55800</integer>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>SBAC (Thursday)</string>
+		<key>bellTimes</key>
+		<array>
+			<dict>
+				<key>desc</key>
+				<string>Before School</string>
+				<key>timeInterval</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to SBAC/CAST</string>
+				<key>timeInterval</key>
+				<real>29100</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>SBAC/CAST Testing</string>
+				<key>timeInterval</key>
+				<real>29400</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 2</string>
+				<key>timeInterval</key>
+				<integer>37500</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 2</string>
+				<key>timeInterval</key>
+				<real>37800</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Lunch</string>
+				<key>timeInterval</key>
+				<real>41400</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 4</string>
+				<key>timeInterval</key>
+				<real>44100</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 4</string>
+				<key>timeInterval</key>
+				<real>44400</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 6</string>
+				<key>timeInterval</key>
+				<integer>48000</integer>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 6</string>
+				<key>timeInterval</key>
+				<real>48300</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Passing to Period 0</string>
+				<key>timeInterval</key>
+				<real>51900</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>Period 0</string>
+				<key>timeInterval</key>
+				<real>52200</real>
+			</dict>
+			<dict>
+				<key>desc</key>
+				<string>After School</string>
+				<key>timeInterval</key>
+				<integer>55800</integer>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>

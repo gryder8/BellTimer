@@ -110,6 +110,30 @@
 	</dict>
 	<dict>
 		<key>scheduleType</key>
+		<string>SBAC/CAST (Tuesday)</string>
+		<key>beginDate</key>
+		<date>2019-04-23T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>SBAC (Wed/Fri)</string>
+		<key>beginDate</key>
+		<date>2019-04-24T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>SBAC (Thursday)</string>
+		<key>beginDate</key>
+		<date>2019-04-25T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
+		<string>SBAC (Wed/Fri)</string>
+		<key>beginDate</key>
+		<date>2019-04-26T07:00:00Z</date>
+	</dict>
+	<dict>
+		<key>scheduleType</key>
 		<string>Holiday</string>
 		<key>beginDate</key>
 		<date>2019-05-27T07:00:00Z</date>
