@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         if (master.isConnectedToNetwork()){
-            master.loadFromServerIfNeeded()
+            master.clearEtagsIfNeeded()
         }
         myMasterView.setState(active: true)
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.

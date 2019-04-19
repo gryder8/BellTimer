@@ -125,7 +125,7 @@ class ScheduleMaster {
     static let shared = ScheduleMaster() //SINGLETON
     
     private init () { //INITIALIZER
-        loadFromServerIfNeeded()
+        clearEtagsIfNeeded()
         let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
         let plistBellSchedulesURL: URL = SCHEDULES_URL
         let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
@@ -188,7 +188,7 @@ class ScheduleMaster {
         defaults.removeObject(forKey: plistDefaultDaysURL.absoluteString)
     }
     
-    func loadFromServerIfNeeded(){
+    func clearEtagsIfNeeded(){
         let defaults = UserDefaults.standard
         let expirationDate = Calendar.current.date(byAdding: .hour, value: 8, to: Date())
         if (defaults.object(forKey: "expirationDate") == nil){
@@ -204,7 +204,6 @@ class ScheduleMaster {
         
         if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "Schedules").path) == false){
             self.clearEtags()
-            print(getCacheURLToFile(fileName: "Schedules").path)
             print("Schedules file didn't exist")
         }
         else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "specialDays").path) == false){
@@ -549,9 +548,9 @@ class ScheduleMaster {
         if (specialDayDescIfApplicable(date: Date()) != ""){
             return specialDayDescIfApplicable(date: Date())
         }
-        
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        
         
         
         let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())

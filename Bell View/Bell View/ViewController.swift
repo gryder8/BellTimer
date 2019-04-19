@@ -43,11 +43,14 @@ class ViewController: UIViewController {
     
     
     @objc func refreshUI(){
+        //let dateTest = Calendar.current.date(byAdding: .day, value: 7, to: Date())
+
         if (isActive && master.canContinue()){
             self.setTimeRemaining()
             self.setUpCurrentDate()
             self.setUpCurrentPeriodDescription()
             self.setUpNextPeriodDescription()
+            //print(master.getNextBellTimeDescription(date: dateTest!))
             self.setUpScheduleType()
             self.setupProgressBar()
         }
