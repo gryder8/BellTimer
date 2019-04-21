@@ -29,12 +29,12 @@ class InterfaceController: WKInterfaceController {
     private var isActive:Bool = true;
     
     public func colorForTime () -> UIColor {
-        let percentRemaining  = (myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval()) //percent as decimal
-        if percentRemaining > 0.25 {
+        let timeRemainingInterval = myMaster.getTimeIntervalUntilNextEvent();
+        if timeRemainingInterval > 900 {
             return UIColor.green
-        } else if percentRemaining > 0.20 {
+        } else if timeRemainingInterval >= 600 {
             return UIColor.yellow
-        } else if percentRemaining > 0.10 {
+        } else if timeRemainingInterval >= 300 {
             return UIColor.orange
         }
         return UIColor.red
