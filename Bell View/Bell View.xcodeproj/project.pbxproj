@@ -21,7 +21,6 @@
 		865A6F8C21E910E700831E69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F8A21E910E700831E69 /* Main.storyboard */; };
 		865A6F8E21E910E800831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F8D21E910E800831E69 /* Assets.xcassets */; };
 		865A6F9121E910E800831E69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */; };
-		865A6F9621E910E800831E69 /* Bell View WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 865A6F9521E910E800831E69 /* Bell View WatchKit App.app */; };
 		865A6F9E21E910E900831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6F9D21E910E900831E69 /* Assets.xcassets */; };
 		865A6FA521E910E900831E69 /* Bell View WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 865A6FA421E910E900831E69 /* Bell View WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		865A6FAC21E910E900831E69 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FAB21E910E900831E69 /* ExtensionDelegate.swift */; };
@@ -33,16 +32,10 @@
 		86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
 		86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
 		86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67421ED8CF100BFC5FF /* Schedules.plist */; };
+		86D43F5722736FE800836822 /* leftSwipeArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D43F5622736FE800836822 /* leftSwipeArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		865A6F9721E910E800831E69 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 865A6F7B21E910E700831E69 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 865A6F9421E910E800831E69;
-			remoteInfo = "Bell View WatchKit App";
-		};
 		865A6FA621E910E900831E69 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 865A6F7B21E910E700831E69 /* Project object */;
@@ -70,7 +63,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				865A6F9621E910E800831E69 /* Bell View WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +98,7 @@
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
 		86BBF67421ED8CF100BFC5FF /* Schedules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedules.plist; sourceTree = "<group>"; };
+		86D43F5622736FE800836822 /* leftSwipeArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftSwipeArrow.png; path = ../../../leftSwipeArrow.png; sourceTree = "<group>"; };
 		8A6BE31DD74C88441D5C1113 /* Pods-Bell View WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View WatchKit Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.debug.xcconfig"; sourceTree = "<group>"; };
 		B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +163,7 @@
 				865A6F8821E910E700831E69 /* ViewController.swift */,
 				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
 				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
+				86D43F5622736FE800836822 /* leftSwipeArrow.png */,
 				865A6F8A21E910E700831E69 /* Main.storyboard */,
 				865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */,
 				865A6F8D21E910E800831E69 /* Assets.xcassets */,
@@ -251,7 +245,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				865A6F9821E910E800831E69 /* PBXTargetDependency */,
 			);
 			name = "Bell View";
 			productName = "Bell View";
@@ -346,6 +339,7 @@
 				865A6F9121E910E800831E69 /* LaunchScreen.storyboard in Resources */,
 				86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */,
 				86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */,
+				86D43F5722736FE800836822 /* leftSwipeArrow.png in Resources */,
 				86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */,
 				865A6F8E21E910E800831E69 /* Assets.xcassets in Resources */,
 				865A6F8C21E910E700831E69 /* Main.storyboard in Resources */,
@@ -493,11 +487,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		865A6F9821E910E800831E69 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 865A6F9421E910E800831E69 /* Bell View WatchKit App */;
-			targetProxy = 865A6F9721E910E800831E69 /* PBXContainerItemProxy */;
-		};
 		865A6FA721E910E900831E69 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 865A6FA321E910E900831E69 /* Bell View WatchKit Extension */;
@@ -738,7 +727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swryder.BellTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = Gavin.BellView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -759,7 +748,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swryder.BellTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = Gavin.BellView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

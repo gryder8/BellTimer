@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import EMTLoadingIndicator
+import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
     

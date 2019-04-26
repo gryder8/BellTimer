@@ -6,6 +6,8 @@
 //  Copyright © 2019 Gavin Ryder. All rights reserved.
 //
 
+//https://stackoverflow.com/questions/30426501/prevent-deploying-disable-watchkit-app-with-ios-iphone-app-in-xcode?noredirect=1&lq=1
+
 import UIKit
 
 @UIApplicationMain
