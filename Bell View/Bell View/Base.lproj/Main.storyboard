@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -157,6 +156,7 @@
                         <outlet property="noConnection" destination="Urx-q0-q42" id="6hL-y0-bdo"/>
                         <outlet property="progressRing" destination="ScF-qL-eRc" id="KMe-zq-bBI"/>
                         <outlet property="scheduleType" destination="efa-8S-OYF" id="lMT-3E-sDO"/>
+                        <outlet property="swipeGesture" destination="ztv-03-Weg" id="ETd-tU-wL2"/>
                         <outlet property="timeRemaining" destination="Wdm-YO-xpY" id="tM5-eC-Lkq"/>
                     </connections>
                 </viewController>

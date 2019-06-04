@@ -102,7 +102,8 @@ class ScheduleMaster {
     
     var readyToContinueTimer:Timer = Timer()
     
-    var doneLoading = false
+    public var doneLoading:Bool = false
+        
     
     let fileManager:FileManager  = FileManager()
     
@@ -329,7 +330,7 @@ class ScheduleMaster {
     }
     
     
-    func readLocalDataFor (plistURL: URL, fileNameFromURL:String){
+    func readLocalDataFor (plistURL: URL, fileNameFromURL:String) { //read the data out of the cache
         if let data = try? Data(contentsOf: plistURL) {
             let decoder = PropertyListDecoder()
             switch (fileNameFromURL){ //assign each file name to correct structures
@@ -347,8 +348,6 @@ class ScheduleMaster {
     }
     
 
-    
-    
     
     //************************************************************************************************************
     //************************************************************************************************************

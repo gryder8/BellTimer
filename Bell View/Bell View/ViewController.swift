@@ -9,7 +9,7 @@
 import UIKit
 import UICircularProgressRing
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private let master: ScheduleMaster = ScheduleMaster.shared //load the resource so we can attach getter outputs to outlets
     
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     
     
     //MARK: Properties
+    @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var currentDate: UITextField!
     @IBOutlet weak var timeRemaining: UITextField!
     @IBOutlet weak var currentPeriodDescription: UITextField!
@@ -43,8 +44,11 @@ class ViewController: UIViewController {
     
     
     @objc func refreshUI(){
-        //let dateTest = Calendar.current.date(byAdding: .day, value: 7, to: Date())
-
+        if (!master.doneLoading){
+            swipeGesture.isEnabled = false
+        } else {
+            swipeGesture.isEnabled = true
+        }
         if (isActive && master.canContinue()){
             self.setTimeRemaining()
             self.setUpCurrentDate()
@@ -136,6 +140,11 @@ class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        if (!master.doneLoading){
+            swipeGesture.isEnabled = false
+        } else {
+            swipeGesture.isEnabled = true
+        }
         super.viewDidLoad()
         self.navigationController!.navigationBar.isHidden = true
         
