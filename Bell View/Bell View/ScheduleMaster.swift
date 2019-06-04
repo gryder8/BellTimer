@@ -119,6 +119,7 @@ class ScheduleMaster {
                 return false;
             }
         }
+        
         return true;
     }
     

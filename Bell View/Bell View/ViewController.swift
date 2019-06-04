@@ -44,7 +44,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @objc func refreshUI(){
-        if (!master.doneLoading){
+        if (!master.canContinue()){
             swipeGesture.isEnabled = false
         } else {
             swipeGesture.isEnabled = true
@@ -140,7 +140,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     override func viewDidLoad() {
-        if (!master.doneLoading){
+        if (!master.canContinue()){
             swipeGesture.isEnabled = false
         } else {
             swipeGesture.isEnabled = true
