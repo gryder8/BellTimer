@@ -1,172 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>scheduleType</key>
-		<string>Tutorial</string>
-		<key>beginDate</key>
-		<date>2019-01-14T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Odd Block</string>
-		<key>beginDate</key>
-		<date>2019-01-15T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Even Block</string>
-		<key>beginDate</key>
-		<date>2019-01-16T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Odd Block</string>
-		<key>beginDate</key>
-		<date>2019-01-17T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Even Block</string>
-		<key>beginDate</key>
-		<date>2019-01-18T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-01-21T08:00:00Z</date>
-		<key>desc</key>
-		<string>MLK Day</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Assembly</string>
-		<key>beginDate</key>
-		<date>2019-02-04T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Modified Even Block </string>
-		<key>beginDate</key>
-		<date>2019-02-06T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Modified Odd Block</string>
-		<key>beginDate</key>
-		<date>2019-02-07T08:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-02-18T08:00:00Z</date>
-		<key>endDate</key>
-		<date>2019-02-22T08:00:00Z</date>
-		<key>desc</key>
-		<string>Winter Break</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-03-18T07:00:00Z</date>
-		<key>desc</key>
-		<string>March Break</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-03-19T07:00:00Z</date>
-		<key>desc</key>
-		<string>Teacher Service Day</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Tutorial</string>
-		<key>beginDate</key>
-		<date>2019-04-01T07:00:00Z</date>
-		<key>desc</key>
-		<string>Class Elections</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-04-15T07:00:00Z</date>
-		<key>endDate</key>
-		<date>2019-04-19T07:00:00Z</date>
-		<key>desc</key>
-		<string>Spring Break</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Assembly</string>
-		<key>beginDate</key>
-		<date>2019-04-12T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>SBAC/CAST (Tuesday)</string>
-		<key>beginDate</key>
-		<date>2019-04-23T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>SBAC (Wed/Fri)</string>
-		<key>beginDate</key>
-		<date>2019-04-24T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>SBAC (Thursday)</string>
-		<key>beginDate</key>
-		<date>2019-04-25T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>SBAC (Wed/Fri)</string>
-		<key>beginDate</key>
-		<date>2019-04-26T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-05-27T07:00:00Z</date>
-		<key>desc</key>
-		<string>Memorial Day</string>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Finals - Wednesday</string>
-		<key>beginDate</key>
-		<date>2019-06-05T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Finals - Thursday</string>
-		<key>beginDate</key>
-		<date>2019-06-06T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Finals - Friday</string>
-		<key>beginDate</key>
-		<date>2019-06-07T07:00:00Z</date>
-	</dict>
-	<dict>
-		<key>scheduleType</key>
-		<string>Holiday</string>
-		<key>beginDate</key>
-		<date>2019-06-10T07:00:00Z</date>
-		<key>endDate</key>
-		<date>2019-08-19T07:00:00Z</date>
-		<key>desc</key>
-		<string>Summer!</string>
-	</dict>
-</array>
+    <array>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-06-10T07:00:00Z</date>
+            <key>endDate</key>
+            <date>2019-08-19T07:00:00Z</date>
+            <key>desc</key>
+            <string>Summer!</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-09-02T07:00:00Z</date>
+            <key>desc</key>
+            <string>Labor Day</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Tutorial</string>
+            <key>beginDate</key>
+            <date>2019-09-24T07:00:00Z</date>
+            <key>desc</key>
+            <string>STEAM Speakers</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Normal</string>
+            <key>beginDate</key>
+            <date>2019-09-25T07:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Tutorial</string>
+            <key>beginDate</key>
+            <date>2019-10-14T07:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Minimum Day</string>
+            <key>beginDate</key>
+            <date>2019-10-25T07:00:00Z</date>
+            <key>desc</key>
+            <string>Homecoming</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-11-11T08:00:00Z</date>
+            <key>desc</key>
+            <string>Veteran&apos;s Day</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-11-27T08:00:00Z</date>
+            <key>endDate</key>
+            <date>2019-11-29T08:00:00Z</date>
+            <key>desc</key>
+            <string>Thanksgiving</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Finals - Wednesday</string>
+            <key>beginDate</key>
+            <date>2019-12-18T08:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Finals - Thursday</string>
+            <key>beginDate</key>
+            <date>2019-12-19T08:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Finals - Friday</string>
+            <key>beginDate</key>
+            <date>2019-12-20T08:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-12-23T08:00:00Z</date>
+            <key>endDate</key>
+            <date>2020-01-03T08:00:00Z</date>
+            <key>desc</key>
+            <string>Holiday Recess</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2020-01-06T08:00:00Z</date>
+            <key>desc</key>
+            <string>Teacher In-Service</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2020-01-20T08:00:00Z</date>
+            <key>desc</key>
+            <string>MLK Day</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Modified Even Block</string>
+            <key>beginDate</key>
+            <date>2020-02-05T08:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Modified Odd Block</string>
+            <key>beginDate</key>
+            <date>2020-02-06T08:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-02-17T08:00:00Z</date>
+            <key>endDate</key>
+            <date>2020-02-21T08:00:00Z</date>
+            <key>desc</key>
+            <string>Winter Break</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-03-16T07:00:00Z</date>
+            <key>desc</key>
+            <string>March Holiday</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2020-03-17T07:00:00Z</date>
+            <key>desc</key>
+            <string>Teacher In-Service</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2019-06-10T07:00:00Z</date>
+            <key>endDate</key>
+            <date>2019-08-19T07:00:00Z</date>
+            <key>desc</key>
+            <string>Summer!</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Assembly</string>
+            <key>beginDate</key>
+            <date>2020-04-03T07:00:00Z</date>
+            <key>desc</key>
+            <string>Diversity Assembly</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Assembly</string>
+            <key>beginDate</key>
+            <date>2020-04-04T07:00:00Z</date>
+            <key>desc</key>
+            <string>Diversity Assembly</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2020-04-06T07:00:00Z</date>
+            <key>endDate</key>
+            <date>2020-04-10T07:00:00Z</date>
+            <key>desc</key>
+            <string>Spring Break</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Holiday</string>
+            <key>beginDate</key>
+            <date>2020-05-25T07:00:00Z</date>
+            <key>desc</key>
+            <string>Memorial Day</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Even Block</string>
+            <key>beginDate</key>
+            <date>2020-06-01T07:00:00Z</date>
+            <key>desc</key>
+            <string>Senior Finals</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Odd Block</string>
+            <key>beginDate</key>
+            <date>2020-06-02T07:00:00Z</date>
+            <key>desc</key>
+            <string>Senior Finals</string>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Finals - Wednesday</string>
+            <key>beginDate</key>
+            <date>2019-06-03T07:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Finals - Thursday</string>
+            <key>beginDate</key>
+            <date>2019-06-04T07:00:00Z</date>
+        </dict>
+        <dict>
+            <key>scheduleType</key>
+            <string>Finals - Friday</string>
+            <key>beginDate</key>
+            <date>2019-06-05T07:00:00Z</date>
+        </dict>
+    </array>
 </plist>

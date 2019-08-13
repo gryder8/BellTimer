@@ -115,11 +115,10 @@ class ScheduleMaster {
     
     func canContinue() -> Bool {
         for val in loadStatesDict.values{
-            if (val == false){
+            if (val == false) {
                 return false;
             }
         }
-        
         return true;
     }
     

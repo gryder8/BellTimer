@@ -140,7 +140,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     override func viewDidLoad() {
-        if (!master.canContinue()){
+        if (!master.canContinue()){ //if this doesn't work, use the isLoaded public Bool from the master. Check that it's being set properly
             swipeGesture.isEnabled = false
         } else {
             swipeGesture.isEnabled = true
