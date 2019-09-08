@@ -191,7 +191,7 @@ class ScheduleMaster {
     
     func clearEtagsIfNeeded(){
         let defaults = UserDefaults.standard
-        let expirationDate = Calendar.current.date(byAdding: .hour, value: 8, to: Date())
+        let expirationDate = Calendar.current.date(byAdding: .hour, value: 24, to: Date())
         if (defaults.object(forKey: "expirationDate") == nil){
             self.clearEtags()
             defaults.set(expirationDate, forKey: "expirationDate")
@@ -220,7 +220,6 @@ class ScheduleMaster {
     
     
     func startLoad(urlToLoad: URL){
-        // let fileNameFromLoadURL:String = urlToLoad.deletingPathExtension().lastPathComponent
         isConnected = isConnectedToNetwork()
 
         var request = URLRequest(url: urlToLoad)
@@ -233,7 +232,6 @@ class ScheduleMaster {
 
         request.setValue(etagOfObjOnServer, forHTTPHeaderField: "If-None-Match")
         
-        //print("URL:", urlToLoad.absoluteString)
         //print("Request value:", request.value(forHTTPHeaderField: "If-None-Match"))
         
         print("*********************************************")
@@ -243,11 +241,9 @@ class ScheduleMaster {
         
         let task = myURLSession.dataTask(with: request) { data, response, error in
             
-            //print ("...Task Executed")
-            //TODO: Test async!!!
             if error != nil {
                 
-                DispatchQueue.main.async { //possilby run async?
+                DispatchQueue.main.async { //runs async
                     self.isConnected = false
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
@@ -258,19 +254,14 @@ class ScheduleMaster {
             let httpResponse = response as! HTTPURLResponse
             let status = httpResponse.statusCode
             
-            //print(request.description)
-            //print(request.allHTTPHeaderFields)
             
             print ("HTTP Status Code From Server:\(status)")
-            
-            //print("Length", httpResponse.contentLength)
             
             if (200...299).contains(status) {
                 
                 
-                //print("Data from", urlToLoad.absoluteString)
-                 print ("Downloaded Data With Status:\(status)")
-                DispatchQueue.main.async { //possilby run async?
+                print ("Downloaded Data With Status:\(status)")
+                DispatchQueue.main.async { //runs async
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
                 }
@@ -278,7 +269,7 @@ class ScheduleMaster {
             
             if status == 304 {
                 print ("Got 304 - Not Modified")
-                DispatchQueue.main.async { //possilby run async?
+                DispatchQueue.main.async { //run async
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
                 }
@@ -287,7 +278,7 @@ class ScheduleMaster {
             
             if (400...499).contains(status) || (500...599).contains(status) {
                 
-                DispatchQueue.main.async { //possilby run async?
+                DispatchQueue.main.async { //run async
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     //self.isConnected = false;
                     self.loadDataFor(url: urlToLoad)
@@ -302,7 +293,7 @@ class ScheduleMaster {
         //print ("Task Executing...")
     }
     
-    func finishLoad(data: Data, urlForParse: URL, Etag:String?){ //writes data to cache when getting new data
+    func finishLoad(data: Data, urlForParse: URL, Etag:String?){ //writes data to cache after getting new data
         let defaults = UserDefaults.standard
 
         let fileNamePlain:String = urlForParse.deletingPathExtension().lastPathComponent
@@ -406,7 +397,7 @@ class ScheduleMaster {
                 break
             }
         } else {
-            fatalError("Something VERY VERY bad happened and we were unable to load anything from cache or bundle")
+            fatalError("Something VERY VERY bad happened and we were unable to load anything from cache or local bundle")
         }
     }
     
@@ -450,7 +441,7 @@ class ScheduleMaster {
     
     
     
-    func referenceDate() -> Date { //uses Jan 1, 2000 at midnight (Y2K)
+    func referenceDate() -> Date { //uses Jan 1, 2000 at midnight
         
         var Y2K:Date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         Y2K = Calendar.current.date(bySetting: .month, value: 1, of: Y2K)!

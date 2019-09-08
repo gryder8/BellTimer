@@ -95,7 +95,7 @@
 		867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDisplayTableViewController.swift; sourceTree = "<group>"; };
 		8689759F229635C00053250F /* leftSwipeArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftSwipeArrow.png; sourceTree = SOURCE_ROOT; };
-		86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMaster.swift; sourceTree = "<group>"; };
+		86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMaster.swift; sourceTree = "<group>"; usesTabs = 1; };
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
 		86BBF67421ED8CF100BFC5FF /* Schedules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedules.plist; sourceTree = "<group>"; };
