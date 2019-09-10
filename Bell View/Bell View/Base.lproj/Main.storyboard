@@ -20,12 +20,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leX-dp-hf9" customClass="GradientView" customModule="Bell_View" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="-7" width="379" height="681"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leftSwipeArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="OMI-mT-CFp">
-                                        <rect key="frame" x="351" y="356" width="20" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
@@ -67,13 +61,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Swipe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="962-hJ-js3">
-                                        <rect key="frame" x="294" y="258" width="60" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leftSwipeArrowModified.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wko-7n-syG">
+                                        <rect key="frame" x="282" y="260" width="81" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -245,6 +236,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="leftSwipeArrow.png" width="91.919998168945312" height="145.91999816894531"/>
+        <image name="leftSwipeArrowModified.png" width="366" height="145.67999267578125"/>
     </resources>
 </document>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4451ED5960E68A22AE3F77C3 /* Pods_Bell_View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */; };
 		780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */; };
+		860D3BD02328102B002493A0 /* leftSwipeArrowModified.png in Resources */ = {isa = PBXBuildFile; fileRef = 860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */; };
 		861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
 		861DBD9F21F2D80500DBC4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */; };
 		86512ABC21FE43990012A1D4 /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
@@ -28,7 +29,6 @@
 		865A6FB021E910E900831E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865A6FAF21E910E900831E69 /* Assets.xcassets */; };
 		867CBE1921F65F8200C789C2 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */; };
 		867CBE1B21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */; };
-		868975A0229635C00053250F /* leftSwipeArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689759F229635C00053250F /* leftSwipeArrow.png */; };
 		86BBF67121ED810E00BFC5FF /* ScheduleMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */; };
 		86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
 		86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
@@ -72,6 +72,7 @@
 /* Begin PBXFileReference section */
 		24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftSwipeArrowModified.png; sourceTree = "<group>"; };
 		861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		86242FF222489F6A001EBA18 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		86576F7C21F16A28002FD7D5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -94,7 +95,6 @@
 		865A6FB221E910E900831E69 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDisplayTableViewController.swift; sourceTree = "<group>"; };
-		8689759F229635C00053250F /* leftSwipeArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftSwipeArrow.png; sourceTree = SOURCE_ROOT; };
 		86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMaster.swift; sourceTree = "<group>"; usesTabs = 1; };
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				865A6F8821E910E700831E69 /* ViewController.swift */,
 				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
 				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
-				8689759F229635C00053250F /* leftSwipeArrow.png */,
+				860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */,
 				865A6F8A21E910E700831E69 /* Main.storyboard */,
 				865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */,
 				865A6F8D21E910E800831E69 /* Assets.xcassets */,
@@ -339,7 +339,7 @@
 				865A6F9121E910E800831E69 /* LaunchScreen.storyboard in Resources */,
 				86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */,
 				86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */,
-				868975A0229635C00053250F /* leftSwipeArrow.png in Resources */,
+				860D3BD02328102B002493A0 /* leftSwipeArrowModified.png in Resources */,
 				86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */,
 				865A6F8E21E910E800831E69 /* Assets.xcassets in Resources */,
 				865A6F8C21E910E700831E69 /* Main.storyboard in Resources */,
