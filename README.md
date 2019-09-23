@@ -1,5 +1,5 @@
 # BellTimer
-LAHS BellTimer app for iOS 12 and Watch OS 5
+LAHS BellTimer app for iOS 12+
 
 Files hosted with Vapor:
 https://vapor.codes/
