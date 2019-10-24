@@ -374,7 +374,7 @@ class ScheduleMaster {
                 self.setDefaultSchedule()
                 break
                 
-            default : allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+            default : allSchedules = try! decoder.decode(BellSchedules.self, from:data) //fall out and decode locally
                 break
             }
             
@@ -460,11 +460,11 @@ class ScheduleMaster {
     }
     
     private func getCacheURLToFile (fileName:String) -> URL {
-        var targetFileURL:URL = getCachesDirectory()
-        targetFileURL.appendPathComponent(fileName)
-        targetFileURL.appendPathExtension("plist")
+		var targetFileURL:URL = self.getCachesDirectory() //set up to be the path of all the directories
+        targetFileURL.appendPathComponent(fileName) //append the file name (specify path)
+        targetFileURL.appendPathExtension("plist") //all files are plist so append that
         
-        return targetFileURL
+        return targetFileURL //return the fully qualified URL
     }
     
     
@@ -535,57 +535,57 @@ class ScheduleMaster {
     public func getCurrentBellTimeDescription() -> String {
         
 
-        if (specialDayDescIfApplicable(date: Date()) != ""){
-            return specialDayDescIfApplicable(date: Date())
+        if (specialDayDescIfApplicable(date: Date()) != ""){  //if the desc exsists
+            return specialDayDescIfApplicable(date: Date()) //return the non-empty desc
         }
-        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
+        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())! //midnight of current date
+        let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime) //convert to interval
         
         
         
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date()) //set Schedule object to current bell schedule
         
-        let currentBellTimes:Array = currentSchedule.bellTimes
+        let currentBellTimes:Array = currentSchedule.bellTimes //pull the associated bell times for the bellTimes
         
         var currentBellTime:BellTime?
-        for bellTime in currentBellTimes {
+        for bellTime in currentBellTimes { //loop through the bell times and find which one the current time is within
             if bellTime.timeInterval <= currentTimeAsInterval {
                 currentBellTime = bellTime
             }
         }
-        let description:String = (currentBellTime?.desc)!
+        let description:String = (currentBellTime?.desc)! // set up the description from the found bell time and return it
         return description
     }
     
     
     public func getNextBellTimeDescription(date:Date) -> String {
-        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date)!
-        let currentTimeAsInterval:TimeInterval = date.timeIntervalSince(baseTime)
+        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date)! //midnight of current time
+        let currentTimeAsInterval:TimeInterval = date.timeIntervalSince(baseTime) //convert to interval
         //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) /***KEEP FOR TESTING***
         
         
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: date)
-        let currentBellTimes:Array = currentSchedule.bellTimes
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: date) //get the current schedule
+        let currentBellTimes:Array = currentSchedule.bellTimes //make an array from that schedule
         
         
         for bellTime in currentBellTimes {
-            if bellTime.timeInterval > currentTimeAsInterval { //TODO: passing a sim Monday is returning "Free"
+            if bellTime.timeInterval > currentTimeAsInterval { //loop until you find where the current time is, then return its description
                 return bellTime.desc
             }
         }
         
-        return getFirstBellDescriptionForNextDay()
+        return getFirstBellDescriptionForNextDay() //otherwise, return the description for the next day
     }
     
     public func getTimeIntervalUntilNextEvent(isWeekend: Bool = false) -> TimeInterval { //isWeekend is a default parameter and is optionally passed
-        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
+        let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())! //beginning of current day
+        let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())! //end of current day
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
         //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) //***KEEP FOR TESTING***
         
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date()) //get the current schedule
         
-        let currentBellTimes:Array = currentSchedule.bellTimes
+        let currentBellTimes:Array = currentSchedule.bellTimes //get the corresponding bell times
         
         for bellTime in currentBellTimes {
             if bellTime.timeInterval > currentTimeAsInterval {
@@ -599,8 +599,8 @@ class ScheduleMaster {
     private func getBellScheduleFor(dateInput:Date) -> Schedule {
         let currentScheduleType:String = self.getScheduleType(myDate: dateInput)
         
-        let currentSchedule:Schedule = self.getScheduleFor(scheduleType: currentScheduleType)
-        return currentSchedule
+        let currentSchedule:Schedule = self.getScheduleFor(scheduleType: currentScheduleType) //pass into method to get the current schedule
+        return currentSchedule //return it
     }
     
     public func getCurrentPeriodLengthAsTimeInterval() -> TimeInterval {
@@ -618,13 +618,13 @@ class ScheduleMaster {
         
         for bellTime in currentBellTimes {
             if bellTime.timeInterval <= currentTimeAsInterval {
-                beginInterval = bellTime.timeInterval
+                beginInterval = bellTime.timeInterval //set the start interval that lies before
             }
         }
         
         for bellTime in currentBellTimes {
             if bellTime.timeInterval > currentTimeAsInterval {
-                endInterval = bellTime.timeInterval
+                endInterval = bellTime.timeInterval //set the endc interval to the interval that lies after
                 break
             }
         }
@@ -633,14 +633,14 @@ class ScheduleMaster {
             return endTime.timeIntervalSince(baseTime)-beginInterval
         }
         
-        return endInterval-beginInterval
+        return endInterval-beginInterval //return the difference which is the length of the period
     }
     
     private func getScheduleFor(scheduleType: String) -> Schedule {
         //print("XXXX"+scheduleType)
         var resultSchedule:Schedule?
-        for currentSchedule in allSchedules! {
-            if currentSchedule.scheduleType == scheduleType {
+        for currentSchedule in allSchedules! { //iterate through the schedules to find
+            if currentSchedule.scheduleType == scheduleType { //if the found during iteration equals the type, set the result and return it
                 resultSchedule = currentSchedule
             }
         }
@@ -664,16 +664,16 @@ class ScheduleMaster {
     }
     
     public func getWholeScheduleForDay() -> Array<String> {
-        var schedulesArray:Array<String> = []
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
+        var schedulesArray:Array<String> = [] //init array
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date()) //init current schedule
         
-        let currentBellTimes:Array = currentSchedule.bellTimes
+        let currentBellTimes:Array = currentSchedule.bellTimes //init
         if (currentSchedule.bellTimes.count > 1){
             for bellSchedule in currentBellTimes {
-                schedulesArray += ["\(bellSchedule.desc) - " + "\(stringFromTimeInterval(interval: bellSchedule.timeInterval, is12Hour: true, useSeconds: false))"]
+                schedulesArray += ["\(bellSchedule.desc) - " + "\(stringFromTimeInterval(interval: bellSchedule.timeInterval, is12Hour: true, useSeconds: false))"] //build the sting for the table cell view
             }
         } else if (currentSchedule.bellTimes.count <= 1){
-            if (specialDayDescIfApplicable(date: Date()) != ""){
+            if (specialDayDescIfApplicable(date: Date()) != ""){ //if only 1 schedule or less, check the special days then just return the array as it only has one description
                 schedulesArray = [specialDayDescIfApplicable(date: Date())]
                 return schedulesArray
             }
@@ -686,24 +686,24 @@ class ScheduleMaster {
     func isDateWithininSpecialDay (specialDay: SpecialDay, dateInput: Date) -> Bool {
         var now = Date() //Create date set to midnight on the current date
         now = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: dateInput)!
-        var beginDate:Date  = specialDay.beginDate
+        var beginDate:Date  = specialDay.beginDate //guaranteed
         beginDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: beginDate)!
-        var endDate: Date? = specialDay.endDate
-        if endDate != nil {
+        var endDate: Date? = specialDay.endDate //try this
+        if endDate != nil { //if the special day has no end date, set it to the beginnng of the day
             endDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: endDate!)!
         }
-        var inRange:Bool = false
+        var inRange:Bool = false //init
         
         if now == beginDate {
             inRange = true
         }
         
-        if endDate != nil {
+        if endDate != nil { //if end date exists for the current date...
             if now == endDate {
                 inRange = true
             } else if now > beginDate && now < endDate! {
                 inRange = true
-            }
+            } //see if the current Date is in range
         }
         
         return inRange
