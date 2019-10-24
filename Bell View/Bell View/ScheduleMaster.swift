@@ -191,10 +191,10 @@ class ScheduleMaster {
     
     func clearEtagsIfNeeded(){
         let defaults = UserDefaults.standard
-        let expirationDate = Calendar.current.date(byAdding: .hour, value: 24, to: Date())
+        let expirationDate = Calendar.current.date(byAdding: .hour, value: 24, to: Date()) //24 hours local expiraton date
         if (defaults.object(forKey: "expirationDate") == nil){
             self.clearEtags()
-            defaults.set(expirationDate, forKey: "expirationDate")
+            defaults.set(expirationDate, forKey: "expirationDate") //nothing found, add expiration date
             print("Found no expiration date")
             
         } else if (Date() > defaults.object(forKey: "expirationDate") as! Date){
