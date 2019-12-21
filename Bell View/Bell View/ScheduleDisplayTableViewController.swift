@@ -9,14 +9,14 @@
 import UIKit
 
 class ScheduleDisplayTableViewController: UITableViewController {
-    private let myMaster: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
+    private let MASTER: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
     var schedules:Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.tableHeaderView = "Today's Schedule"
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -29,14 +29,14 @@ class ScheduleDisplayTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        schedules = myMaster.getWholeScheduleForDay()
+        schedules = MASTER.getWholeScheduleForDay()
         return schedules.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
-        schedules = myMaster.getWholeScheduleForDay()
+        schedules = MASTER.getWholeScheduleForDay()
         let cellIdentifier = "ScheduleTableViewCell" //CRUCIAL
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ScheduleTableViewCell else {
             fatalError("Dequeued cell not an instance of ScheduleTableViewCell")
@@ -46,19 +46,26 @@ class ScheduleDisplayTableViewController: UITableViewController {
         
         //***TODO: highlights period 0 on scroll back up (bug)***
 
-//        if (schedules[indexPath.row].contains(myMaster.stringFromTimeInterval(interval: myMaster.getCurrentPeriodStartTimeInterval(), is12Hour: true, useSeconds: false)) && schedules[indexPath.row].contains(myMaster.getCurrentBellTimeDescription())) {
-//            cell.backgroundColor = UIColor(red:0.39, green:0.73, blue:0.98, alpha:1.0) //light blue
-//
-//        }
+        if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) {
+            cell.backgroundColor = UIColor(red:0.56, green:0.79, blue:0.99, alpha:1.0)//light blue
+
+        }
         
         return cell;
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (myMaster.canContinue()){
-        return "Today's Schedule " + "("+myMaster.getScheduleType(myDate: Date())+")"
+        if (MASTER.canContinue()){
+        return "Today's Schedule " + "("+MASTER.getScheduleType(myDate: Date())+")"
         }
         return ""
+    }
+    
+    private func shouldCellBeHighlighted(scheduleCellContents: String) -> Bool {
+        let scheduleNameOnly = scheduleCellContents.components(separatedBy: "-").first
+        let currentPeriodDesc: String = MASTER.getCurrentBellTimeDescription();
+        return scheduleNameOnly!.trimmingCharacters(in: CharacterSet.whitespaces) == currentPeriodDesc.trimmingCharacters(in: CharacterSet.whitespaces) //compare the two with whitespaces removed
+            
     }
  
 

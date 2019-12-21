@@ -234,7 +234,7 @@ class ScheduleMaster {
         
         //print("Request value:", request.value(forHTTPHeaderField: "If-None-Match"))
         
-        print("*********************************************")
+        //print("*********************************************")
         let myURLSessionConfig = URLSessionConfiguration.ephemeral
         myURLSessionConfig.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         let myURLSession = URLSession.init(configuration: myURLSessionConfig)
@@ -255,12 +255,12 @@ class ScheduleMaster {
             let status = httpResponse.statusCode
             
             
-            print ("HTTP Status Code From Server:\(status)")
+            //print ("HTTP Status Code From Server:\(status)")
             
             if (200...299).contains(status) {
                 
                 
-                print ("Downloaded Data With Status:\(status)")
+                //print ("Downloaded Data With Status:\(status)")
                 DispatchQueue.main.async { //runs async
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
@@ -268,7 +268,7 @@ class ScheduleMaster {
             }
             
             if status == 304 {
-                print ("Got 304 - Not Modified")
+                //print ("Got 304 - Not Modified")
                 DispatchQueue.main.async { //run async
                     self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
