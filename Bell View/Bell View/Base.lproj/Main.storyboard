@@ -177,7 +177,6 @@
                         <textField key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" (Swipe right to go back)" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" id="gqr-Eg-wEc">
                             <rect key="frame" x="0.0" y="106" width="375" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" notEnabled="YES"/>
                                 <bool key="isElement" value="NO"/>
@@ -214,6 +213,9 @@
                             <outlet property="dataSource" destination="UEw-tc-2bd" id="Rh4-Zv-t7e"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="endTableText" destination="gqr-Eg-wEc" id="Bdg-IR-xrJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGj-se-aJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

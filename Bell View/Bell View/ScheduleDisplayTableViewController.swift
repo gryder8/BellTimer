@@ -12,6 +12,10 @@ class ScheduleDisplayTableViewController: UITableViewController {
     private let MASTER: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
     var schedules:Array<String> = []
     
+    //MARK: Properties
+    @IBOutlet weak var endTableText: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.tableHeaderView = "Today's Schedule"
@@ -29,6 +33,9 @@ class ScheduleDisplayTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let headerView = UIView()
+        let headerColor = headerView.backgroundColor
+        endTableText.backgroundColor = headerColor
         schedules = MASTER.getWholeScheduleForDay()
         return schedules.count
     }
@@ -67,6 +74,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
         return scheduleNameOnly!.trimmingCharacters(in: CharacterSet.whitespaces) == currentPeriodDesc.trimmingCharacters(in: CharacterSet.whitespaces) //compare the two with whitespaces removed
             
     }
+    
  
 
     /*
