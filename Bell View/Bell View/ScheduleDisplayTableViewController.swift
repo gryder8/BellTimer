@@ -155,7 +155,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
         let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
         let yPos:CGFloat = self.tableView.bounds.maxY
         
-        if (self.tableView.numberOfRows(inSection: 0) >= 5) { //fixes bug where having 1 schedule would make footber background super dark
+        if (self.tableView.numberOfRows(inSection: 0) <= 5) { //fixes bug where having 1 schedule would make footber background super dark
             (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
         } else {
             (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
