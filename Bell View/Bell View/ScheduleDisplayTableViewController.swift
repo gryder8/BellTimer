@@ -6,6 +6,9 @@
 //  Copyright © 2019 Gavin Ryder. All rights reserved.
 //
 
+
+//TODO: Docs
+//Use CMD + Option + /
 import UIKit
 
 extension UIView {
