@@ -70,6 +70,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
             tableGradient.secondColor = UIColor(red:0.11, green:0.22, blue:1.00, alpha:0.86)
         }
        self.tableView.backgroundView = tableGradient
+        
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = false
     }
@@ -81,9 +82,8 @@ class ScheduleDisplayTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        schedules = MASTER.getWholeScheduleForDay()
-        return schedules.count
+        schedules = MASTER.getWholeScheduleForDay() //get the current schedule as an array
+        return schedules.count //length of the array = num of cells
     }
 
     
@@ -96,10 +96,9 @@ class ScheduleDisplayTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ScheduleTableViewCell else {
             fatalError("Dequeued cell not an instance of ScheduleTableViewCell")
         }
-        //let sched = schedules[indexPath.row]
         cell.scheduleLabel.text = schedules[indexPath.row]
         
-        if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) {
+        if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) { //check if the current schedule description is the same as the one in the cell
             cell.backgroundColor = UIColor(red:0.47, green:0.96, blue:0.47, alpha:1.0) //light green
             cell.scheduleLabel.textColor = .black
             cell.cellHighlighted = true;
@@ -108,34 +107,33 @@ class ScheduleDisplayTableViewController: UITableViewController {
             cell.cellHighlighted = false;
         }
         
-        if (!(cell.cellHighlighted ?? false)) { //if cell is not highlighted (defaults to false if nil is found)
-            if (darkModeEnabled) {
+        if (!(cell.cellHighlighted ?? false)) { //check if cell is not highlighted (defaults to false if nil is found)
+            if (darkModeEnabled) { //set text differently based on dark mode state
                 cell.scheduleLabel.textColor = .lightGray
             } else {
                 cell.scheduleLabel.textColor = .black
             }
         }
         
-        
-        
         return cell;
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { //set up the title for the table header
         if (MASTER.canContinue()){
             return "Today's Schedule " + "("+MASTER.getScheduleType(myDate: Date())+")"
         }
         return ""
     }
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
         if (MASTER.canContinue()){
             return "(Swipe right to go back)"
         }
         return ""
     }
     
-    private func shouldCellBeHighlighted(scheduleCellContents: String) -> Bool {
+
+    private func shouldCellBeHighlighted(scheduleCellContents: String) -> Bool { //determine whether a given cell should be highlighted given its data
         let scheduleNameOnly = scheduleCellContents.components(separatedBy: "-").first
         let currentPeriodDesc: String = MASTER.getCurrentBellTimeDescription();
         return scheduleNameOnly!.trimmingCharacters(in: CharacterSet.whitespaces) == currentPeriodDesc.trimmingCharacters(in: CharacterSet.whitespaces) //compare the two with whitespaces removed
@@ -155,11 +153,14 @@ class ScheduleDisplayTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
         let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
-        //print(view.bounds.midY)
-//        print(self.tableView.numberOfRows(inSection: 0))
         let yPos:CGFloat = self.tableView.bounds.maxY
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
-        (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic()
+        
+        if (self.tableView.numberOfRows(inSection: 0) >= 5) { //fixes bug where having 1 schedule would make footber background super dark
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
+        } else {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
+        }
+        (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic() //make the footer font italic
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
         } else {
