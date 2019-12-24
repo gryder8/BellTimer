@@ -53,6 +53,7 @@ extension UIFont {
 
 class ScheduleDisplayTableViewController: UITableViewController {
     
+    var endY:CGFloat = 0
     private let MASTER: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
     private let tableGradient:GradientView = GradientView()
     var schedules:Array<String> = []
@@ -118,6 +119,13 @@ class ScheduleDisplayTableViewController: UITableViewController {
             }
         }
         
+        var rect:CGRect = CGRect();
+        rect.origin.y = CGFloat(30 * indexPath.row)
+        rect.origin.x = tableView.frame.origin.x;
+        if (rect.origin.y >= endY){
+            endY = rect.origin.y
+        }
+        print(endY)
         return cell;
     }
     
@@ -156,13 +164,16 @@ class ScheduleDisplayTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
         let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
-        let yPos:CGFloat = self.tableView.bounds.maxY
+        let yPos:CGFloat = endY //self.tableView.bounds.maxY - self.tableView.bounds.minY
         
-        if (self.tableView.numberOfRows(inSection: 0) <= 5) { //fixes bug where having 1 schedule would make footber background super dark
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
-        } else {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
-        }
+        print(yPos)
+//        if (self.tableView.numberOfRows(inSection: 0) <= 5) { //fixes bug where having 1 schedule would make footber background super dark
+//            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
+//        } else {
+//            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
+//        }
+        print(endY)
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic() //make the footer font italic
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
