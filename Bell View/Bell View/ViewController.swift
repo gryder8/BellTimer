@@ -36,6 +36,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var nextPeriodDescription: UITextField!
     @IBOutlet weak var progressRing: UICircularProgressRing!
     @IBOutlet weak var noConnection: UITextField!
+    @IBOutlet weak var gradientView: GradientView!
+    
     
     
     public func setState(active:Bool){
@@ -140,6 +142,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     override func viewDidLoad() {
+        
+        if (self.traitCollection.userInterfaceStyle == .dark){
+            gradientView.firstColor = UIColor(red:0.00, green:0.00, blue:1.00, alpha:0.8)
+            gradientView.secondColor = UIColor(red:0.00, green:0.30, blue:1.00, alpha:1.0)
+        } else {
+            gradientView.firstColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:0.9)
+            gradientView.secondColor = UIColor(red:0.11, green:0.22, blue:1.00, alpha:0.86)
+        }
+        
         if (!master.canContinue()){ //if this doesn't work, use the isLoaded public Bool from the master. Check that it's being set properly
             swipeGesture.isEnabled = false
         } else {

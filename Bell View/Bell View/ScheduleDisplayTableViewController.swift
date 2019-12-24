@@ -8,9 +8,52 @@
 
 import UIKit
 
+extension UIView {
+    func colorOfPoint(point: CGPoint) -> UIColor {
+        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+
+        var pixelData: [UInt8] = [0, 0, 0, 0]
+
+        let context = CGContext(data: &pixelData, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+
+        context!.translateBy(x: -point.x, y: -point.y)
+
+        self.layer.render(in: context!)
+
+        let red: CGFloat = CGFloat(pixelData[0]) / CGFloat(255.0)
+        let green: CGFloat = CGFloat(pixelData[1]) / CGFloat(255.0)
+        let blue: CGFloat = CGFloat(pixelData[2]) / CGFloat(255.0)
+        let alpha: CGFloat = CGFloat(pixelData[3]) / CGFloat(255.0)
+
+        let color: UIColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+
+        return color
+    }
+}
+
+extension UIFont {
+    func withTraits(traits:UIFontDescriptor.SymbolicTraits) -> UIFont {
+        let descriptor = fontDescriptor.withSymbolicTraits(traits)
+        return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
+    }
+
+    func bold() -> UIFont {
+        return withTraits(traits: .traitBold)
+    }
+    
+    func italic() -> UIFont {
+        return withTraits(traits: .traitItalic)
+    }
+
+}
+
 class ScheduleDisplayTableViewController: UITableViewController {
+    
     private let MASTER: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
+    private let tableGradient:GradientView = GradientView()
     var schedules:Array<String> = []
+    private var darkModeEnabled:Bool = false
     
     //MARK: Properties
     @IBOutlet weak var endTableText: UITextField!
@@ -18,31 +61,36 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.tableHeaderView = "Today's Schedule"
+        self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
+        if (darkModeEnabled){
+            tableGradient.firstColor = UIColor(red:0.00, green:0.00, blue:1.00, alpha:0.8)
+            tableGradient.secondColor = UIColor(red:0.00, green:0.30, blue:1.00, alpha:1.0)
+        } else {
+            tableGradient.firstColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:0.9)
+            tableGradient.secondColor = UIColor(red:0.11, green:0.22, blue:1.00, alpha:0.86)
+        }
+       self.tableView.backgroundView = tableGradient
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.clearsSelectionOnViewWillAppear = false
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 1 //table never has more than 1 section
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let headerView = UIView()
-        let headerColor = headerView.backgroundColor
-        endTableText.backgroundColor = headerColor
+    
         schedules = MASTER.getWholeScheduleForDay()
         return schedules.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //loops through each cell
+        //code here applies to each cell in the table view
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 40);
+        tableView.separatorColor = UIColor(red:0.18, green:0.18, blue:0.18, alpha:0.5)
         schedules = MASTER.getWholeScheduleForDay()
         let cellIdentifier = "ScheduleTableViewCell" //CRUCIAL
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ScheduleTableViewCell else {
@@ -51,19 +99,38 @@ class ScheduleDisplayTableViewController: UITableViewController {
         //let sched = schedules[indexPath.row]
         cell.scheduleLabel.text = schedules[indexPath.row]
         
-        //***TODO: highlights period 0 on scroll back up (bug)***
-
         if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) {
-            cell.backgroundColor = UIColor(red:0.56, green:0.79, blue:0.99, alpha:1.0)//light blue
-
+            cell.backgroundColor = UIColor(red:0.47, green:0.96, blue:0.47, alpha:1.0) //light green
+            cell.scheduleLabel.textColor = .black
+            cell.cellHighlighted = true;
+        } else {
+            cell.backgroundColor = .clear
+            cell.cellHighlighted = false;
         }
+        
+        if (!(cell.cellHighlighted ?? false)) { //if cell is not highlighted (defaults to false if nil is found)
+            if (darkModeEnabled) {
+                cell.scheduleLabel.textColor = .lightGray
+            } else {
+                cell.scheduleLabel.textColor = .black
+            }
+        }
+        
+        
         
         return cell;
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (MASTER.canContinue()){
-        return "Today's Schedule " + "("+MASTER.getScheduleType(myDate: Date())+")"
+            return "Today's Schedule " + "("+MASTER.getScheduleType(myDate: Date())+")"
+        }
+        return ""
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if (MASTER.canContinue()){
+            return "(Swipe right to go back)"
         }
         return ""
     }
@@ -72,11 +139,36 @@ class ScheduleDisplayTableViewController: UITableViewController {
         let scheduleNameOnly = scheduleCellContents.components(separatedBy: "-").first
         let currentPeriodDesc: String = MASTER.getCurrentBellTimeDescription();
         return scheduleNameOnly!.trimmingCharacters(in: CharacterSet.whitespaces) == currentPeriodDesc.trimmingCharacters(in: CharacterSet.whitespaces) //compare the two with whitespaces removed
-            
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
+        (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
+        if (darkModeEnabled){
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
+        } else {
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor(red:0.18, green:0.18, blue:0.18, alpha:1.0)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
+        let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
+        //print(view.bounds.midY)
+//        print(self.tableView.numberOfRows(inSection: 0))
+        let yPos:CGFloat = self.tableView.bounds.maxY
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
+        (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic()
+        if (darkModeEnabled){
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
+        } else {
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
+        }
+    }
+    
+    
  
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

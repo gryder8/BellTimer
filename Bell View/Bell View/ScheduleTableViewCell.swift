@@ -10,6 +10,18 @@ import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
     
+    private var _cellHighlighted:Bool?
+    
+    var cellHighlighted:Bool? {
+        set (newValue) {
+            _cellHighlighted = newValue
+        }
+        
+        get {
+            return _cellHighlighted
+        }
+    }
+    
     //MARK: Properties
     @IBOutlet weak var scheduleLabel: UILabel!
     
