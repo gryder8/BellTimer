@@ -76,9 +76,9 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func generateTimeRemaining(){
-        if (myMaster.getTimeIntervalUntilNextEvent() < 60){
-            timeRemaining.setText("> 1 minute");
-        }
+//        if (myMaster.getTimeIntervalUntilNextEvent() < 60){
+//            timeRemaining.setText("> 1 minute");
+//        }
         timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
     }
     
@@ -113,7 +113,7 @@ class InterfaceController: WKInterfaceController {
         isActive = true;
         refreshInterface()
         if (isActive){
-            refreshTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
+            refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshInterface), userInfo: nil, repeats: true)
         }
     }
 

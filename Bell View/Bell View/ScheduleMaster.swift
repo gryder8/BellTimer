@@ -105,7 +105,7 @@ class ScheduleMaster {
     public var doneLoading:Bool = false
         
     
-    let fileManager:FileManager  = FileManager()
+    let fileManager:FileManager = FileManager()
     
     //Struct that holds all the belltimes
     struct Schedule: Decodable {
@@ -114,7 +114,7 @@ class ScheduleMaster {
     }
     
     func canContinue() -> Bool {
-        for val in loadStatesDict.values{
+        for val in loadStatesDict.values {
             if (val == false) {
                 return false;
             }
@@ -142,7 +142,7 @@ class ScheduleMaster {
         
     }
     
-    //New Method that's called by the timer to check load comnpletion
+    //method that's called by the timer to check load comnpletion
     @objc func readyToContinueTimerTriggered () {
         if (self.canContinue()) {
             self.readyToContinueTimer.invalidate()
@@ -202,19 +202,16 @@ class ScheduleMaster {
             defaults.set(expirationDate, forKey: "expirationDate")
             print("Passed expiration date")
         } else {
-        
-        if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "Schedules").path) == false){
-            self.clearEtags()
-            print("Schedules file didn't exist")
-        }
-        else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "specialDays").path) == false){
+			if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "Schedules").path) == false) {
+				self.clearEtags()
+				print("Schedules file didn't exist")
+			} else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "specialDays").path) == false) {
             self.clearEtags()
             print("specialDays file didn't exist")
-        }
-        else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "defaultSchedule").path) == false){
-            self.clearEtags()
-            print("defaultSchedule file didn't exist")
-        }
+			} else if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "defaultSchedule").path) == false) {
+				self.clearEtags()
+				print("defaultSchedule file didn't exist")
+			}
     }
 }
     
