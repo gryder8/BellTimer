@@ -37,9 +37,9 @@ class ScheduleMaster {
     private var defaultScheduleForToday:String = ""
     private var defaultScheduleForNextDay:String = ""
     
-    private final let SCHEDULES_URL: URL = URL(string: "https://bell-server.vapor.cloud/Schedules.plist")!
-    private final let SPECIAL_DAYS_URL: URL = URL(string:"https://bell-server.vapor.cloud/specialDays.plist")!
-    private final let DEFAULT_DAYS_URL: URL = URL(string:"https://bell-server.vapor.cloud/defaultSchedule.plist")!
+    private final let SCHEDULES_URL: URL = URL(string: "https://rydermegastore.synology.me:8999/Schedules.plist")!
+    private final let SPECIAL_DAYS_URL: URL = URL(string:"https://rydermegastore.synology.me:8999/specialDays.plist")!
+    private final let DEFAULT_DAYS_URL: URL = URL(string:"https://rydermegastore.synology.me:8999/defaultSchedule.plist")!
     
     func setDefaultSchedule(){
         let today = Calendar.current.component(.weekday, from:Date())
