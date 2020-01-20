@@ -1,8 +1,7 @@
 # BellTimer
 LAHS BellTimer app for iOS 12+
 
-Files hosted with Vapor:
-https://vapor.codes/
+Files hosted via local server with Synology
 
 Progress Ring on iOS courtesy of Luis Padron:
 https://github.com/luispadron/uicircularprogressring
