@@ -29,9 +29,20 @@ class PeriodEditorTableViewController: UITableViewController {
             tableGradient.secondColor = UIColor(red:0.11, green:0.22, blue:1.00, alpha:0.86)
         }
        self.tableView.backgroundView = tableGradient
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //super.setEditing(true, animated: true)
+        
         
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        // Takes care of toggling the button's title.
+        super.setEditing(!isEditing, animated: true)
+
+        // Toggle table view editing.
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
 
     // MARK: - Table view data source
@@ -63,12 +74,7 @@ class PeriodEditorTableViewController: UITableViewController {
             self.present(alert, animated: false)
         })
 
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            self.list.remove(at: indexPath.row)
-            tableView.reloadData()
-        })
-
-        return [deleteAction, editAction]
+        return [editAction]
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { //set up the title for the table header
@@ -96,6 +102,8 @@ class PeriodEditorTableViewController: UITableViewController {
             fatalError("Dequeued cell not an instance of PeriodNameTableViewCell")
         }
         cell.periodNameLabel.text = list[indexPath.row]
+        cell.periodNameLabel.textAlignment = .center
+        cell.backgroundColor = .clear
 
         return cell
     }
@@ -113,9 +121,8 @@ class PeriodEditorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
-        let yPos:CGFloat = endY
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
+
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor(red:0.00, green:0.40, blue:1.00, alpha:0.9) //length of table is constant so no need to be dynamic like the other table view
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic() //make the footer font italic
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
@@ -125,13 +132,12 @@ class PeriodEditorTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
