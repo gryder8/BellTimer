@@ -93,7 +93,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //loops through each cell
         //code here applies to each cell in the table view
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 40);
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 40)
         tableView.separatorColor = UIColor(red:0.18, green:0.18, blue:0.18, alpha:0.5)
         schedules = MASTER.getWholeScheduleForDay()
         let cellIdentifier = "ScheduleTableViewCell" //CRUCIAL

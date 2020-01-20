@@ -142,7 +142,7 @@ class ScheduleMaster {
         
     }
     
-    //method that's called by the timer to check load comnpletion
+    //method that's called by the timer to check load completion
     @objc func readyToContinueTimerTriggered () {
         if (self.canContinue()) {
             self.readyToContinueTimer.invalidate()

@@ -168,26 +168,42 @@
                         <segue destination="UEw-tc-2bd" kind="show" id="Oqx-ea-D2u"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="5Mu-1y-gz8" userLabel="Swipe Down"/>
+                <swipeGestureRecognizer direction="right" id="5Mu-1y-gz8" userLabel="Swipe Right">
+                    <connections>
+                        <segue destination="Evs-lR-wP9" kind="show" id="41K-Qn-L0I"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Period Editor Table View Controller-->
         <scene sceneID="tOe-9k-ZlB">
             <objects>
-                <tableViewController id="Evs-lR-wP9" sceneMemberID="viewController">
+                <tableViewController id="Evs-lR-wP9" customClass="PeriodEditorTableViewController" customModule="Bell_View" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="60T-Bz-Pr1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="l3b-0S-z8c">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="l3b-0S-z8c" customClass="PeriodNameTableViewCell" customModule="Bell_View" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l3b-0S-z8c" id="h5B-ts-svs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Data]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IdM-Iy-B8g" userLabel="Period Name">
+                                            <rect key="frame" x="0.0" y="-1" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="periodNameLabel" destination="IdM-Iy-B8g" id="B29-Om-16g"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -195,10 +211,11 @@
                             <outlet property="delegate" destination="Evs-lR-wP9" id="hol-1X-RLo"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="y9T-Kk-Qb5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXK-mY-Wxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="896"/>
+            <point key="canvasLocation" x="71" y="134"/>
         </scene>
         <!--Schedule Display Table View Controller-->
         <scene sceneID="E4h-LH-VB8">
@@ -237,6 +254,7 @@
                             <outlet property="dataSource" destination="UEw-tc-2bd" id="Rh4-Zv-t7e"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="0ZH-mZ-iW6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGj-se-aJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgr-1Z-tpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="70" y="889"/>
         </scene>
     </scenes>
     <resources>

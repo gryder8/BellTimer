@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4451ED5960E68A22AE3F77C3 /* Pods_Bell_View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */; };
 		780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */; };
+		86025E3D23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */; };
+		86025E3F23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */; };
 		860D3BD02328102B002493A0 /* leftSwipeArrowModified.png in Resources */ = {isa = PBXBuildFile; fileRef = 860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */; };
 		861DBD5721F2D6B200DBC4A9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A6FA921E910E900831E69 /* InterfaceController.swift */; };
 		861DBD9F21F2D80500DBC4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */; };
@@ -33,6 +35,7 @@
 		86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67221ED8CF100BFC5FF /* specialDays.plist */; };
 		86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */; };
 		86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86BBF67421ED8CF100BFC5FF /* Schedules.plist */; };
+		86DABC0323D590EB0088B0BF /* ScheduleNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DABC0223D590EB0088B0BF /* ScheduleNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,8 @@
 /* Begin PBXFileReference section */
 		24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodEditorTableViewController.swift; sourceTree = "<group>"; };
+		86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodNameTableViewCell.swift; sourceTree = "<group>"; };
 		860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftSwipeArrowModified.png; sourceTree = "<group>"; };
 		861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		86242FF222489F6A001EBA18 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -99,6 +104,7 @@
 		86BBF67221ED8CF100BFC5FF /* specialDays.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = specialDays.plist; sourceTree = "<group>"; };
 		86BBF67321ED8CF100BFC5FF /* defaultSchedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSchedule.plist; sourceTree = "<group>"; };
 		86BBF67421ED8CF100BFC5FF /* Schedules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedules.plist; sourceTree = "<group>"; };
+		86DABC0223D590EB0088B0BF /* ScheduleNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNames.swift; sourceTree = "<group>"; };
 		8A6BE31DD74C88441D5C1113 /* Pods-Bell View WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View WatchKit Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View WatchKit Extension/Pods-Bell View WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		AD79E5F537D684B3FE5E01EA /* Pods-Bell View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.debug.xcconfig"; sourceTree = "<group>"; };
 		B425729649FED13D940B5A90 /* Pods-Bell View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell View.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Bell View/Pods-Bell View.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,9 +168,12 @@
 				86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */,
 				865A6F8821E910E700831E69 /* ViewController.swift */,
 				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
+				86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */,
 				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
+				86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */,
 				860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */,
 				865A6F8A21E910E700831E69 /* Main.storyboard */,
+				86DABC0223D590EB0088B0BF /* ScheduleNames.swift */,
 				865A6F8F21E910E800831E69 /* LaunchScreen.storyboard */,
 				865A6F8D21E910E800831E69 /* Assets.xcassets */,
 				865A6F9221E910E800831E69 /* Info.plist */,
@@ -467,9 +476,12 @@
 				86BBF67121ED810E00BFC5FF /* ScheduleMaster.swift in Sources */,
 				867CBE1B21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift in Sources */,
 				867CBE1921F65F8200C789C2 /* ScheduleTableViewCell.swift in Sources */,
+				86DABC0323D590EB0088B0BF /* ScheduleNames.swift in Sources */,
+				86025E3D23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift in Sources */,
 				865A6F8921E910E700831E69 /* ViewController.swift in Sources */,
 				86576F7D21F16A28002FD7D5 /* GradientView.swift in Sources */,
 				865A6F8721E910E700831E69 /* AppDelegate.swift in Sources */,
+				86025E3F23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
