@@ -12,7 +12,7 @@ class PeriodEditorTableViewController: UITableViewController {
     
     private let MASTER: ScheduleMaster = ScheduleMaster.shared
     private let tableGradient:GradientView = GradientView()
-    private let PeriodNames:ScheduleNames = ScheduleNames()
+    private let PeriodNames:ScheduleNames = ScheduleNames.shared
     var list:Array<String> = []
     private var darkModeEnabled:Bool = false
     var endY:CGFloat = 0
@@ -28,22 +28,25 @@ class PeriodEditorTableViewController: UITableViewController {
             tableGradient.firstColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:0.9)
             tableGradient.secondColor = UIColor(red:0.11, green:0.22, blue:1.00, alpha:0.86)
         }
-       self.tableView.backgroundView = tableGradient
+       
+        self.tableView.backgroundView = tableGradient
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        //super.setEditing(true, animated: true)
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        //self.clearsSelectionOnViewWillAppear = false
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        // Takes care of toggling the button's title.
-        super.setEditing(!isEditing, animated: true)
-
-        // Toggle table view editing.
-        tableView.setEditing(!tableView.isEditing, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationItem.prompt = "Swipe left or press back to go home"
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
 
     // MARK: - Table view data source
 
@@ -85,12 +88,12 @@ class PeriodEditorTableViewController: UITableViewController {
     }
 
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
-        if (MASTER.canContinue()){
-            return "(Swipe left again to go back)"
-        }
-        return ""
-    }
+//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
+//        if (MASTER.canContinue()){
+//            return "(Swipe left again to go back)"
+//        }
+//        return ""
+//    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,7 +118,7 @@ class PeriodEditorTableViewController: UITableViewController {
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
         } else {
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor(red:0.18, green:0.18, blue:0.18, alpha:1.0)
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
         }
     }
     

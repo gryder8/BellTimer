@@ -78,6 +78,20 @@ class ScheduleDisplayTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationItem.prompt = "Swipe left or press back to go home"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 
     // MARK: - Table view data source
 
@@ -136,12 +150,12 @@ class ScheduleDisplayTableViewController: UITableViewController {
         return ""
     }
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
-        if (MASTER.canContinue()){
-            return "(Swipe right to go back)"
-        }
-        return ""
-    }
+//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
+//        if (MASTER.canContinue()){
+//            return "(Swipe right to go back)"
+//        }
+//        return ""
+//    }
     
 
     private func shouldCellBeHighlighted(scheduleCellContents: String) -> Bool { //determine whether a given cell should be highlighted given its data
@@ -157,7 +171,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
         } else {
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor(red:0.18, green:0.18, blue:0.18, alpha:1.0)
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
         }
     }
     

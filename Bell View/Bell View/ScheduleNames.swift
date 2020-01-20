@@ -17,8 +17,10 @@ class ScheduleNames {
         loadFromCache()
     }
     
+    static let shared = ScheduleNames()
+    
     private func loadFromCache() -> Void {
-        
+        //defaults.removeObject(forKey: PERIOD_NAME_LOCATION_KEY)
         if (defaults.array(forKey: PERIOD_NAME_LOCATION_KEY) != nil){ //data is found in the local cache
             periodNames = defaults.array(forKey: PERIOD_NAME_LOCATION_KEY) as! [String]
             print("Assigned value of periodNames based on cache data")
