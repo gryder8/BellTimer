@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yqn-mK-FFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yqn-mK-FFz">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,6 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ztv-03-Weg" appends="YES" id="nhp-yN-sgz"/>
+                                    <outletCollection property="gestureRecognizers" destination="5Mu-1y-gz8" appends="YES" id="SsE-FI-qKH"/>
                                 </connections>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScF-qL-eRc" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
@@ -162,13 +163,42 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="ztv-03-Weg">
+                <swipeGestureRecognizer direction="left" id="ztv-03-Weg" userLabel="Swipe Left">
                     <connections>
                         <segue destination="UEw-tc-2bd" kind="show" id="Oqx-ea-D2u"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="5Mu-1y-gz8" userLabel="Swipe Down"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="tOe-9k-ZlB">
+            <objects>
+                <tableViewController id="Evs-lR-wP9" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="60T-Bz-Pr1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="l3b-0S-z8c">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l3b-0S-z8c" id="h5B-ts-svs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Evs-lR-wP9" id="aLf-Ec-MBi"/>
+                            <outlet property="delegate" destination="Evs-lR-wP9" id="hol-1X-RLo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXK-mY-Wxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="896"/>
         </scene>
         <!--Schedule Display Table View Controller-->
         <scene sceneID="E4h-LH-VB8">
@@ -178,16 +208,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textField key="tableFooterView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" (Swipe right to go back)" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" id="gqr-Eg-wEc">
-                            <rect key="frame" x="0.0" y="106" width="375" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <accessibility key="accessibilityConfiguration">
-                                <accessibilityTraits key="traits" notEnabled="YES"/>
-                                <bool key="isElement" value="NO"/>
-                            </accessibility>
-                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="ScheduleTableViewCell" rowHeight="50" id="fhf-OO-e4b" customClass="ScheduleTableViewCell" customModule="Bell_View" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
@@ -217,9 +237,6 @@
                             <outlet property="dataSource" destination="UEw-tc-2bd" id="Rh4-Zv-t7e"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="endTableText" destination="gqr-Eg-wEc" id="Bdg-IR-xrJ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGj-se-aJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

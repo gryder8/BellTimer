@@ -60,7 +60,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     private var darkModeEnabled:Bool = false
     
     //MARK: Properties
-    @IBOutlet weak var endTableText: UITextField!
+    //@IBOutlet weak var endTableText: UITextField!
     
     
     override func viewDidLoad() {
