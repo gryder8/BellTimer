@@ -164,15 +164,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
         let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
-        let yPos:CGFloat = endY //self.tableView.bounds.maxY - self.tableView.bounds.minY
-        
-        print(yPos)
-//        if (self.tableView.numberOfRows(inSection: 0) <= 5) { //fixes bug where having 1 schedule would make footber background super dark
-//            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
-//        } else {
-//            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
-//        }
-        print(endY)
+        let yPos:CGFloat = endY
         (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic() //make the footer font italic
         if (darkModeEnabled){
