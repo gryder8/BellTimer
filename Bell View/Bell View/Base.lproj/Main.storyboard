@@ -64,10 +64,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leftSwipeArrowModified.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wko-7n-syG">
-                                        <rect key="frame" x="270" y="243" width="93" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -152,6 +148,14 @@
                                 </state>
                                 <connections>
                                     <segue destination="Evs-lR-wP9" kind="show" id="b4o-3y-fWJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBy-7j-7wi">
+                                <rect key="frame" x="280" y="45" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menuIcon.png"/>
+                                <connections>
+                                    <segue destination="UEw-tc-2bd" kind="show" id="eT8-jV-qbb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -286,7 +290,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="leftSwipeArrowModified.png" width="366" height="145.67999267578125"/>
+        <image name="menuIcon.png" width="512" height="512"/>
         <image name="settings.png" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Oqx-ea-D2u"/>
+    </inferredMetricsTieBreakers>
 </document>
