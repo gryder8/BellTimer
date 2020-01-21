@@ -53,7 +53,6 @@ extension UIFont {
 
 class ScheduleDisplayTableViewController: UITableViewController {
     
-    var endY:CGFloat = 0
     private let MASTER: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
     private let tableGradient:GradientView = GradientView()
     var schedules:Array<String> = []
@@ -106,7 +105,6 @@ class ScheduleDisplayTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = .black
-        //self.navigationItem.prompt = "Swipe left or press back to go home"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -135,6 +133,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
             fatalError("Dequeued cell not an instance of ScheduleTableViewCell")
         }
         cell.scheduleLabel.text = schedules[indexPath.row]
+        cell.scheduleLabel.textColor = .black
         
         let cellText = cell.scheduleLabel.text!
         if (cellText.contains("Period")){
@@ -147,28 +146,11 @@ class ScheduleDisplayTableViewController: UITableViewController {
         
         if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) { //check if the current schedule description is the same as the one in the cell
             cell.backgroundColor = UIColor(red:0.47, green:0.96, blue:0.47, alpha:1.0) //light green
-            cell.scheduleLabel.textColor = .black
             cell.cellHighlighted = true;
         } else {
             cell.backgroundColor = .clear
             cell.cellHighlighted = false;
         }
-        
-        if (!(cell.cellHighlighted ?? false)) { //check if cell is not highlighted (defaults to false if nil is found)
-            if (darkModeEnabled) { //set text differently based on dark mode state
-                cell.scheduleLabel.textColor = .lightGray
-            } else {
-                cell.scheduleLabel.textColor = .black
-            }
-        }
-        
-        var rect:CGRect = CGRect();
-        rect.origin.y = CGFloat(30 * indexPath.row)
-        rect.origin.x = tableView.frame.origin.x;
-        if (rect.origin.y >= endY){
-            endY = rect.origin.y
-        }
-        //print(endY)
         return cell;
     }
     
