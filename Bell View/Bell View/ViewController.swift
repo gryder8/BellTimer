@@ -26,6 +26,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     static let shared = ViewController()
     
+    private let PeriodNames: ScheduleNames = ScheduleNames.shared
+    
     
     //MARK: Properties
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
@@ -56,7 +58,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.setUpCurrentDate()
             self.setUpCurrentPeriodDescription()
             self.setUpNextPeriodDescription()
-            //print(master.getNextBellTimeDescription(date: dateTest!))
             self.setUpScheduleType()
             self.setupProgressBar()
         }
@@ -86,20 +87,59 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setUpCurrentPeriodDescription(){
-        currentPeriodDescription.text = master.getCurrentBellTimeDescription()
+        currentPeriodDescription.text = master.getCurrentBellTimeDescription() //initialize the text
+        if (currentPeriodDescription.text!.contains("Period")){
+            let str  = currentPeriodDescription.text!
+            let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
+            let periodSubstring = String(str[startIndex...])
+            currentPeriodDescription.text!.replaceSubrange(startIndex..., with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+        }
         currentPeriodDescription.backgroundColor = colorForTime()
+    }
+    
+    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
+        switch stringWithDefaultPeriodName {
+            //cases
+        case "Period 0": return PeriodNames.getPeriodNames()[0]
+        case "Period 1": return PeriodNames.getPeriodNames()[1]
+        case "Period 2": return PeriodNames.getPeriodNames()[2]
+        case "Period 3": return PeriodNames.getPeriodNames()[3]
+        case "Period 4": return PeriodNames.getPeriodNames()[4]
+        case "Period 5": return PeriodNames.getPeriodNames()[5]
+        case "Period 6": return PeriodNames.getPeriodNames()[6]
+        case "Period 7": return PeriodNames.getPeriodNames()[7]
+            //default
+        default: return stringWithDefaultPeriodName //don't modify
+            
+        }
+        
     }
     
     private func setUpNextPeriodDescription(isSaturday: Bool = false){
         
+        //SPECIAL CASE
         if (isSaturday == true){
             let calendar = Calendar.current
             var simulatedMonday = calendar.date(byAdding: .day, value: 2, to: Date())!
             simulatedMonday = Calendar.current.date(bySettingHour: 0, minute: 0, second: 5, of: simulatedMonday)!
             nextPeriodDescription.text = "Next: " + master.getNextBellTimeDescription(date:simulatedMonday)
+            if (nextPeriodDescription.text!.contains("Period")){
+                let str  = nextPeriodDescription.text!
+                let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
+                let periodSubstring = String(str[startIndex...])
+                nextPeriodDescription.text!.replaceSubrange(startIndex..., with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+            }
             return
         }
+        
+        
         nextPeriodDescription.text = "Next: " + master.getNextBellTimeDescription(date:Date())
+        if (nextPeriodDescription.text!.contains("Period")){
+            let str  = nextPeriodDescription.text!
+            let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
+            let periodSubstring = String(str[startIndex...])
+            nextPeriodDescription.text!.replaceSubrange(startIndex..., with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+        }
     }
     
     private func setUpScheduleType() {
