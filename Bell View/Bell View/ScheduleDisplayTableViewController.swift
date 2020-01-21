@@ -59,9 +59,6 @@ class ScheduleDisplayTableViewController: UITableViewController {
     private var darkModeEnabled:Bool = false
     private let CustomPeriodNames:ScheduleNames = ScheduleNames.shared
     
-    //MARK: Properties
-    //@IBOutlet weak var endTableText: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,23 +76,6 @@ class ScheduleDisplayTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = false
     }
-    
-//    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
-//        switch stringWithDefaultPeriodName {
-//            //cases
-//        case "Period 0": return PeriodNames.getPeriodNames()[0]
-//        case "Period 1": return PeriodNames.getPeriodNames()[1]
-//        case "Period 2": return PeriodNames.getPeriodNames()[2]
-//        case "Period 3": return PeriodNames.getPeriodNames()[3]
-//        case "Period 4": return PeriodNames.getPeriodNames()[4]
-//        case "Period 5": return PeriodNames.getPeriodNames()[5]
-//        case "Period 6": return PeriodNames.getPeriodNames()[6]
-//        case "Period 7": return PeriodNames.getPeriodNames()[7]
-//            //default
-//        default: return stringWithDefaultPeriodName //don't modify
-//
-//        }
-//    }
      
     
     override func viewWillAppear(_ animated: Bool) {
