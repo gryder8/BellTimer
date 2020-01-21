@@ -187,26 +187,14 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.1175723746, green: 0.5970157385, blue: 0.9982227683, alpha: 1)
+        self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
+        if (!darkModeEnabled) {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.1175723746, green: 0.5970157385, blue: 0.9982227683, alpha: 1)
+        } else {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.001772583579, green: 0.03671175614, blue: 0.8297545314, alpha: 1)
+        }
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
-        if (darkModeEnabled){
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
-        } else {
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        let xPos:CGFloat = self.tableGradient.bounds.midX //middle of the general UIView
-        let yPos:CGFloat = endY
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.colorOfPoint(point: CGPoint(x: xPos,y: yPos))
-        (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic() //make the footer font italic
-        if (darkModeEnabled){
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
-        } else {
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
-        }
+        (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
     }
     
     
