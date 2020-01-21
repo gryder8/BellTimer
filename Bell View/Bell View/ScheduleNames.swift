@@ -21,7 +21,7 @@ class ScheduleNames {
     
     private func loadFromCache() -> Void {
         //defaults.removeObject(forKey: PERIOD_NAME_LOCATION_KEY)
-        if (defaults.array(forKey: PERIOD_NAME_LOCATION_KEY) != nil){ //data is found in the local cache
+        if (defaults.array(forKey: PERIOD_NAME_LOCATION_KEY) != nil){ //&& defaults.array(forKey: PERIOD_NAME_LOCATION_KEY)[7] != "[Data]" //data is found in the local cache
             periodNames = defaults.array(forKey: PERIOD_NAME_LOCATION_KEY) as! [String]
             print("Assigned value of periodNames based on cache data")
         } else { //array is not stored in the cache, write defaults

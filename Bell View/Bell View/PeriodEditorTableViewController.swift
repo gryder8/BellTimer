@@ -30,17 +30,34 @@ class PeriodEditorTableViewController: UITableViewController {
         }
        
         self.tableView.backgroundView = tableGradient
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setUpTableViewHeader()
+    }
+    
+    private func setUpTableViewHeader(){
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = .black
-        self.navigationItem.prompt = "Swipe left or press back to go home"
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done,target: self, action: #selector(backTapped))
+        let label = UILabel(frame: CGRect(x:0, y:0, width:350, height:30)) //width is subject to change, Defined as per your screen
+        label.backgroundColor = .clear
+        label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 12.0)
+        label.textAlignment = .center
+        label.textColor = .black
+        label.text = "Swipe left again or press done to go home \n Swipe right on a period name to edit"
+        self.navigationItem.titleView = label
+    }
+    
+    @objc func backTapped(){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,8 +79,8 @@ class PeriodEditorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         //self.list = PeriodNames.getPeriodNames()
-        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            let alert = UIAlertController(title: "", message: "Edit list item", preferredStyle: .alert)
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: { (action, indexPath) in
+            let alert = UIAlertController(title: "", message: "Edit period name", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
                 textField.text = self.list[indexPath.row]
             })
@@ -75,6 +92,7 @@ class PeriodEditorTableViewController: UITableViewController {
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: false)
+            
         })
 
         return [editAction]
@@ -113,7 +131,7 @@ class PeriodEditorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.1045082286, green: 0.5970813036, blue: 0.9899627566, alpha: 1)
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray

@@ -58,6 +58,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     private let tableGradient:GradientView = GradientView()
     var schedules:Array<String> = []
     private var darkModeEnabled:Bool = false
+    private let PeriodNames:ScheduleNames = ScheduleNames.shared
     
     //MARK: Properties
     //@IBOutlet weak var endTableText: UITextField!
@@ -78,6 +79,24 @@ class ScheduleDisplayTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = false
     }
+    
+    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
+        switch stringWithDefaultPeriodName {
+            //cases
+        case "Period 0": return PeriodNames.getPeriodNames()[0]
+        case "Period 1": return PeriodNames.getPeriodNames()[1]
+        case "Period 2": return PeriodNames.getPeriodNames()[2]
+        case "Period 3": return PeriodNames.getPeriodNames()[3]
+        case "Period 4": return PeriodNames.getPeriodNames()[4]
+        case "Period 5": return PeriodNames.getPeriodNames()[5]
+        case "Period 6": return PeriodNames.getPeriodNames()[6]
+        case "Period 7": return PeriodNames.getPeriodNames()[7]
+            //default
+        default: return stringWithDefaultPeriodName //don't modify
+            
+        }
+    }
+     
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -115,6 +134,15 @@ class ScheduleDisplayTableViewController: UITableViewController {
             fatalError("Dequeued cell not an instance of ScheduleTableViewCell")
         }
         cell.scheduleLabel.text = schedules[indexPath.row]
+        
+        let cellText = cell.scheduleLabel.text!
+        if (cellText.contains("Period")){
+            let periodDesc:String = cellText.components(separatedBy: "-")[0] //just the period description
+            let startIndex = periodDesc.index(periodDesc.endIndex, offsetBy: -1*("Period N ".count)) //count backwards from the end of the string
+            let endIndex = periodDesc.index(periodDesc.endIndex, offsetBy: -2) //remove trailing space
+            let periodSubstring = String(periodDesc[startIndex...endIndex])
+            cell.scheduleLabel.text!.replaceSubrange(startIndex...endIndex, with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+        }
         
         if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) { //check if the current schedule description is the same as the one in the cell
             cell.backgroundColor = UIColor(red:0.47, green:0.96, blue:0.47, alpha:1.0) //light green
