@@ -22,11 +22,11 @@ class PeriodEditorTableViewController: UITableViewController {
         super.viewDidLoad()
         self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
         if (darkModeEnabled){
-            tableGradient.firstColor = UIColor(red:0.00, green:0.00, blue:1.00, alpha:0.8)
-            tableGradient.secondColor = UIColor(red:0.00, green:0.30, blue:1.00, alpha:1.0)
+            tableGradient.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
+            tableGradient.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
         } else {
-            tableGradient.firstColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:0.9)
-            tableGradient.secondColor = UIColor(red:0.11, green:0.22, blue:1.00, alpha:0.86)
+            tableGradient.firstColor = #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
+            tableGradient.secondColor = #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
         }
        
         self.tableView.backgroundView = tableGradient
@@ -117,6 +117,7 @@ class PeriodEditorTableViewController: UITableViewController {
         cell.periodNameLabel.text = list[indexPath.row]
         cell.periodNameLabel.textAlignment = .center
         cell.backgroundColor = .clear
+        cell.periodNameLabel.textColor = .black
 
         return cell
     }
@@ -125,25 +126,14 @@ class PeriodEditorTableViewController: UITableViewController {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
         self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
         if (!darkModeEnabled) {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.1175723746, green: 0.5970157385, blue: 0.9982227683, alpha: 1)
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.09454231709, green: 0.4339366555, blue: 0.9914162755, alpha: 1)
         } else {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.001772583579, green: 0.03671175614, blue: 0.8297545314, alpha: 1)
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.02451096103, green: 0.2552438676, blue: 0.9992635846, alpha: 1)
         }
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
         (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
     }
     
-    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor(red:0.00, green:0.40, blue:1.00, alpha:0.9) //length of table is constant so no need to be dynamic like the other table view
-        (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.italic() //make the footer font italic
-        if (darkModeEnabled){
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
-        } else {
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
-        }
-    }
     
 
     
