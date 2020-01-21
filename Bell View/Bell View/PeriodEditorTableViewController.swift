@@ -125,11 +125,7 @@ class PeriodEditorTableViewController: UITableViewController {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
         (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.1045082286, green: 0.5970813036, blue: 0.9899627566, alpha: 1)
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
-        if (darkModeEnabled){
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray
-        } else {
-            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
-        }
+        (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
     }
     
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
