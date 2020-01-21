@@ -141,7 +141,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkl-z9-14r" userLabel="Settings Button">
-                                <rect key="frame" x="330" y="45" width="40" height="40"/>
+                                <rect key="frame" x="330" y="38" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="settings.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -150,8 +150,8 @@
                                     <segue destination="Evs-lR-wP9" kind="show" id="b4o-3y-fWJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBy-7j-7wi">
-                                <rect key="frame" x="280" y="45" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBy-7j-7wi" userLabel="Schedule View Button">
+                                <rect key="frame" x="280" y="38" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="menuIcon.png"/>
                                 <connections>

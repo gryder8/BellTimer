@@ -84,6 +84,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let formattedCurrentDate = nameOfMonth + " " + dayYearFormatter.string(from: Date())
         
         currentDate.text = formattedCurrentDate
+        currentDate.font = UIFont (name: "Avenir Next", size: 26.0)!
     }
     
     private func setUpCurrentPeriodDescription(){

@@ -49,7 +49,7 @@ class PeriodEditorTableViewController: UITableViewController {
         let label = UILabel(frame: CGRect(x:0, y:0, width:350, height:30))
         label.backgroundColor = .clear
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 14.0)
+        label.font = UIFont (name: "Avenir Next", size: 12.0)!
         label.textAlignment = .center
         label.textColor = .black
         label.text = "Swipe right on a period name to edit"
