@@ -48,11 +48,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @objc func refreshUI(){
-        if (!master.canContinue()){
-            swipeGesture.isEnabled = false
-        } else {
-            swipeGesture.isEnabled = true
-        }
         if (isActive && master.canContinue()){
             self.setTimeRemaining()
             self.setUpCurrentDate()
@@ -74,6 +69,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     private func setUpCurrentDate(){
+        
         let dayYearFormatter:DateFormatter = DateFormatter()
         dayYearFormatter.dateFormat = "dd, yyyy"
         let now = Date()
@@ -84,7 +80,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let formattedCurrentDate = nameOfMonth + " " + dayYearFormatter.string(from: Date())
         
         currentDate.text = formattedCurrentDate
-        //currentDate.font = UIFont (name: "Avenir Next Medium", size: 26.0)!
+        
+        if (!master.canContinue()){
+            swipeGesture.isEnabled = false
+        } else {
+            swipeGesture.isEnabled = true
+        }
     }
     
     private func setUpCurrentPeriodDescription(){
@@ -165,7 +166,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         if (self.traitCollection.userInterfaceStyle == .dark){
             gradientView.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
             gradientView.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
@@ -174,14 +175,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             gradientView.secondColor = #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
         }
         
-        if (!master.canContinue()){ //if this doesn't work, use the isLoaded public Bool from the master. Check that it's being set properly
-            swipeGesture.isEnabled = false
-        } else {
-            swipeGesture.isEnabled = true
-        }
-        super.viewDidLoad()
-        self.navigationController!.navigationBar.isHidden = true
+//        if (!master.canContinue()){ //if this doesn't work, use the isLoaded public Bool from the master. Check that it's being set properly
+//            swipeGesture.isEnabled = false
+//        } else {
+//            swipeGesture.isEnabled = true
+//        }
         
+        self.navigationController!.navigationBar.isHidden = true
         refreshUI() //initialize
         
         progressRing.shouldShowValueText = false
