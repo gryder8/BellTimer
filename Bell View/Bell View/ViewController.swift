@@ -120,8 +120,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if (nextPeriodDescription.text!.contains("Period")){
             let str  = nextPeriodDescription.text!
             let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
-            let periodSubstring = String(str[startIndex...])
-            nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+            let periodSubstring = String(str[startIndex...]) //substring is the start to the end
+            nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring)) //replace the range
         }
     }
     
