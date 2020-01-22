@@ -58,7 +58,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     private let tableGradient:GradientView = GradientView()
     var schedules:Array<String> = []
     private var darkModeEnabled:Bool = false
-    private let PeriodNames:ScheduleNames = ScheduleNames.shared
+    private let CustomPeriodNames:ScheduleNames = ScheduleNames.shared
     
     //MARK: Properties
     //@IBOutlet weak var endTableText: UITextField!
@@ -80,22 +80,22 @@ class ScheduleDisplayTableViewController: UITableViewController {
         //self.clearsSelectionOnViewWillAppear = false
     }
     
-    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
-        switch stringWithDefaultPeriodName {
-            //cases
-        case "Period 0": return PeriodNames.getPeriodNames()[0]
-        case "Period 1": return PeriodNames.getPeriodNames()[1]
-        case "Period 2": return PeriodNames.getPeriodNames()[2]
-        case "Period 3": return PeriodNames.getPeriodNames()[3]
-        case "Period 4": return PeriodNames.getPeriodNames()[4]
-        case "Period 5": return PeriodNames.getPeriodNames()[5]
-        case "Period 6": return PeriodNames.getPeriodNames()[6]
-        case "Period 7": return PeriodNames.getPeriodNames()[7]
-            //default
-        default: return stringWithDefaultPeriodName //don't modify
-            
-        }
-    }
+//    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
+//        switch stringWithDefaultPeriodName {
+//            //cases
+//        case "Period 0": return PeriodNames.getPeriodNames()[0]
+//        case "Period 1": return PeriodNames.getPeriodNames()[1]
+//        case "Period 2": return PeriodNames.getPeriodNames()[2]
+//        case "Period 3": return PeriodNames.getPeriodNames()[3]
+//        case "Period 4": return PeriodNames.getPeriodNames()[4]
+//        case "Period 5": return PeriodNames.getPeriodNames()[5]
+//        case "Period 6": return PeriodNames.getPeriodNames()[6]
+//        case "Period 7": return PeriodNames.getPeriodNames()[7]
+//            //default
+//        default: return stringWithDefaultPeriodName //don't modify
+//
+//        }
+//    }
      
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +105,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = .black
-        self.navigationItem.prompt = "Swipe left or press back to go home"
+        //self.navigationItem.prompt = "Swipe left or press back to go home"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -141,7 +141,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
             let startIndex = periodDesc.index(periodDesc.endIndex, offsetBy: -1*("Period N ".count)) //count backwards from the end of the string
             let endIndex = periodDesc.index(periodDesc.endIndex, offsetBy: -2) //remove trailing space
             let periodSubstring = String(periodDesc[startIndex...endIndex])
-            cell.scheduleLabel.text!.replaceSubrange(startIndex...endIndex, with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+            cell.scheduleLabel.text!.replaceSubrange(startIndex...endIndex, with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
         }
         
         if (shouldCellBeHighlighted(scheduleCellContents: schedules[indexPath.row])) { //check if the current schedule description is the same as the one in the cell
@@ -178,13 +178,6 @@ class ScheduleDisplayTableViewController: UITableViewController {
         return ""
     }
     
-//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
-//        if (MASTER.canContinue()){
-//            return "(Swipe right to go back)"
-//        }
-//        return ""
-//    }
-    
 
     private func shouldCellBeHighlighted(scheduleCellContents: String) -> Bool { //determine whether a given cell should be highlighted given its data
         let scheduleNameOnly = scheduleCellContents.components(separatedBy: "-").first
@@ -194,7 +187,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.1175723746, green: 0.5970157385, blue: 0.9982227683, alpha: 1)
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
         if (darkModeEnabled){
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .lightGray

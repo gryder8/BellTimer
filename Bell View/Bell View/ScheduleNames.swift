@@ -41,4 +41,21 @@ class ScheduleNames {
     public func getPeriodNames() -> [String] {
         return self.periodNames
     }
+    
+    public func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
+        switch stringWithDefaultPeriodName {
+            //cases
+        case "Period 0": return periodNames[0]
+        case "Period 1": return periodNames[1]
+        case "Period 2": return periodNames[2]
+        case "Period 3": return periodNames[3]
+        case "Period 4": return periodNames[4]
+        case "Period 5": return periodNames[5]
+        case "Period 6": return periodNames[6]
+        case "Period 7": return periodNames[7]
+            //default
+        default: return stringWithDefaultPeriodName //don't modify
+            
+        }
+    }
 }

@@ -46,13 +46,13 @@ class PeriodEditorTableViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = .black
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done,target: self, action: #selector(backTapped))
-        let label = UILabel(frame: CGRect(x:0, y:0, width:350, height:30)) //width is subject to change, Defined as per your screen
+        let label = UILabel(frame: CGRect(x:0, y:0, width:350, height:30))
         label.backgroundColor = .clear
-        label.numberOfLines = 2
-        label.font = .systemFont(ofSize: 12.0)
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 14.0)
         label.textAlignment = .center
         label.textColor = .black
-        label.text = "Swipe left again or press done to go home \n Swipe right on a period name to edit"
+        label.text = "Swipe right on a period name to edit"
         self.navigationItem.titleView = label
     }
     
@@ -104,14 +104,6 @@ class PeriodEditorTableViewController: UITableViewController {
         }
         return ""
     }
-
-    
-//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {  //set up the title for the table footer
-//        if (MASTER.canContinue()){
-//            return "(Swipe left again to go back)"
-//        }
-//        return ""
-//    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

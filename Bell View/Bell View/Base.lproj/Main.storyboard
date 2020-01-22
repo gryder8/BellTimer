@@ -101,7 +101,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Current Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rd1-8w-7rp">
-                                <rect key="frame" x="41" y="45" width="304" height="31"/>
+                                <rect key="frame" x="10" y="45" width="304" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -144,6 +144,16 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkl-z9-14r" userLabel="Settings Button">
+                                <rect key="frame" x="330" y="45" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settings.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Evs-lR-wP9" kind="show" id="b4o-3y-fWJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,11 +178,7 @@
                         <segue destination="UEw-tc-2bd" kind="show" id="Oqx-ea-D2u"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="5Mu-1y-gz8" userLabel="Swipe Right">
-                    <connections>
-                        <segue destination="Evs-lR-wP9" kind="show" id="41K-Qn-L0I"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer enabled="NO" direction="right" id="5Mu-1y-gz8" userLabel="Swipe Right"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
@@ -281,5 +287,6 @@
     </scenes>
     <resources>
         <image name="leftSwipeArrowModified.png" width="366" height="145.67999267578125"/>
+        <image name="settings.png" width="512" height="512"/>
     </resources>
 </document>

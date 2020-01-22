@@ -26,7 +26,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     static let shared = ViewController()
     
-    private let PeriodNames: ScheduleNames = ScheduleNames.shared
+    private let CustomPeriodNames: ScheduleNames = ScheduleNames.shared
     
     
     //MARK: Properties
@@ -92,28 +92,28 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             let str  = currentPeriodDescription.text!
             let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
             let periodSubstring = String(str[startIndex...])
-            currentPeriodDescription.text!.replaceSubrange(startIndex..., with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+            currentPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
         }
         currentPeriodDescription.backgroundColor = colorForTime()
     }
     
-    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
-        switch stringWithDefaultPeriodName {
-            //cases
-        case "Period 0": return PeriodNames.getPeriodNames()[0]
-        case "Period 1": return PeriodNames.getPeriodNames()[1]
-        case "Period 2": return PeriodNames.getPeriodNames()[2]
-        case "Period 3": return PeriodNames.getPeriodNames()[3]
-        case "Period 4": return PeriodNames.getPeriodNames()[4]
-        case "Period 5": return PeriodNames.getPeriodNames()[5]
-        case "Period 6": return PeriodNames.getPeriodNames()[6]
-        case "Period 7": return PeriodNames.getPeriodNames()[7]
-            //default
-        default: return stringWithDefaultPeriodName //don't modify
-            
-        }
-        
-    }
+//    private func customizePeriodName(stringWithDefaultPeriodName: String) -> String {
+//        switch stringWithDefaultPeriodName {
+//            //cases
+//        case "Period 0": return PeriodNames.getPeriodNames()[0]
+//        case "Period 1": return PeriodNames.getPeriodNames()[1]
+//        case "Period 2": return PeriodNames.getPeriodNames()[2]
+//        case "Period 3": return PeriodNames.getPeriodNames()[3]
+//        case "Period 4": return PeriodNames.getPeriodNames()[4]
+//        case "Period 5": return PeriodNames.getPeriodNames()[5]
+//        case "Period 6": return PeriodNames.getPeriodNames()[6]
+//        case "Period 7": return PeriodNames.getPeriodNames()[7]
+//            //default
+//        default: return stringWithDefaultPeriodName //don't modify
+//
+//        }
+//
+//    }
     
     private func setUpNextPeriodDescription(isSaturday: Bool = false){
         
@@ -127,7 +127,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 let str  = nextPeriodDescription.text!
                 let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
                 let periodSubstring = String(str[startIndex...])
-                nextPeriodDescription.text!.replaceSubrange(startIndex..., with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+                nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
             }
             return
         }
@@ -138,7 +138,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             let str  = nextPeriodDescription.text!
             let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
             let periodSubstring = String(str[startIndex...])
-            nextPeriodDescription.text!.replaceSubrange(startIndex..., with: customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
+            nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
         }
     }
     
