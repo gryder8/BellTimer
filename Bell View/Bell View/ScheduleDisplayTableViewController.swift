@@ -80,11 +80,13 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.tintColor = .black
+        if (darkModeEnabled) {
+            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
+        } else {
+            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
