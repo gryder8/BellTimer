@@ -41,7 +41,8 @@ class PeriodEditorTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = tableGradient.firstColor
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = .black
         navigationItem.hidesBackButton = true
@@ -124,12 +125,7 @@ class PeriodEditorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
-        if (!darkModeEnabled) {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.09454231709, green: 0.4339366555, blue: 0.9914162755, alpha: 1)
-        } else {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.02451096103, green: 0.2552438676, blue: 0.9992635846, alpha: 1)
-        }
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
         (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
     }

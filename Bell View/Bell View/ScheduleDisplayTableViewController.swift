@@ -82,11 +82,9 @@ class ScheduleDisplayTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.tintColor = .black
-        if (darkModeEnabled) {
-            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
-        } else {
-            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
-        }
+        self.navigationController?.navigationBar.barTintColor = tableGradient.firstColor
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -152,12 +150,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerFont: UIFont = UIFont (name: "Avenir Next", size: 17.0)!
-        self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
-        if (!darkModeEnabled) {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.09454231709, green: 0.4339366555, blue: 0.9914162755, alpha: 1)
-        } else {
-            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.02451096103, green: 0.2552438676, blue: 0.9992635846, alpha: 1)
-        }
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = tableGradient.firstColor
         (view as! UITableViewHeaderFooterView).textLabel?.font = headerFont.bold()
         (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
     }
