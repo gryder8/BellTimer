@@ -508,7 +508,7 @@ class ScheduleMaster {
             if self.isDateWithininSpecialDay(specialDay: canidateSpecialDay, dateInput: date) {
                 if canidateSpecialDay.desc != nil {
                     return canidateSpecialDay.desc!
-                }
+				}
             }
         }
         return ""
