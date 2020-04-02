@@ -22,11 +22,11 @@ class PeriodEditorTableViewController: UITableViewController {
         super.viewDidLoad()
         self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
         if (darkModeEnabled){
-            tableGradient.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
+            tableGradient.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
             tableGradient.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
         } else {
             tableGradient.firstColor = #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
-            tableGradient.secondColor = #colorLiteral(red: 0.01680417731, green: 0.2174809187, blue: 1, alpha: 1)
+            tableGradient.secondColor = #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
         }
        
         self.tableView.backgroundView = tableGradient
@@ -73,7 +73,6 @@ class PeriodEditorTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         list = PeriodNames.getPeriodNames()
         return list.count
     }
