@@ -27,30 +27,32 @@ class ScheduleMaster {
     
 /*
     ***ISSUES***
-     -TODO: Testing
+     -TODO: Comment code
      -
 */
     
     
-    private var loadStatesDict: [URL:Bool] = Dictionary(minimumCapacity: 3) //empty
+    private var loadStatesDict: [URL:Bool] = Dictionary(minimumCapacity: 3) //init empty dict of capacity 3
     
     private var defaultScheduleForToday:String = ""
     private var defaultScheduleForNextDay:String = ""
     
+	//MARK: Server URLs!
     private final let SCHEDULES_URL: URL = URL(string: "https://rydermegastore.synology.me:8999/Schedules.plist")!
     private final let SPECIAL_DAYS_URL: URL = URL(string:"https://rydermegastore.synology.me:8999/specialDays.plist")!
     private final let DEFAULT_DAYS_URL: URL = URL(string:"https://rydermegastore.synology.me:8999/defaultSchedule.plist")!
     
+	
     func setDefaultSchedule(){
         let today = Calendar.current.component(.weekday, from:Date())
-        let nextDayDateHolder = calendar.date(byAdding: .day, value: 1, to: Date())!
-        let nextDay = Calendar.current.component(.weekday, from:nextDayDateHolder)
+        let nextDayDateHolder = calendar.date(byAdding: .day, value: 1, to: Date())! //hold the next day (used to get the weekday from
+        let nextDay = Calendar.current.component(.weekday, from:nextDayDateHolder) //get the next day
         for defaultDay in allDefaultDays! {
-            if defaultDay.dayOfWeek.rawValue == today {
-                defaultScheduleForToday = defaultDay.scheduleType
+            if defaultDay.dayOfWeek.rawValue == today { //if the day of the week of the default day is the same as today, assign the default schedule for today to be the one contained by defaultDay
+                defaultScheduleForToday = defaultDay.scheduleType //schedule type defines schedule to get
             }
-            if defaultDay.dayOfWeek.rawValue == nextDay {
-                defaultScheduleForNextDay = defaultDay.scheduleType
+            if defaultDay.dayOfWeek.rawValue == nextDay { //if the day of the week of the default day is the same as the next day, assign the default schedule of the next day to be the current schedule of the next day
+                defaultScheduleForNextDay = defaultDay.scheduleType //schedule type defines schedule to get
             }
         }
     }
@@ -86,15 +88,15 @@ class ScheduleMaster {
     
     let calendar = Calendar.current
     
-    typealias AllSpecialDays = [SpecialDay]
+    typealias AllSpecialDays = [SpecialDay] //provide an alias to reference the array of objects from
     
     var allSpecialDays: AllSpecialDays?
     
-    typealias BellSchedules = [Schedule]
+    typealias BellSchedules = [Schedule]  //provide an alias to reference the array of objects from
     
     var allSchedules: BellSchedules?
     
-    typealias AllDefaultDays = [DefaultDay]
+    typealias AllDefaultDays = [DefaultDay]  //provide an alias to reference the array of objects from
     
     var allDefaultDays: AllDefaultDays?
     
@@ -156,7 +158,7 @@ class ScheduleMaster {
     //************************************************************************************************************
     //************************************************************************************************************
     
-    func initDict() {
+    func initDict() { //initialize all URLs as unloaded
         let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
         let pListBellSchedulesURL: URL = SCHEDULES_URL
         let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
@@ -167,6 +169,7 @@ class ScheduleMaster {
         
     }
     
+	//MARK: Etag config methods
     func readEtagFromPrefs(urlAbsString: String) -> String {
         let defaults = UserDefaults.standard
         
@@ -178,7 +181,7 @@ class ScheduleMaster {
         return "no-etag-exists"
     }
     
-    func clearEtags(){
+    func clearEtags(){ //clears the etags by removing values from the dictionary with the specified URLs
         let defaults = UserDefaults.standard
         let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
         let pListBellSchedulesURL: URL = SCHEDULES_URL
@@ -189,19 +192,19 @@ class ScheduleMaster {
         defaults.removeObject(forKey: plistDefaultDaysURL.absoluteString)
     }
     
-    func clearEtagsIfNeeded(){
+    func clearEtagsIfNeeded(){ //determine if the e-tags need to be cleared
         let defaults = UserDefaults.standard
         let expirationDate = Calendar.current.date(byAdding: .hour, value: 24, to: Date()) //24 hours local expiraton date
-        if (defaults.object(forKey: "expirationDate") == nil){
+        if (defaults.object(forKey: "expirationDate") == nil){ //no expiration date found in saved data
             self.clearEtags()
             defaults.set(expirationDate, forKey: "expirationDate") //nothing found, add expiration date
             print("Found no expiration date")
             
-        } else if (Date() > defaults.object(forKey: "expirationDate") as! Date){
+        } else if (Date() > defaults.object(forKey: "expirationDate") as! Date){ //if the current date is past the expiration date written in the saved data
             self.clearEtags()
             defaults.set(expirationDate, forKey: "expirationDate")
             print("Passed expiration date")
-        } else {
+        } else { //check to see if the files exsist and if not then clear the etags in preparaation to fetch the files from the server
 			if (fileManager.fileExists(atPath: getCacheURLToFile(fileName: "Schedules").path) == false) {
 				self.clearEtags()
 				print("Schedules file didn't exist")
@@ -216,7 +219,8 @@ class ScheduleMaster {
 }
     
     
-    func startLoad(urlToLoad: URL){
+	//MARK: Data loader methods
+    func startLoad(urlToLoad: URL){ //load from server
         isConnected = isConnectedToNetwork()
 
         var request = URLRequest(url: urlToLoad)
@@ -232,43 +236,44 @@ class ScheduleMaster {
         //print("Request value:", request.value(forHTTPHeaderField: "If-None-Match"))
         
         //print("*********************************************")
-        let myURLSessionConfig = URLSessionConfiguration.ephemeral
-        myURLSessionConfig.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        let myURLSessionConfig = URLSessionConfiguration.ephemeral //config the session
+        myURLSessionConfig.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData //do not use cached data from the URL to satisfy the request
         let myURLSession = URLSession.init(configuration: myURLSessionConfig)
         
-        let task = myURLSession.dataTask(with: request) { data, response, error in
+        let task = myURLSession.dataTask(with: request) { data, response, error in //create a task to handle fetching data and take an error in
             
-            if error != nil {
+            if error != nil { //if no error occurs
                 
                 DispatchQueue.main.async { //runs async
                     self.isConnected = false
-                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.loadDataFor(url: urlToLoad)
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                 }
                 return
             }
             
-            let httpResponse = response as! HTTPURLResponse
+            let httpResponse = response as! HTTPURLResponse //get the status and use to determine whether data should be loaded
             let status = httpResponse.statusCode
             
             
             //print ("HTTP Status Code From Server:\(status)")
             
-            if (200...299).contains(status) {
+            if (200...299).contains(status) { //range contains status
                 
                 
                 //print ("Downloaded Data With Status:\(status)")
                 DispatchQueue.main.async { //runs async
-                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                     self.finishLoad(data: data!, urlForParse: urlToLoad, Etag: httpResponse.serverEtag)
+					self.loadStatesDict.updateValue(true, forKey: urlToLoad)
                 }
             }
             
-            if status == 304 {
+            if status == 304 { //no changes
                 //print ("Got 304 - Not Modified")
                 DispatchQueue.main.async { //run async
-                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
-                    self.loadDataFor(url: urlToLoad)
+                    self.loadDataFor(url: urlToLoad) //load data for the current url
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad) //set the current url as loaded in the dict
+
                 }
                 return
             }
@@ -276,9 +281,10 @@ class ScheduleMaster {
             if (400...499).contains(status) || (500...599).contains(status) {
                 
                 DispatchQueue.main.async { //run async
-                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
-                    //self.isConnected = false;
+                    self.isConnected = false;
                     self.loadDataFor(url: urlToLoad)
+                    self.loadStatesDict.updateValue(true, forKey: urlToLoad)
+
                 }
                 return
             }
@@ -290,15 +296,16 @@ class ScheduleMaster {
         //print ("Task Executing...")
     }
     
-    func finishLoad(data: Data, urlForParse: URL, Etag:String?){ //writes data to cache after getting new data
+    func finishLoad(data: Data, urlForParse: URL, Etag:String?){ //writes data to cache after getting new data from the server
         let defaults = UserDefaults.standard
 
-        let fileNamePlain:String = urlForParse.deletingPathExtension().lastPathComponent
-        var filePath = getCachesDirectory().appendingPathComponent(fileNamePlain)
-        filePath = filePath.appendingPathExtension("plist")
+        let fileNamePlain:String = urlForParse.deletingPathExtension().lastPathComponent //get the file name by getting the last componenent and pulling the file extension off it
+		
+        var filePath = getCachesDirectory().appendingPathComponent(fileNamePlain) //generate the file name by getting the caches and appending the file name as the directory in which data will be cached [STANDARDIZED]
+        filePath = filePath.appendingPathExtension("plist") //add the plist extension
 
         
-        let decoder = PropertyListDecoder()
+        let decoder = PropertyListDecoder() //init decoder to decode data from plists
         switch (fileNamePlain){ //assign each file name to correct structures
         case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
             break
@@ -311,17 +318,17 @@ class ScheduleMaster {
             break
         }
         
-        if (Etag != nil){
+        if (Etag != nil){ //if the etag exists, update the most recent etag recorded for the url being loaded
             defaults.set(Etag, forKey: urlForParse.absoluteString)
         }
-        fileManager.createFile(atPath: filePath.path, contents: data)
+        fileManager.createFile(atPath: filePath.path, contents: data) //put the data into a file in the cache
     }
     
     
-    func readLocalDataFor (plistURL: URL, fileNameFromURL:String) { //read the data out of the cache
+    func readLocalDataFor (plistURL: URL, fileNameFromURL:String) { //read the data out of the cache (NOT THE BUNDLE!)
         if let data = try? Data(contentsOf: plistURL) {
-            let decoder = PropertyListDecoder()
-            switch (fileNameFromURL){ //assign each file name to correct structures
+            let decoder = PropertyListDecoder() //init decoder
+            switch (fileNameFromURL){ //assign each file name to correct structures when decoding from the cache
             case "specialDays": self.allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
                 break
                 
@@ -329,7 +336,7 @@ class ScheduleMaster {
             self.setDefaultSchedule()
                 break //BREAK HERE
                 
-            default : self.allSchedules = try! decoder.decode(BellSchedules.self, from:data)
+            default : self.allSchedules = try! decoder.decode(BellSchedules.self, from:data) //final case
                 break
             }
         }
@@ -341,7 +348,7 @@ class ScheduleMaster {
     //************************************************************************************************************
     //************************************************************************************************************
     
-    func loadAllData(){
+    func loadAllData(){ //load all data for the 3 URLs
         let plistSpecialDaysURL: URL = SPECIAL_DAYS_URL
         let pListBellSchedulesURL: URL = SCHEDULES_URL
         let plistDefaultDaysURL: URL = DEFAULT_DAYS_URL
@@ -353,21 +360,23 @@ class ScheduleMaster {
         doneLoading = true
 }
     
-    func loadDataFor(url:URL){
+    func loadDataFor(url:URL){ //loads data for a specified URL, first trying to load it from the cache then reverting to the local bundle if no data ia found in the cache
         let mainBundle = Bundle.main
         
         //************************************************************************************************************************
         
-        let fileNameFromKey:String = url.deletingPathExtension().lastPathComponent
-        let pathToFileInCache:URL = self.getCacheURLToFile(fileName: fileNameFromKey)
+		
+		//decodes data from the cache (NOTE: if this fails because the cache is empty, data is loaded from the local bundle files provided with the app)
+        let fileNameFromURL:String = url.deletingPathExtension().lastPathComponent //grab the last part of the path and remove the extemnsion; use this as the file name
+        let pathToFileInCache:URL = self.getCacheURLToFile(fileName: fileNameFromURL) //get the fully qualified path
         
-        if let data = try? Data(contentsOf: pathToFileInCache) {
+        if let data = try? Data(contentsOf: pathToFileInCache) { //try to decode from the data in the cache (use Data to look for data at the location in the cache)
             let decoder = PropertyListDecoder()
-            switch (fileNameFromKey){ //assign each file name to correct structures
-            case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
+            switch (fileNameFromURL){ //assign each file name to correct structures
+			case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data) //decode from local data
                 break
                 
-            case "defaultSchedule": allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data)
+            case "defaultSchedule": allDefaultDays = try! decoder.decode(AllDefaultDays.self, from: data) //decode from local data
                 self.setDefaultSchedule()
                 break
                 
@@ -378,11 +387,12 @@ class ScheduleMaster {
             return
         }
         
-        let localURL: URL = mainBundle.url(forResource:fileNameFromKey, withExtension:"plist")!
+        let localURL: URL = mainBundle.url(forResource:fileNameFromURL, withExtension:"plist")! //find the local url for a given file name to pull data from the local files in the bundle
         
+		//decode data from the plists installed with the app (emergency fallback)
         if let data = try? Data(contentsOf: localURL) {
             let decoder = PropertyListDecoder()
-            switch (fileNameFromKey){ //assign each file name to correct structures
+            switch (fileNameFromURL){ //assign each file name to correct structures
             case "specialDays": allSpecialDays = try! decoder.decode(AllSpecialDays.self, from:data)
                 break
                 
@@ -398,14 +408,15 @@ class ScheduleMaster {
         }
     }
     
-    //************************************************************************************************************************
-    //************************************************************************************************************************
-    //************************************************************************************************************************
-    //************************************************************************************************************************
-    //************************************************************************************************************************
+    //********************************************************************************************************************************************************
+    //********************************************************************************************************************************************************
+    //********************************************************************************************************************************************************
+    //********************************************************************************************************************************************************
+    //********************************************************************************************************************************************************
 
     
-    public func isConnectedToNetwork() -> Bool { //uses SystemConfiguration
+    public func isConnectedToNetwork() -> Bool { //uses SystemConfiguration which is only loaded when on iOS
+		//courtesy StackOverflow
         
         var ret:Bool = true
         
@@ -440,6 +451,7 @@ class ScheduleMaster {
     
     func referenceDate() -> Date { //uses Jan 1, 2000 at midnight
         
+		//configures the referencee date
         var Y2K:Date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         Y2K = Calendar.current.date(bySetting: .month, value: 1, of: Y2K)!
         Y2K = Calendar.current.date(bySetting: .day, value: 1, of: Y2K)!
@@ -450,10 +462,10 @@ class ScheduleMaster {
     }
     
     
-    private func getCachesDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+    private func getCachesDirectory() -> URL { //return the cache directory
+        let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask) //get the caches from the file manager
         //print (paths[0]) //DEBUG TO GET PATHS
-        return paths[0]
+        return paths[0] //choose the first (and only?) path
     }
     
     private func getCacheURLToFile (fileName:String) -> URL {
@@ -465,20 +477,20 @@ class ScheduleMaster {
     }
     
     
-    
-    public func getScheduleType(myDate:Date) -> String {
-        let now = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        var inputDate = myDate
-        inputDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: myDate)!
-        var theSpecialDay: SpecialDay?
-        for canidateSpecialDay in allSpecialDays!{
-            if self.isDateWithininSpecialDay(specialDay: canidateSpecialDay, dateInput: myDate) {
+    //MARK: Schedule setup
+    public func getScheduleType(dateInput:Date) -> String {
+        let startOfCurrentDay = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())! //reset the hours min and sec of the date so it can be accurately compared
+		var inputDate = dateInput
+        inputDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: dateInput)! //reset the hours min and sec of the date so it can be accurately compared
+        var theSpecialDay: SpecialDay? //null var to hold day if found
+        for canidateSpecialDay in allSpecialDays!{ //look through array to see if the date is in range of a special day
+            if self.isDateWithininSpecialDay(specialDay: canidateSpecialDay, dateInput: dateInput) {
                 theSpecialDay = canidateSpecialDay
             }
         }
         
-        if (theSpecialDay == nil){
-            if (now == inputDate) {
+        if (theSpecialDay == nil){ //no special day found
+            if (startOfCurrentDay == inputDate) {
                 return defaultScheduleForToday
             } else {
                 return defaultScheduleForNextDay
@@ -490,44 +502,45 @@ class ScheduleMaster {
     }
     
     
-    public func getFirstBellDescriptionForNextDay() -> String {
+    public func getFirstBellDescriptionForNextDay() -> String { //get the next bell description by using a forwarded date and passing it to the appropriate methods
         let calendar = Calendar.current
         var forwardedDate:Date = calendar.date(byAdding: .day, value: 1, to: Date())!
         forwardedDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: forwardedDate)!
-        if (specialDayDescIfApplicable(date: forwardedDate) != ""){
+        if (specialDayDescIfApplicable(date: forwardedDate) != ""){ //check for it being a special day
             return specialDayDescIfApplicable(date: forwardedDate)
         }
         
         return getNextBellTimeDescription(date: forwardedDate)
     }
     
-    private let dateTester = Calendar.current.date(bySettingHour: 16, minute: 00, second: 0, of: Date())!
+    //private let dateTester = Calendar.current.date(bySettingHour: 16, minute: 00, second: 0, of: Date())!
     
     private func specialDayDescIfApplicable(date:Date) -> String {
         for canidateSpecialDay in allSpecialDays! {
             if self.isDateWithininSpecialDay(specialDay: canidateSpecialDay, dateInput: date) {
-                if canidateSpecialDay.desc != nil {
+                if canidateSpecialDay.desc != nil { //make sure it exsists before returning it; if it doesn't, an empty string is returned
                     return canidateSpecialDay.desc!
 				}
             }
         }
-        return ""
+        return "" //no description found
     }
     
     public func getCurrentPeriodStartTimeInterval() -> TimeInterval {
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
         
-        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date())
-        let currentBellTimes:Array = currentSchedule.bellTimes
-        var currentBellTime:BellTime?
+        let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date()) //get the current schedule
+        let currentBellTimes:Array = currentSchedule.bellTimes //setup the current times
+        var currentBellTime:BellTime? //init holder variable
         for bellTime in currentBellTimes {
-            if bellTime.timeInterval <= currentTimeAsInterval {
+            if bellTime.timeInterval <= currentTimeAsInterval { //walk up the array until this is false, then drop out and return the time interval associated with the last bell time that met this condition
                 currentBellTime = bellTime
             }
         }
-        return (currentBellTime?.timeInterval)!
-        }
+		
+        return (currentBellTime?.timeInterval)! //pull out the time interval from the bell time the loop got to
+	}
     
     public func getCurrentBellTimeDescription() -> String {
         
@@ -594,7 +607,7 @@ class ScheduleMaster {
     
     
     private func getBellScheduleFor(dateInput:Date) -> Schedule {
-        let currentScheduleType:String = self.getScheduleType(myDate: dateInput)
+		let currentScheduleType:String = self.getScheduleType(dateInput: dateInput)
         
         let currentSchedule:Schedule = self.getScheduleFor(scheduleType: currentScheduleType) //pass into method to get the current schedule
         return currentSchedule //return it
@@ -604,7 +617,7 @@ class ScheduleMaster {
         var beginInterval:TimeInterval = 0.0
         var endInterval:TimeInterval = 0.0
         let baseTime  = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
+        let endTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: Date())! //last second of the current day
         let currentTimeAsInterval:TimeInterval = Date().timeIntervalSince(baseTime)
         //        let currentTimeAsInterval:TimeInterval = dateTester.timeIntervalSince(baseTime) //***KEEP FOR TESTING***
         
@@ -618,19 +631,20 @@ class ScheduleMaster {
                 beginInterval = bellTime.timeInterval //set the start interval that lies before
             }
         }
+		
         
         for bellTime in currentBellTimes {
-            if bellTime.timeInterval > currentTimeAsInterval {
-                endInterval = bellTime.timeInterval //set the endc interval to the interval that lies after
+            if bellTime.timeInterval > currentTimeAsInterval { //find the first bellTime that has a timeInterval which lies after the current TimeInterval
+                endInterval = bellTime.timeInterval //set the end interval to the interval that lies after
                 break
             }
         }
         
         if (endInterval == 0.0){ //if the current time is greater than any of the period start times the interval will still be 0
-            return endTime.timeIntervalSince(baseTime)-beginInterval
-        }
-        
-        return endInterval-beginInterval //return the difference which is the length of the period
+            return endTime.timeIntervalSince(baseTime)-beginInterval //effectively returns the length of the full 24h day
+		} else {
+			return endInterval-beginInterval //return the difference of the starting and ending intervals that were found (which is the length of the period)
+		}
     }
     
     private func getScheduleFor(scheduleType: String) -> Schedule {
@@ -644,33 +658,35 @@ class ScheduleMaster {
         return resultSchedule!
     }
     
-    public func stringFromTimeInterval(interval: TimeInterval, is12Hour: Bool, useSeconds: Bool) -> String {
-        let interval = Int(interval)
+    public func stringFromTimeInterval(interval: TimeInterval, is12Hour: Bool, useSeconds: Bool) -> String { //converts a given time interval into a nice string, modifying the string given some flags.
+		//This method is used to generate the time remaining text in the ring as well as converting times in the schedule table view
+        let interval = Int(interval) //convert to int
         let seconds = interval % 60
         let minutes = (interval / 60) % 60
         var hours = (interval / 3600)
         if (is12Hour && hours > 12 && hours != 0){
-            hours = hours - 12
-        } else if (is12Hour && hours == 0){
+            hours = hours - 12 //convert to 12 hour time if the current interval lies after noon (ex: 1300 would be converted to 1 PM)
+        } else if (is12Hour && hours == 0){ //handle midnight (in 24 HR time midnight is 0000 while its 12 AM in 12 hour time)
             hours = 12
         }
+		
         if (!useSeconds){
-            return String(format:"%02d:%02d", hours, minutes)
+            return String(format:"%02d:%02d", hours, minutes) //don't include the seconds parameter
         }
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds) //include the seconds parameter
     }
     
-    public func getWholeScheduleForDay() -> Array<String> {
+    public func getWholeScheduleForDay() -> Array<String> { //gathers data to feed into table cells
         var schedulesArray:Array<String> = [] //init array
         let currentSchedule:Schedule = self.getBellScheduleFor(dateInput: Date()) //init current schedule
         
         let currentBellTimes:Array = currentSchedule.bellTimes //init
         if (currentSchedule.bellTimes.count > 1){
             for bellSchedule in currentBellTimes {
-                schedulesArray += ["\(bellSchedule.desc) - " + "\(stringFromTimeInterval(interval: bellSchedule.timeInterval, is12Hour: true, useSeconds: false))"] //build the sting for the table cell view
+                schedulesArray += ["\(bellSchedule.desc) - " + "\(stringFromTimeInterval(interval: bellSchedule.timeInterval, is12Hour: true, useSeconds: false))"] //build the string array for the table cell view to get cell data from
             }
-        } else if (currentSchedule.bellTimes.count <= 1){
-            if (specialDayDescIfApplicable(date: Date()) != ""){ //if only 1 schedule or less, check the special days then just return the array as it only has one description
+        } else if (currentSchedule.bellTimes.count <= 1){ //if only 1 schedule or less, check the special days then just return the array as it only has one description
+            if (specialDayDescIfApplicable(date: Date()) != ""){
                 schedulesArray = [specialDayDescIfApplicable(date: Date())]
                 return schedulesArray
             }
@@ -680,29 +696,29 @@ class ScheduleMaster {
     }
     
     
-    func isDateWithininSpecialDay (specialDay: SpecialDay, dateInput: Date) -> Bool {
+    func isDateWithininSpecialDay (specialDay: SpecialDay, dateInput: Date) -> Bool { //check if a given date falls on or within a special day
         var now = Date() //Create date set to midnight on the current date
         now = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: dateInput)!
         var beginDate:Date  = specialDay.beginDate //guaranteed
-        beginDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: beginDate)!
+        beginDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: beginDate)! //set the begin date to be the very start of the day it represents
         var endDate: Date? = specialDay.endDate //try this
-        if endDate != nil { //if the special day has no end date, set it to the beginnng of the day
+        if endDate != nil { //if the special day has an end date, set it to the beginnng of the day it represents
             endDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: endDate!)!
         }
         var inRange:Bool = false //init
         
-        if now == beginDate {
+        if now == beginDate { //if the dates match, the current day is a special day
             inRange = true
         }
         
-        if endDate != nil { //if end date exists for the current date...
+        if endDate != nil { //if end date exists for the current special day...
             if now == endDate {
                 inRange = true
-            } else if now > beginDate && now < endDate! {
+            } else if (now > beginDate && now < endDate!) { //check if the current date falls in range of the two range end points we know (force unwrap is safe here because of null check)
                 inRange = true
-            } //see if the current Date is in range
+            }
         }
         
-        return inRange
+        return inRange //return the result of the checks
     }
 }

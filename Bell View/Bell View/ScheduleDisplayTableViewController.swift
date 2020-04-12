@@ -136,7 +136,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { //set up the title for the table header
         if (MASTER.canContinue()){
-            return "Today's Schedule " + "("+MASTER.getScheduleType(myDate: Date())+")"
+            return "Today's Schedule " + "("+MASTER.getScheduleType(dateInput: Date())+")"
         }
         return ""
     }

@@ -127,7 +127,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setUpScheduleType() {
-        scheduleType.text = master.getScheduleType(myDate: Date())
+        scheduleType.text = master.getScheduleType(dateInput: Date())
     }
     
     private func setTimeRemaining(){
