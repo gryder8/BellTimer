@@ -15,20 +15,6 @@ import WatchConnectivity
 //https://developer.apple.com/documentation/watchconnectivity/using_watch_connectivity_to_communicate_between_your_apple_watch_app_and_iphone_app
 //https://www.swiftdevcenter.com/sending-data-from-iphone-to-apple-watch-and-vice-versa-using-swift-5/
 
-extension InterfaceController: WCSessionDelegate {
-
-func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
-
-func session(_ session: WCSession, didReceiveMessage recievedData: [String : Any]) {
-    
-
-    print("****Received data: \(recievedData)"+"****")
-    setUIFromDataRecieved(recievedData: recievedData)
-
-
-
-    
-}
 
 class InterfaceController: WKInterfaceController {
     
@@ -48,7 +34,7 @@ class InterfaceController: WKInterfaceController {
     
     private var refreshTimer:Timer!
     
-    private boolean isRingSetup = false
+    private var isRingSetup:Bool = false
     
     private var nextPeriodDescription:String = ""
     private var currentPeriodDescription:String = ""
@@ -71,7 +57,7 @@ class InterfaceController: WKInterfaceController {
         }
         
         if let currDesc = recievedData["currentDesc"] as? String {
-            self.currentPeriodDesc.setText(fTimeRem)
+            self.currentPeriodDesc.setText(currDesc)
             self.currentPeriodDescription = currDesc
         }
         
@@ -108,7 +94,7 @@ class InterfaceController: WKInterfaceController {
     
     @objc func refreshInterface(){
         if (isActive) {
-            initializeRing()
+            generateRing()
             generateTimeRemaining()
             generatePeriodDesc()
             generateNextPeriodDesc()
@@ -130,7 +116,7 @@ class InterfaceController: WKInterfaceController {
     
     private func generateNextPeriodDesc(){
         if (isActive){
-            nextPeriodDesc.setText("Next: "+ self.nextPeriodDescription)
+            nextPeriodDesc.setText("Next:" + self.nextPeriodDescription)
 //            print("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
 //            print("Called with Date: ", Date())
         }
@@ -140,7 +126,7 @@ class InterfaceController: WKInterfaceController {
 //        if (myMaster.getTimeIntervalUntilNextEvent() < 60){
 //            timeRemaining.setText("> 1 minute");
 //        }
-        timeRemaining.setText(self.formattedTimeRemaining)
+        timeRemaining_label.setText(self.formattedTimeRemaining)
     }
     
     private func generatePeriodDesc(){
@@ -181,11 +167,46 @@ class InterfaceController: WKInterfaceController {
     }
     
     func sendToPhone(){
-        let data: [String: Any] = [Payload.timeRemaining: timeRemaining_transfer,
-                                Payload.currentPeriodDesc: currentPeriodDescription,
-                                Payload.nextPeriodDesc: nextPeriodDescription] //TODO: Assign more specific types to dict?
+        let data: [String: Any] = ["formattedTimeRemaining": self.formattedTimeRemaining,
+                                   "currentDesc": self.currentPeriodDescription,
+                                   "nextDesc": self.nextPeriodDescription,
+                                   "percentRemaining": self.progressPercent]
           session.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
         }
     }
 
+
+extension InterfaceController: WCSessionDelegate {
+
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+
+    public func session(_ session: WCSession, didReceiveMessage recievedData: [String : Any]) {
+    
+    print("****Received data: \(recievedData)"+"****")
+    
+        
+    if let fTimeRem = recievedData["formattedTimeRemaining"] as? String {
+        self.timeRemaining_label.setText(fTimeRem)
+        self.formattedTimeRemaining = fTimeRem
+    }
+    
+    if let currDesc = recievedData["currentDesc"] as? String {
+        self.currentPeriodDesc.setText(currDesc)
+        self.currentPeriodDescription = currDesc
+    }
+    
+    if let nextDesc = recievedData["nextDesc"] as? String {
+        self.nextPeriodDesc.setText(nextDesc)
+        self.nextPeriodDescription = nextDesc
+    }
+    
+    if let perRem = recievedData["percentRemaining"] as? Double { //recieves the value of the ring in the app view controller as a double, converts to Float and then sets it up
+        let percent:Float = Float(perRem)
+        self.progressPercent = percent
+        if (isRingSetup == true) {
+            ring?.showProgress(startPercentage: percent)
+        }
+    }
+    }
 }
+

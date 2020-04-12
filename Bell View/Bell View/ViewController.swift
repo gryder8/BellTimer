@@ -47,10 +47,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private var isSaturday = false;
     
-    var progressPercent: Double = 0.0
+    private var progressPercent: Double = 0.0
     
-
-    
+    private var isUISetup:Bool = false
     
     static let shared = ViewController()
     
@@ -58,7 +57,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     //MARK:  - Properties
-    var session: WCSession?
+    var watchSession: WCSession?
     
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var currentDate: UITextField!
@@ -85,6 +84,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.setUpNextPeriodDescription()
             self.setUpScheduleType()
             self.setupProgressBar()
+            isUISetup = true
+            if ((watchSession?.isReachable) != nil) {
+                sendDataToWatch()
+            }
         }
     }
     
@@ -235,22 +238,25 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func configureWatchKitSession() {
         if WCSession.isSupported() {
-            session = WCSession.default
-            session?.delegate = self
-            session?.activate()
+            watchSession = WCSession.default
+            watchSession?.delegate = self
+            watchSession?.activate()
         }
     }
     
     func sendDataToWatch(){ //TODO: add flag to ensure fields are populated and not null?
-        let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error"
-        let currentPeriod:String = currentPeriodDescription.text ?? "Error"
-        let nextPeriod:String = nextPeriodDescription.text ?? "Error"
-          if let validSession = self.session, validSession.isReachable {
+        if (isUISetup) {
+            let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error 249"
+            let currentPeriod:String = currentPeriodDescription.text ?? "Error 250"
+            let nextPeriod:String = nextPeriodDescription.text ?? "Error 251"
+            
+            if let validSession = self.watchSession, validSession.isReachable {
                 let data: [String: Any] = ["formattedTimeRemaining": timeRemainingAsFormattedString,
-                                            "currentDesc": currentPeriod,
-                                            "nextDesc": nextPeriod,
-                                            "percentRemaining": progressPercent]
-            validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+                                           "currentDesc": currentPeriod,
+                                           "nextDesc": nextPeriod,
+                                           "percentRemaining": progressPercent]
+                validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+            }
         }
     }
 
