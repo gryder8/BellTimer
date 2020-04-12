@@ -22,13 +22,13 @@ class InterfaceController: WKInterfaceController {
      let session = WCSession.default
     
     @IBOutlet weak var progressRing: WKInterfaceImage!
-    @IBOutlet weak var timeRemaining_label: WKInterfaceLabel!
+    @IBOutlet weak var timeRemaining: WKInterfaceLabel!
     @IBOutlet weak var currentPeriodDesc: WKInterfaceLabel!
     @IBOutlet weak var nextPeriodDesc: WKInterfaceLabel!
     
     private var ring:EMTLoadingIndicator?
     
-    private let master: ScheduleMaster = ScheduleMaster.shared
+    //private let master: ScheduleMaster = ScheduleMaster.shared
     
     private var timeRemainingAsInt:Int = 0
     
@@ -36,10 +36,10 @@ class InterfaceController: WKInterfaceController {
     
     private var isRingSetup:Bool = false
     
-    private var nextPeriodDescription:String = ""
-    private var currentPeriodDescription:String = ""
+    private var nextPeriodDescription:String = "Loading..."
+    private var currentPeriodDescription:String = "Loading..."
     private var progressPercent:Float = 0.0
-    private var formattedTimeRemaining:String = ""
+    private var formattedTimeRemaining:String = "Loading..."
     
     
     private var isActive:Bool = true;
@@ -49,10 +49,11 @@ class InterfaceController: WKInterfaceController {
         //    "formattedTimeRemaining": timeRemainingAsFormattedString,
         //    "currentDesc": currentPeriod,
         //    "nextDesc": nextPeriod,
-        //    "percentRemaining": progressPercent]
+        //    "percentRemaining": progressPercent,
+        //"timeUntilNext": timeRemainingAsInt]
             
         if let fTimeRem = recievedData["formattedTimeRemaining"] as? String {
-            self.timeRemaining_label.setText(fTimeRem)
+            self.timeRemaining.setText(fTimeRem)
             self.formattedTimeRemaining = fTimeRem
         }
         
@@ -73,11 +74,15 @@ class InterfaceController: WKInterfaceController {
                 ring?.showProgress(startPercentage: percent)
             }
         }
+        
+        if let timeIntervAsInt = recievedData["timeUntilNext"] as? Int {
+            timeRemainingAsInt = timeIntervAsInt
+        }
     }
     
     
     public func colorForTime() -> UIColor {
-        let timeRemainingInterval = master.getTimeIntervalUntilNextEvent();
+        let timeRemainingInterval = timeRemainingAsInt
         if timeRemainingInterval > 900 {
             return UIColor.green
         } else if timeRemainingInterval >= 600 {
@@ -126,7 +131,7 @@ class InterfaceController: WKInterfaceController {
 //        if (myMaster.getTimeIntervalUntilNextEvent() < 60){
 //            timeRemaining.setText("> 1 minute");
 //        }
-        timeRemaining_label.setText(self.formattedTimeRemaining)
+        timeRemaining.setText(self.formattedTimeRemaining)
     }
     
     private func generatePeriodDesc(){
@@ -186,7 +191,7 @@ extension InterfaceController: WCSessionDelegate {
     
         
     if let fTimeRem = recievedData["formattedTimeRemaining"] as? String {
-        self.timeRemaining_label.setText(fTimeRem)
+        self.timeRemaining.setText(fTimeRem)
         self.formattedTimeRemaining = fTimeRem
     }
     

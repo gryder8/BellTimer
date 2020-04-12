@@ -245,16 +245,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func sendDataToWatch(){ //TODO: add flag to ensure fields are populated and not null?
-        if (isUISetup) {
+        if (isUISetup && master.canContinue()) { //make sure everything is setup on this end before we send data
             let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error 249"
             let currentPeriod:String = currentPeriodDescription.text ?? "Error 250"
             let nextPeriod:String = nextPeriodDescription.text ?? "Error 251"
             
-            if let validSession = self.watchSession, validSession.isReachable {
+            if let validSession = self.watchSession, validSession.isReachable { //FIXME: session is not reachable!
                 let data: [String: Any] = ["formattedTimeRemaining": timeRemainingAsFormattedString,
                                            "currentDesc": currentPeriod,
                                            "nextDesc": nextPeriod,
-                                           "percentRemaining": progressPercent]
+                                           "percentRemaining": progressPercent,
+                                           "timeUntilNext": timeRemainingAsInt]
                 validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
             }
         }
