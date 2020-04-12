@@ -8,6 +8,28 @@
 
 import UIKit
 import UICircularProgressRing
+import WatchConnectivity
+
+extension ViewController: WCSessionDelegate {
+
+func sessionDidBecomeInactive(_ session: WCSession) {
+}
+
+func sessionDidDeactivate(_ session: WCSession) {
+}
+
+func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+}
+
+func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+      print("Received message: \(message)")
+      DispatchQueue.main.async { //6
+        if let value = message["watch"] as? String { //TODO: Configure to pass correct data
+          //self.label.text = value
+        }
+      }
+    }
+}
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -25,6 +47,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private var isSaturday = false;
     
+    var progressPercent: Double = 0.0
+    
+
+    
     
     static let shared = ViewController()
     
@@ -32,6 +58,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     //MARK:  - Properties
+    var session: WCSession?
+    
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var currentDate: UITextField!
     @IBOutlet weak var timeRemaining: UITextField!
@@ -147,7 +175,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setupProgressBar () { //use the period length and time remaining to generate a percent which sets up the progress bar
-        var progressPercent: Double = 0.0
         
         progressPercent = (master.getTimeIntervalUntilNextEvent()/master.getCurrentPeriodLengthAsTimeInterval()) //Use 1-() to count the bar up
         
@@ -170,8 +197,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
+    //MARK: - App event handlers
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureWatchKitSession()
         if (self.traitCollection.userInterfaceStyle == .dark){
             gradientView.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
             gradientView.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
@@ -202,5 +231,27 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
     }
-}
+    
 
+    func configureWatchKitSession() {
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+    }
+    
+    func sendDataToWatch(){ //TODO: add flag to ensure fields are populated and not null?
+        let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error"
+        let currentPeriod:String = currentPeriodDescription.text ?? "Error"
+        let nextPeriod:String = nextPeriodDescription.text ?? "Error"
+          if let validSession = self.session, validSession.isReachable {
+                let data: [String: Any] = ["formattedTimeRemaining": timeRemainingAsFormattedString,
+                                            "currentDesc": currentPeriod,
+                                            "nextDesc": nextPeriod,
+                                            "percentRemaining": progressPercent]
+            validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+        }
+    }
+
+}
