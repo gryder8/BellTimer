@@ -11,6 +11,8 @@ import UICircularProgressRing
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    //MARK: - Local vars
+    
     private let master: ScheduleMaster = ScheduleMaster.shared //load the resource so we can attach getter outputs to outlets
     
     private var timeRemainingAsInt:Int = 0
@@ -29,7 +31,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     private let CustomPeriodNames: ScheduleNames = ScheduleNames.shared
     
     
-    //MARK: Properties
+    //MARK:  - Properties
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var currentDate: UITextField!
     @IBOutlet weak var timeRemaining: UITextField!
@@ -41,7 +43,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var gradientView: GradientView!
     
     
-    
+    //MARK: - UI Refresh
     public func setState(active:Bool){
         self.isActive = active
     }
@@ -58,6 +60,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    
+    //MARK: - UI Setups
     func updateConnectionStatus() {
         let connected = master.isConnected
         if (connected){
@@ -102,7 +106,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     private func setUpNextPeriodDescription(isSaturday: Bool = false){
         
         //SPECIAL CASE
-        if (isSaturday == true){
+        if (isSaturday == true){ //if it's Saturday, grab the desription for Monday instead of Sunday (which will be the same as Saturday)
             let calendar = Calendar.current
             var simulatedMonday = calendar.date(byAdding: .day, value: 2, to: Date())!
             simulatedMonday = Calendar.current.date(bySettingHour: 0, minute: 0, second: 5, of: simulatedMonday)!
@@ -113,16 +117,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 let periodSubstring = String(str[startIndex...])
                 nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring))
             }
-            return
-        }
-        
-        
-        nextPeriodDescription.text = "Next: " + master.getNextBellTimeDescription(date:Date())
-        if (nextPeriodDescription.text!.contains("Period")){
-            let str  = nextPeriodDescription.text!
-            let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
-            let periodSubstring = String(str[startIndex...]) //substring is the start to the end
-            nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring)) //replace the range
+            
+            return //end execution as everything has been set up
+            
+        } else { //not Saturday
+            nextPeriodDescription.text = "Next: " + master.getNextBellTimeDescription(date:Date())
+            if (nextPeriodDescription.text!.contains("Period")){
+                let str  = nextPeriodDescription.text!
+                let startIndex = str.index(str.endIndex, offsetBy: -1*("Period N".count)) //count backwards from the end of the string
+                let periodSubstring = String(str[startIndex...]) //substring is the start to the end
+                nextPeriodDescription.text!.replaceSubrange(startIndex..., with: CustomPeriodNames.customizePeriodName(stringWithDefaultPeriodName: periodSubstring)) //replace the range (take advantage of the fact that the period name is always at the end of the description)
+            }
         }
     }
     
@@ -141,12 +146,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    private func setupProgressBar () {
+    private func setupProgressBar () { //use the period length and time remaining to generate a percent which sets up the progress bar
         var progressPercent: Double = 0.0
         
         progressPercent = (master.getTimeIntervalUntilNextEvent()/master.getCurrentPeriodLengthAsTimeInterval()) //Use 1-() to count the bar up
         
-        let ringGradient = [UIColor.white, colorForTime()]
+        let ringGradient = [UIColor.white, colorForTime()] //stores the gradient colors (can be more than 2)
         progressRing.gradientColors = ringGradient
         progressRing.startProgress(to: UICircularProgressRing.ProgressValue (progressPercent), duration: 0.3)
     }
@@ -161,7 +166,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         } else if timeRemainingInterval >= 300 {
             return UIColor.orange
         }
-        return UIColor.red
+        return UIColor.red //fall out
     }
     
     

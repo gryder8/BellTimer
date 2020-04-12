@@ -11,6 +11,7 @@
 //Use CMD + Option + /
 import UIKit
 
+//MARK: - Extensions
 extension UIView {
     func colorOfPoint(point: CGPoint) -> UIColor {
         let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
@@ -51,18 +52,22 @@ extension UIFont {
 
 }
 
+//divider in quick nav menu bar
+//MARK: -
 class ScheduleDisplayTableViewController: UITableViewController {
     
-    private let MASTER: ScheduleMaster = ScheduleMaster.shared   //MARK: Properties
+    //MARK: - Local vars
+    private let MASTER: ScheduleMaster = ScheduleMaster.shared
     private let tableGradient:GradientView = GradientView()
     var schedules:Array<String> = []
     private var darkModeEnabled:Bool = false
     private let CustomPeriodNames:ScheduleNames = ScheduleNames.shared
     
     
+    //MARK: - View load handlers and helpers
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
+        super.viewDidLoad() //mandatory
+        self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark) //configure colors based on if device is using dark mode or not
         if (darkModeEnabled){
             tableGradient.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
             tableGradient.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
@@ -84,14 +89,14 @@ class ScheduleDisplayTableViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.barTintColor = tableGradient.firstColor
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.shadowImage = UIImage() //UIImage.init(named: "transparent.png")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view data sourcing and setup
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1 //table never has more than 1 section
@@ -193,7 +198,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
     */
 
     /*
-    // MARK: - Navigation
+    // MARK: - Navigation [INACTIVE]
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

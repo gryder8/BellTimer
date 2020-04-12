@@ -9,16 +9,19 @@
 import Foundation
 
 class ScheduleNames {
-    var periodNames = Array(repeating: String(), count: 8)
+    
+    //MARK: - Local vars
+    var periodNames = Array(repeating: String(), count: 8) //empty array of 8 strings
     let PERIOD_NAME_LOCATION_KEY:String = "PERIODNAMES"
     let defaults = UserDefaults.standard
+    static let shared = ScheduleNames()
     
+    //MARK: - Initialization
     public init() { //INITIALIZER
         loadFromCache()
     }
     
-    static let shared = ScheduleNames()
-    
+    //MARK: - Data loading and updating
     private func loadFromCache() -> Void {
         //defaults.removeObject(forKey: PERIOD_NAME_LOCATION_KEY)
         if (defaults.array(forKey: PERIOD_NAME_LOCATION_KEY) != nil){ //&& defaults.array(forKey: PERIOD_NAME_LOCATION_KEY)[7] != "[Data]" //data is found in the local cache

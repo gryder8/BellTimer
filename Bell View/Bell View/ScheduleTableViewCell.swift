@@ -10,8 +10,10 @@ import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
     
+    //MARK: - Local vars
     private var _cellHighlighted:Bool?
     
+    //MARK: - Property determination
     var cellHighlighted:Bool? {
         set (newValue) {
             _cellHighlighted = newValue
@@ -22,10 +24,10 @@ class ScheduleTableViewCell: UITableViewCell {
         }
     }
     
-    //MARK: Properties
+    //MARK:  - Properties
     @IBOutlet weak var scheduleLabel: UILabel!
     
-
+    //MARK: - Event handlers
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

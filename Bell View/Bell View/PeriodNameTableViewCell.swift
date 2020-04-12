@@ -10,10 +10,10 @@ import UIKit
 
 class PeriodNameTableViewCell: UITableViewCell {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var periodNameLabel: UILabel!
     
-
+    //MARK: - Event handlers
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

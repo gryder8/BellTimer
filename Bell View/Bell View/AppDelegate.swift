@@ -12,13 +12,12 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
     
+    //MARK: - Singletons
     var myMasterView: ViewController = ViewController.shared
-    
     private let master: ScheduleMaster = ScheduleMaster.shared
     
+    //MARK: - Application state handlers
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         myMasterView.setState(active: true)

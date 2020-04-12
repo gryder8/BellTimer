@@ -10,6 +10,7 @@ import UIKit
 
 class PeriodEditorTableViewController: UITableViewController {
     
+    //MARK: - Local vars
     private let MASTER: ScheduleMaster = ScheduleMaster.shared
     private let tableGradient:GradientView = GradientView()
     private let PeriodNames:ScheduleNames = ScheduleNames.shared
@@ -18,6 +19,7 @@ class PeriodEditorTableViewController: UITableViewController {
     var endY:CGFloat = 0
     
 
+    //MARK: - View load handlers and helpers
     override func viewDidLoad() {
         super.viewDidLoad()
         self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
@@ -37,6 +39,11 @@ class PeriodEditorTableViewController: UITableViewController {
         setUpTableViewHeader()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    //MARK: - View customization and UI Event handling
     private func setUpTableViewHeader(){
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
@@ -61,12 +68,10 @@ class PeriodEditorTableViewController: UITableViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
+
     
 
-    // MARK: - Table view data source
+    // MARK: - Table view setup and data sourcing
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1 //table never has more than 1 section
@@ -154,7 +159,7 @@ class PeriodEditorTableViewController: UITableViewController {
     */
 
     /*
-    // MARK: - Navigation
+    // MARK: - Navigation [INACTIVE]
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
