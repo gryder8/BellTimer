@@ -11,6 +11,8 @@ import Foundation
 import EMTLoadingIndicator
 import WatchConnectivity
 
+
+//https://developer.apple.com/documentation/watchconnectivity/using_watch_connectivity_to_communicate_between_your_apple_watch_app_and_iphone_app
 class InterfaceController: WKInterfaceController {
     
     //MARK: Properties
@@ -21,7 +23,7 @@ class InterfaceController: WKInterfaceController {
     
     private var ring:EMTLoadingIndicator?
     
-    private let myMaster: ScheduleMaster = ScheduleMaster.shared
+    private let master: ScheduleMaster = ScheduleMaster.shared
     
     private var timeRemainingAsInt:Int = 0
     
@@ -30,7 +32,7 @@ class InterfaceController: WKInterfaceController {
     private var isActive:Bool = true;
     
     public func colorForTime () -> UIColor {
-        let timeRemainingInterval = myMaster.getTimeIntervalUntilNextEvent();
+        let timeRemainingInterval = master.getTimeIntervalUntilNextEvent();
         if timeRemainingInterval > 900 {
             return UIColor.green
         } else if timeRemainingInterval >= 600 {
@@ -56,20 +58,20 @@ class InterfaceController: WKInterfaceController {
     
     private func generateRing(){
         if (isActive){
-        ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 80, height: 80, style: .line)
-        EMTLoadingIndicator.progressLineWidthOuter = 3
-        EMTLoadingIndicator.progressLineWidthInner = 8
-        EMTLoadingIndicator.progressLineColorOuter = UIColor(red:0.68, green:0.68, blue:0.68, alpha:1.0)
-        EMTLoadingIndicator.progressLineColorInner = UIColor(red:0.36, green:0.69, blue:1.00, alpha:1.0)
-        ring?.prepareImagesForProgress()
-        let progressPercent:Float = Float((myMaster.getTimeIntervalUntilNextEvent()/myMaster.getCurrentPeriodLengthAsTimeInterval())*100) //replace master calls
-        ring?.showProgress(startPercentage: progressPercent)
+            ring = EMTLoadingIndicator.init(interfaceController: self, interfaceImage: progressRing, width: 80, height: 80, style: .line)
+            EMTLoadingIndicator.progressLineWidthOuter = 3
+            EMTLoadingIndicator.progressLineWidthInner = 8
+            EMTLoadingIndicator.progressLineColorOuter = UIColor(red:0.68, green:0.68, blue:0.68, alpha:1.0)
+            EMTLoadingIndicator.progressLineColorInner = UIColor(red:0.36, green:0.69, blue:1.00, alpha:1.0)
+            ring?.prepareImagesForProgress()
+            let progressPercent:Float = Float((master.getTimeIntervalUntilNextEvent()/master.getCurrentPeriodLengthAsTimeInterval())*100) //replace master calls
+            ring?.showProgress(startPercentage: progressPercent)
         }
     }
     
     private func generateNextPeriodDesc(){
         if (isActive){
-            nextPeriodDesc.setText("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
+            nextPeriodDesc.setText("Next: "+master.getNextBellTimeDescription(date: Date()))
 //            print("Next: "+myMaster.getNextBellTimeDescription(date: Date()))
 //            print("Called with Date: ", Date())
         }
@@ -79,11 +81,11 @@ class InterfaceController: WKInterfaceController {
 //        if (myMaster.getTimeIntervalUntilNextEvent() < 60){
 //            timeRemaining.setText("> 1 minute");
 //        }
-        timeRemaining.setText(myMaster.stringFromTimeInterval(interval: myMaster.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
+        timeRemaining.setText(master.stringFromTimeInterval(interval: master.getTimeIntervalUntilNextEvent(), is12Hour: false, useSeconds: false))
     }
     
     private func generatePeriodDesc(){
-        currentPeriodDesc.setText(myMaster.getCurrentBellTimeDescription())
+        currentPeriodDesc.setText(master.getCurrentBellTimeDescription())
         currentPeriodDesc.setTextColor(colorForTime())
     }
     
