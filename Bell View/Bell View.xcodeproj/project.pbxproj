@@ -11,6 +11,7 @@
 		780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */; };
 		86025E3D23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */; };
 		86025E3F23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */; };
+		860B5BCC2446410300B558D7 /* Bell View WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 865A6F9521E910E800831E69 /* Bell View WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		860FADCB2443B64400751557 /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FADCA2443B64400751557 /* TestDataProvider.swift */; };
 		860FADCC2443B64400751557 /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FADCA2443B64400751557 /* TestDataProvider.swift */; };
 		86181EBE23D66D230010552D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 86181EBD23D66D230010552D /* settings.png */; };
@@ -42,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		860B5BCD2446410300B558D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 865A6F7B21E910E700831E69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 865A6F9421E910E800831E69;
+			remoteInfo = "Bell View WatchKit App";
+		};
 		865A6FA621E910E900831E69 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 865A6F7B21E910E700831E69 /* Project object */;
@@ -76,6 +84,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				860B5BCC2446410300B558D7 /* Bell View WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +286,7 @@
 			);
 			dependencies = (
 				86A2DBCB24442320005A7B73 /* PBXTargetDependency */,
+				860B5BCE2446410300B558D7 /* PBXTargetDependency */,
 			);
 			name = "Bell View";
 			productName = "Bell View";
@@ -525,6 +535,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		860B5BCE2446410300B558D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 865A6F9421E910E800831E69 /* Bell View WatchKit App */;
+			targetProxy = 860B5BCD2446410300B558D7 /* PBXContainerItemProxy */;
+		};
 		865A6FA721E910E900831E69 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 865A6FA321E910E900831E69 /* Bell View WatchKit Extension */;
@@ -686,7 +701,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swryder.LAHSBellTimer.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -709,7 +724,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swryder.LAHSBellTimer.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -728,7 +743,7 @@
 				DEVELOPMENT_TEAM = LTHP4N872E;
 				IBSC_MODULE = Bell_View_WatchKit_Extension;
 				INFOPLIST_FILE = "Bell View WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swryder.LAHSBellTimer.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -747,7 +762,7 @@
 				DEVELOPMENT_TEAM = LTHP4N872E;
 				IBSC_MODULE = Bell_View_WatchKit_Extension;
 				INFOPLIST_FILE = "Bell View WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Bell-View.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swryder.LAHSBellTimer.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

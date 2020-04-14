@@ -263,8 +263,9 @@ class InterfaceController: WKInterfaceController {
     
     func requestData(){
         let data: [String:Any] = ["dataNeeded":"noDataAvailible"]
-        
-        session.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+        if (session.isReachable) {
+            session.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+        }
     }
     
     func hasAllData() -> Bool {

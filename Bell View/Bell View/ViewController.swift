@@ -260,11 +260,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         } else {
-            let alert = UIAlertController(title: "No Valid Apple Watch Session Found", message: "Session was not reachable!", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-            
-            self.present(alert, animated: true)
+//            let alert = UIAlertController(title: "No Valid Apple Watch Session Found", message: "Session was not reachable!", preferredStyle: .alert)
+//
+//            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+//
+//            self.present(alert, animated: true)
         }
     }
     
