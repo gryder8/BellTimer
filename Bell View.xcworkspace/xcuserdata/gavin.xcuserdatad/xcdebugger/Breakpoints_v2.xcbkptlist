@@ -14,8 +14,8 @@
             filePath = "Bell View/Bell View WatchKit Extension/InterfaceController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "generateTimeRemaining()"
             landmarkType = "7">
          </BreakpointContent>
@@ -24,14 +24,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "10D20426-0AC3-4AC1-81DB-A3E58CAFED64"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bell View/Bell View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "sendDataToWatch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Bell View/Bell View WatchKit Extension/InterfaceController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "session(_:didReceiveMessage:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Bell View/Bell View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "sendDataToWatch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,15 +72,31 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5B8DA82B-1ED4-41E7-96BC-ED92347DA845"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bell View/Bell View/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "configureWatchKitSession()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7359C0F6-0D0F-42A4-95BA-E517FAB328CA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bell View/Bell View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "configureWatchKitSession()"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "sendDataToWatch()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

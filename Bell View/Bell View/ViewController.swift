@@ -24,8 +24,9 @@ func session(_ session: WCSession, activationDidCompleteWith activationState: WC
 func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
       print("Received message: \(message)")
       DispatchQueue.main.async { //6
-        if let value = message["watch"] as? String { //TODO: Configure to pass correct data
-          //self.label.text = value
+        // let data: [String:Any] = ["dataNeeded":"noDataAvailible"]
+        if ((message["dataNeeded"] as? String) == "noDataAvailible") {
+            self.sendDataToWatch(); //if the watch says it needs data, send it data
         }
       }
     }
@@ -85,9 +86,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.setUpScheduleType()
             self.setupProgressBar()
             isUISetup = true
-            if ((watchSession?.isReachable) != nil) {
-                sendDataToWatch()
-            }
+//            if ((watchSession?.isReachable) != nil) {
+//                sendDataToWatch()
+//            }
         }
     }
     
@@ -98,8 +99,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if (connected){
             noConnection.text = ""
         } else if (!connected){
-            noConnection.text = "No connection. Data may be incorrect"
+            noConnection.text = "No connection. Data may be incorrect."
         }
+    }
+    
+    public func isWatchConnected() -> Bool {
+        return watchSession?.isReachable ?? false
     }
     
     
@@ -235,7 +240,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-
     func configureWatchKitSession() {
         if WCSession.isSupported() {
             watchSession = WCSession.default
@@ -246,18 +250,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func sendDataToWatch(){ //TODO: add flag to ensure fields are populated and not null?
         if (isUISetup && master.canContinue()) { //make sure everything is setup on this end before we send data
-            let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error 249"
-            let currentPeriod:String = currentPeriodDescription.text ?? "Error 250"
-            let nextPeriod:String = nextPeriodDescription.text ?? "Error 251"
+//            let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error 249"
+//            let currentPeriod:String = currentPeriodDescription.text ?? "Error 250"
+//            let nextPeriod:String = nextPeriodDescription.text ?? "Error 251"
             
             if let validSession = self.watchSession, validSession.isReachable { //FIXME: session is not reachable!
-                let data: [String: Any] = ["formattedTimeRemaining": timeRemainingAsFormattedString,
-                                           "currentDesc": currentPeriod,
-                                           "nextDesc": nextPeriod,
-                                           "percentRemaining": progressPercent,
-                                           "timeUntilNext": timeRemainingAsInt]
-                validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+                let data: [String: Any] = ["AllSpecialDays": master.allSpecialDays!,
+                                           "BellSchedules": master.allSchedules!,
+                                           "AllDefaultDays": master.allDefaultDays!]
+               validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
             }
+//            else {
+//                let alert = UIAlertController(title: "No Apple Watch app found", message: "Session was not reachable", preferredStyle: .alert)
+//
+//                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+//
+//                self.present(alert, animated: true)
+//            }
         }
     }
 

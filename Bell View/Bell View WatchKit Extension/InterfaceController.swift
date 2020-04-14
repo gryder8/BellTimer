@@ -28,6 +28,51 @@ class InterfaceController: WKInterfaceController {
     
     private var ring:EMTLoadingIndicator?
     
+    enum weekDay: Int, Decodable {
+        case sunday = 1
+        case monday = 2
+        case tuesday = 3
+        case wednesday = 4
+        case thursday = 5
+        case friday = 6
+        case saturday = 7
+    }
+    
+    struct DefaultDay: Decodable {
+        let scheduleType: String
+        let dayOfWeek: weekDay
+    }
+    
+    struct SpecialDay: Decodable {
+        let scheduleType: String
+        let beginDate: Date
+        let endDate: Date?
+        let desc: String?
+    }
+    
+    struct BellTime: Decodable {
+        let desc: String
+        let timeInterval: TimeInterval
+    }
+    
+    //Struct that holds all the belltimes
+    struct Schedule: Decodable {
+        var scheduleType: String
+        let bellTimes: [BellTime]
+    }
+    
+    typealias AllSpecialDays = [SpecialDay] //provide an alias to reference the array of objects from
+    
+    var allSpecialDays: AllSpecialDays?
+    
+    typealias BellSchedules = [Schedule]  //provide an alias to reference the array of objects from
+    
+    var allSchedules: BellSchedules?
+    
+    typealias AllDefaultDays = [DefaultDay] //provide an alias to reference the array of objects from
+    
+    var allDefaultDays: AllDefaultDays?
+    
     //private let master: ScheduleMaster = ScheduleMaster.shared
     
     private var timeRemainingAsInt:Int = 0
@@ -172,13 +217,20 @@ class InterfaceController: WKInterfaceController {
     }
     
     func sendToPhone(){
-        let data: [String: Any] = ["formattedTimeRemaining": self.formattedTimeRemaining,
-                                   "currentDesc": self.currentPeriodDescription,
-                                   "nextDesc": self.nextPeriodDescription,
-                                   "percentRemaining": self.progressPercent]
+        let data: [String:Any] = ["dataNeeded":"noDataAvailible"]
+                                   
           session.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
         }
+    
+    func hasAllData() -> Bool {
+        return (allSpecialDays != nil && allDefaultDays != nil && allSchedules != nil) //make sure all data exists
     }
+    
+    
+    
+    }
+
+
 
 
 extension InterfaceController: WCSessionDelegate {
@@ -190,28 +242,27 @@ extension InterfaceController: WCSessionDelegate {
     print("****Received data: \(recievedData)"+"****")
     
         
-    if let fTimeRem = recievedData["formattedTimeRemaining"] as? String {
-        self.timeRemaining.setText(fTimeRem)
-        self.formattedTimeRemaining = fTimeRem
-    }
+    allSpecialDays = recievedData["AllSpecialDays"] as? [SpecialDay]
+    allSchedules = recievedData["BellSchedules"] as? [Schedule]
+    allSpecialDays = recievedData["AllSpecialDays"] as? [SpecialDay]
     
-    if let currDesc = recievedData["currentDesc"] as? String {
-        self.currentPeriodDesc.setText(currDesc)
-        self.currentPeriodDescription = currDesc
-    }
-    
-    if let nextDesc = recievedData["nextDesc"] as? String {
-        self.nextPeriodDesc.setText(nextDesc)
-        self.nextPeriodDescription = nextDesc
-    }
-    
-    if let perRem = recievedData["percentRemaining"] as? Double { //recieves the value of the ring in the app view controller as a double, converts to Float and then sets it up
-        let percent:Float = Float(perRem)
-        self.progressPercent = percent
-        if (isRingSetup == true) {
-            ring?.showProgress(startPercentage: percent)
-        }
-    }
+//    if let currDesc = recievedData["currentDesc"] as? String {
+//        self.currentPeriodDesc.setText(currDesc)
+//        self.currentPeriodDescription = currDesc
+//    }
+//
+//    if let nextDesc = recievedData["nextDesc"] as? String {
+//        self.nextPeriodDesc.setText(nextDesc)
+//        self.nextPeriodDescription = nextDesc
+//    }
+//
+//    if let perRem = recievedData["percentRemaining"] as? Double { //recieves the value of the ring in the app view controller as a double, converts to Float and then sets it up
+//        let percent:Float = Float(perRem)
+//        self.progressPercent = percent
+//        if (isRingSetup == true) {
+//            ring?.showProgress(startPercentage: percent)
+//        }
+//    }
     }
 }
 

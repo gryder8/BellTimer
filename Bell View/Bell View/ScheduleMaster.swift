@@ -30,7 +30,8 @@ class ScheduleMaster {
      -TODO: Comment code
      -
 */
-    
+	
+	//var myMasterView: ViewController = ViewController.shared
     
     private var loadStatesDict: [URL:Bool] = Dictionary(minimumCapacity: 3) //init empty dict of capacity 3
     
@@ -38,7 +39,8 @@ class ScheduleMaster {
     private var defaultScheduleForNextDay:String = ""
     
 	//MARK: - Server URLs!
-    private final let SCHEDULES_URL: URL = URL(string: "https://rydermegastore.synology.me:8999/Schedules.plist")!
+    private final let SCHEDULES_URL: URL =
+		URL(string: "https://rydermegastore.synology.me:8999/Schedules.plist")!
     private final let SPECIAL_DAYS_URL: URL = URL(string:"https://rydermegastore.synology.me:8999/specialDays.plist")!
     private final let DEFAULT_DAYS_URL: URL = URL(string:"https://rydermegastore.synology.me:8999/defaultSchedule.plist")!
     
@@ -50,7 +52,7 @@ class ScheduleMaster {
         case sunday = 1
         case monday = 2
         case tuesday = 3
-        case wedensday = 4
+        case wednesday = 4
         case thursday = 5
         case friday = 6
         case saturday = 7
@@ -85,15 +87,18 @@ class ScheduleMaster {
     
     let calendar = Calendar.current
     
+	//TODO: Send to watch for parsing
     typealias AllSpecialDays = [SpecialDay] //provide an alias to reference the array of objects from
     
     var allSpecialDays: AllSpecialDays?
     
+	//TODO: Send to watch for parsing
     typealias BellSchedules = [Schedule]  //provide an alias to reference the array of objects from
     
     var allSchedules: BellSchedules?
     
-    typealias AllDefaultDays = [DefaultDay]  //provide an alias to reference the array of objects from
+	//TODO: Send to watch for parsing
+	typealias AllDefaultDays = [DefaultDay] //provide an alias to reference the array of objects from
     
     var allDefaultDays: AllDefaultDays?
     
@@ -103,6 +108,7 @@ class ScheduleMaster {
     
     public var doneLoading:Bool = false
         
+	
     
     let fileManager:FileManager = FileManager()
     
@@ -367,7 +373,8 @@ class ScheduleMaster {
         loadDataFor(url: plistDefaultDaysURL)
         
         doneLoading = true
-}
+		//myMasterView.sendDataToWatch() //TODO: make call to load data
+	}
     
     func loadDataFor(url:URL){ //loads data for a specified URL, first trying to load it from the cache then reverting to the local bundle if no data ia found in the cache
         let mainBundle = Bundle.main
