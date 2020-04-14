@@ -10,6 +10,8 @@ import Foundation
 
 class ScheduleNames {
     
+    var myMasterView: ViewController?
+    
     //MARK: - Local vars
     var periodNames = Array(repeating: String(), count: 8) //empty array of 8 strings
     let PERIOD_NAME_LOCATION_KEY:String = "PERIODNAMES"
@@ -38,7 +40,8 @@ class ScheduleNames {
     public func updateIndex (indexToModify: Int, newData: String) -> Void {
         periodNames[indexToModify] = newData
         defaults.set(periodNames, forKey: PERIOD_NAME_LOCATION_KEY) //update cached data
-        
+        myMasterView = ViewController.shared //assigning earlier causes an ABRT
+        myMasterView?.sendDataToWatch(periodUpdate: true)
     }
     
     public func getPeriodNames() -> [String] {

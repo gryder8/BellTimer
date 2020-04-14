@@ -22,11 +22,11 @@ func session(_ session: WCSession, activationDidCompleteWith activationState: WC
 }
 
 func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-      print("Received message: \(message)")
-      DispatchQueue.main.async { //6
+      print("****Phone recieved message from Watch!****")
+      DispatchQueue.main.async {
         // let data: [String:Any] = ["dataNeeded":"noDataAvailible"]
         if ((message["dataNeeded"] as? String) == "noDataAvailible") {
-            self.sendDataToWatch(); //if the watch says it needs data, send it data
+            self.sendDataToWatch(periodUpdate: false); //if the watch says it needs data, send it data
         }
       }
     }
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private var isUISetup:Bool = false
     
-    static let shared = ViewController()
+    static let shared = ViewController() //WARNING: can cause abort if accessed too early by another class
     
     private let CustomPeriodNames: ScheduleNames = ScheduleNames.shared
     
@@ -79,12 +79,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func refreshUI(){
         if (isActive && master.canContinue()){
-            self.setTimeRemaining()
+            self.setTimeRemaining() //also on Watch
             self.setUpCurrentDate()
-            self.setUpCurrentPeriodDescription()
-            self.setUpNextPeriodDescription()
+            self.setUpCurrentPeriodDescription() //also on Watch
+            self.setUpNextPeriodDescription() //also on Watch
             self.setUpScheduleType()
-            self.setupProgressBar()
+            self.setupProgressBar() //also on Watch
             isUISetup = true
 //            if ((watchSession?.isReachable) != nil) {
 //                sendDataToWatch()
@@ -234,6 +234,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         progressRing.innerCapStyle = .butt
         updateConnectionStatus()
         
+        sendDataToWatch()
+        
         if (isActive){
             refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshUI), userInfo: nil, repeats: true)
         }
@@ -248,25 +250,28 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func sendDataToWatch(){ //TODO: add flag to ensure fields are populated and not null?
-        if (isUISetup && master.canContinue()) { //make sure everything is setup on this end before we send data
-//            let timeRemainingAsFormattedString:String = timeRemaining.text ?? "Error 249"
-//            let currentPeriod:String = currentPeriodDescription.text ?? "Error 250"
-//            let nextPeriod:String = nextPeriodDescription.text ?? "Error 251"
-            
-            if let validSession = self.watchSession, validSession.isReachable { //FIXME: session is not reachable!
-                let data: [String: Any] = ["AllSpecialDays": master.allSpecialDays!,
-                                           "BellSchedules": master.allSchedules!,
-                                           "AllDefaultDays": master.allDefaultDays!]
-               validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+    func sendDataToWatch(periodUpdate: Bool = false){ //parameter is defaulted so its only passed when just the period names need to be updated
+        if let validSession = self.watchSession, validSession.isReachable {
+            if (periodUpdate){
+                let data: [String:Any] = ["CustomPeriods":CustomPeriodNames.getPeriodNames()]
+                validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+            } else {
+                if (isUISetup && master.canContinue()) { //make sure everything is setup on this end before we send data
+                    let data: [String: Any] = ["AllSpecialDays": master.allSpecialDays!,
+                                               "BellSchedules": master.allSchedules!,
+                                               "AllDefaultDays": master.allDefaultDays!,
+                                               "CustomPeriods": CustomPeriodNames.getPeriodNames()]
+                    validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
+                    
+                    //else {
+                    //                let alert = UIAlertController(title: "No Apple Watch app found", message: "Session was not reachable", preferredStyle: .alert)
+                    //
+                    //                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    //
+                    //                self.present(alert, animated: true)
+                    //            }
+                }
             }
-//            else {
-//                let alert = UIAlertController(title: "No Apple Watch app found", message: "Session was not reachable", preferredStyle: .alert)
-//
-//                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-//
-//                self.present(alert, animated: true)
-//            }
         }
     }
 

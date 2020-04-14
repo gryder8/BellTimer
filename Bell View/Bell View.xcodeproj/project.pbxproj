@@ -11,7 +11,6 @@
 		780F0886F8E661FB291F29FF /* Pods_Bell_View_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A5749092D9B4C18D1F5D58 /* Pods_Bell_View_WatchKit_Extension.framework */; };
 		86025E3D23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */; };
 		86025E3F23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */; };
-		860D3BD02328102B002493A0 /* leftSwipeArrowModified.png in Resources */ = {isa = PBXBuildFile; fileRef = 860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */; };
 		860FADCB2443B64400751557 /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FADCA2443B64400751557 /* TestDataProvider.swift */; };
 		860FADCC2443B64400751557 /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FADCA2443B64400751557 /* TestDataProvider.swift */; };
 		86181EBE23D66D230010552D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 86181EBD23D66D230010552D /* settings.png */; };
@@ -88,7 +87,6 @@
 		4BCA1FF3E9340F62945D262E /* Pods_Bell_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodEditorTableViewController.swift; sourceTree = "<group>"; };
 		86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodNameTableViewCell.swift; sourceTree = "<group>"; };
-		860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftSwipeArrowModified.png; sourceTree = "<group>"; };
 		860FADCA2443B64400751557 /* TestDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataProvider.swift; sourceTree = "<group>"; };
 		86181EBD23D66D230010552D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = ../../../../Downloads/settings.png; sourceTree = "<group>"; };
 		861DBD9E21F2D80500DBC4A9 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
 				86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */,
 				86DABC0223D590EB0088B0BF /* ScheduleNames.swift */,
-				860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */,
 				866CEBC223D6C19500D42ADB /* menuIcon.png */,
 				86181EBD23D66D230010552D /* settings.png */,
 				865A6F8A21E910E700831E69 /* Main.storyboard */,
@@ -376,7 +373,6 @@
 				86BBF67621ED8CF100BFC5FF /* defaultSchedule.plist in Resources */,
 				86BBF67521ED8CF100BFC5FF /* specialDays.plist in Resources */,
 				866CEBC323D6C19500D42ADB /* menuIcon.png in Resources */,
-				860D3BD02328102B002493A0 /* leftSwipeArrowModified.png in Resources */,
 				86BBF67721ED8CF100BFC5FF /* Schedules.plist in Resources */,
 				865A6F8E21E910E800831E69 /* Assets.xcassets in Resources */,
 				865A6F8C21E910E700831E69 /* Main.storyboard in Resources */,

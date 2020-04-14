@@ -31,7 +31,7 @@ class ScheduleMaster {
      -
 */
 	
-	//var myMasterView: ViewController = ViewController.shared
+	//var myMasterView: ViewController?
     
     private var loadStatesDict: [URL:Bool] = Dictionary(minimumCapacity: 3) //init empty dict of capacity 3
     
@@ -136,6 +136,7 @@ class ScheduleMaster {
         startLoad(urlToLoad: plistSpecialDaysURL)
         startLoad(urlToLoad: plistBellSchedulesURL)
         startLoad(urlToLoad: plistDefaultDaysURL)
+		//myMasterView = ViewController.shared
         
         //****************************************************************************************************
         
@@ -373,7 +374,7 @@ class ScheduleMaster {
         loadDataFor(url: plistDefaultDaysURL)
         
         doneLoading = true
-		//myMasterView.sendDataToWatch() //TODO: make call to load data
+		//myMasterView?.sendDataToWatch() //TODO: make call to load data
 	}
     
     func loadDataFor(url:URL){ //loads data for a specified URL, first trying to load it from the cache then reverting to the local bundle if no data ia found in the cache
