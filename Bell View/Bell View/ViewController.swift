@@ -11,24 +11,24 @@ import UICircularProgressRing
 import WatchConnectivity
 
 extension ViewController: WCSessionDelegate {
-
-func sessionDidBecomeInactive(_ session: WCSession) {
-}
-
-func sessionDidDeactivate(_ session: WCSession) {
-}
-
-func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-}
-
-func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-      print("****Phone recieved message from Watch!****")
-      DispatchQueue.main.async {
-        // let data: [String:Any] = ["dataNeeded":"noDataAvailible"]
-        if ((message["dataNeeded"] as? String) == "noDataAvailible") {
-            self.sendDataToWatch(periodUpdate: false); //if the watch says it needs data, send it data
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("****Phone recieved message from Watch!****")
+        DispatchQueue.main.async {
+            // let data: [String:Any] = ["dataNeeded":"noDataAvailible"]
+            if ((message["dataNeeded"] as? String) == "noDataAvailible") {
+                self.sendDataToWatch(periodUpdate: false); //if the watch says it needs data, send it data
+            }
         }
-      }
     }
 }
 
@@ -86,9 +86,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.setUpScheduleType()
             self.setupProgressBar() //also on Watch
             isUISetup = true
-//            if ((watchSession?.isReachable) != nil) {
-//                sendDataToWatch()
-//            }
+            //            if ((watchSession?.isReachable) != nil) {
+            //                sendDataToWatch()
+            //            }
         }
     }
     
@@ -217,12 +217,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             gradientView.secondColor = #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
         }
         
-//        if (!master.canContinue()){ //if this doesn't work, use the isLoaded public Bool from the master. Check that it's being set properly
-//            swipeGesture.isEnabled = false
-//        } else {
-//            swipeGesture.isEnabled = true
-//        }
-        
         self.navigationController!.navigationBar.isHidden = true
         refreshUI() //initialize
         
@@ -250,7 +244,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func sendDataToWatch(periodUpdate: Bool = false){ //parameter is defaulted so its only passed when just the period names need to be updated
+    func sendDataToWatch(periodUpdate: Bool = false) { //parameter is defaulted so its only passed when just the period names need to be updated
         if let validSession = self.watchSession, validSession.isReachable {
             if (periodUpdate){
                 let data: [String:Any] = ["CustomPeriods":CustomPeriodNames.getPeriodNames()]
@@ -263,16 +257,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                                                "CustomPeriods": CustomPeriodNames.getPeriodNames()]
                     validSession.sendMessage(data, replyHandler: nil, errorHandler: nil) //send the data
                     
-                    //else {
-                    //                let alert = UIAlertController(title: "No Apple Watch app found", message: "Session was not reachable", preferredStyle: .alert)
-                    //
-                    //                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                    //
-                    //                self.present(alert, animated: true)
-                    //            }
                 }
             }
+        } else {
+            let alert = UIAlertController(title: "No Valid Apple Watch Session Found", message: "Session was not reachable!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
-
+    
 }
