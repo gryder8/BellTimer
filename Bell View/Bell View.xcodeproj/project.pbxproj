@@ -171,11 +171,7 @@
 				865A6F8621E910E700831E69 /* AppDelegate.swift */,
 				86BBF67021ED810E00BFC5FF /* ScheduleMaster.swift */,
 				865A6F8821E910E700831E69 /* ViewController.swift */,
-				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
-				86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */,
-				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
-				86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */,
-				86DABC0223D590EB0088B0BF /* ScheduleNames.swift */,
+				86E0319A24A48CF2000075B6 /* Tables and Cells */,
 				860D3BCF2328102B002493A0 /* leftSwipeArrowModified.png */,
 				866CEBC223D6C19500D42ADB /* menuIcon.png */,
 				86181EBD23D66D230010552D /* settings.png */,
@@ -220,6 +216,18 @@
 			);
 			name = Resources;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		86E0319A24A48CF2000075B6 /* Tables and Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86DABC0223D590EB0088B0BF /* ScheduleNames.swift */,
+				867CBE1A21F6636E00C789C2 /* ScheduleDisplayTableViewController.swift */,
+				86025E3C23D58CBE00CE9F9D /* PeriodEditorTableViewController.swift */,
+				867CBE1821F65F8200C789C2 /* ScheduleTableViewCell.swift */,
+				86025E3E23D58D1A00CE9F9D /* PeriodNameTableViewCell.swift */,
+			);
+			path = "Tables and Cells";
 			sourceTree = "<group>";
 		};
 		A88C78BE4AE66E535B2F1795 /* Frameworks */ = {
