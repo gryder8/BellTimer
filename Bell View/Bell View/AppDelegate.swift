@@ -13,6 +13,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow?
+    
     //MARK: - Singletons
     var myMasterView: ViewController = ViewController.shared
     private let master: ScheduleMaster = ScheduleMaster.shared

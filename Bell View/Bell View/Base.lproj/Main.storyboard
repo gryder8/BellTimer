@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yqn-mK-FFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yqn-mK-FFz">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -225,7 +225,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXK-mY-Wxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="134"/>
+            <point key="canvasLocation" x="1900" y="889"/>
         </scene>
         <!--Schedule Display Table View Controller-->
         <scene sceneID="E4h-LH-VB8">
@@ -286,14 +286,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgr-1Z-tpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="889"/>
+            <point key="canvasLocation" x="50" y="134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Oqx-ea-D2u"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="menuIcon.png" width="512" height="512"/>
         <image name="settings.png" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Oqx-ea-D2u"/>
-    </inferredMetricsTieBreakers>
 </document>

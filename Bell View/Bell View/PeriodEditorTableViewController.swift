@@ -85,14 +85,14 @@ class PeriodEditorTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         //self.list = PeriodNames.getPeriodNames()
         let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: { (action, indexPath) in
-            let alert = UIAlertController(title: "", message: "Edit period name", preferredStyle: .alert)
+            let alert = UIAlertController(title: "", message: "Edit Period Name for Period \(indexPath.row)", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
                 textField.text = self.list[indexPath.row]
             })
             alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (updateAction) in
                 self.list[indexPath.row] = alert.textFields!.first!.text!
                 self.PeriodNames.updateIndex(indexToModify: indexPath.row, newData: alert.textFields!.first!.text!)
-                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                self.tableView.reloadRows(at: [indexPath], with: .right)
             
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
