@@ -30,10 +30,8 @@
             filePath = "Bell View/Bell View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "configureWatchKitSession()"
-            landmarkType = "7">
+            startingLineNumber = "207"
+            endingLineNumber = "207">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +44,8 @@
             filePath = "Bell View/Bell View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "sendDataToWatch(periodUpdate:)"
-            landmarkType = "7">
+            startingLineNumber = "207"
+            endingLineNumber = "207">
             <Locations>
                <Location
                   uuid = "2A8BAE00-C999-4B40-B682-0A6D629FA9EC - f59dc194acb25d02"
@@ -94,8 +90,8 @@
             filePath = "Bell View/Bell View/ScheduleNames.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "getPeriodNames()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,10 +106,8 @@
             filePath = "Bell View/Bell View/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "sendDataToWatch(periodUpdate:)"
-            landmarkType = "7">
+            startingLineNumber = "207"
+            endingLineNumber = "207">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

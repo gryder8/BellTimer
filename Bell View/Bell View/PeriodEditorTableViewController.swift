@@ -18,14 +18,20 @@ class PeriodEditorTableViewController: UITableViewController {
     private var darkModeEnabled:Bool = false
     var endY:CGFloat = 0
     
-
+    @IBAction func resetNames(_ sender: UIButton) {
+        print("Reset triggered")
+        PeriodNames.reset()
+        self.tableView.reloadData() //should refresh the table
+    }
+    
+    
     //MARK: - View load handlers and helpers
     override func viewDidLoad() {
         super.viewDidLoad()
         self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark)
         if (darkModeEnabled){
             tableGradient.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
-            tableGradient.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
+            tableGradient.secondColor =  #colorLiteral(red: 0.1058823529, green: 0.4705882353, blue: 0.9882352941, alpha: 1)
         } else {
             tableGradient.firstColor = #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
             tableGradient.secondColor = #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)

@@ -35,6 +35,12 @@ class ScheduleNames {
         
     }
     
+    public func reset() {
+        periodNames = ["Period 0", "Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7"]
+        defaults.set(periodNames, forKey: PERIOD_NAME_LOCATION_KEY)
+        print("Reset period names to default")
+    }
+    
     public func updateIndex (indexToModify: Int, newData: String) -> Void {
         periodNames[indexToModify] = newData
         defaults.set(periodNames, forKey: PERIOD_NAME_LOCATION_KEY) //update cached data

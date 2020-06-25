@@ -69,7 +69,7 @@ class ScheduleDisplayTableViewController: UITableViewController {
         super.viewDidLoad() //mandatory
         self.darkModeEnabled = (self.traitCollection.userInterfaceStyle == .dark) //configure colors based on if device is using dark mode or not
         if (darkModeEnabled){
-            tableGradient.firstColor =   #colorLiteral(red: 0.01680417731, green: 0.3921568627, blue: 1, alpha: 1)
+            tableGradient.firstColor =   #colorLiteral(red: 0.01568627451, green: 0.3921568627, blue: 1, alpha: 1)
             tableGradient.secondColor =  #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
         } else {
             tableGradient.firstColor = #colorLiteral(red: 0.1045082286, green: 0.4720277933, blue: 0.9899627566, alpha: 1)
