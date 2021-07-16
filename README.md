@@ -9,4 +9,3 @@ https://github.com/luispadron/uicircularprogressring
 Progress Ring on WatchOS courtesy of Hironobu Kimura:
 https://github.com/hirokimu/EMTLoadingIndicator
 
-***WORK IN PROGRESS*** 
